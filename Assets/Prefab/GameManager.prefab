@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6465423530041912053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6465423530041912059}
+  - component: {fileID: 6465423530041912058}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6465423530041912059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465423530041912053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6465423530041912058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465423530041912053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7586ed352cd403468d55d06352b64ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  mainCamera: {fileID: 0}
+  allPlayersTransform: {fileID: 0}
+  enemies: []
+  gameEnded: 0
+  gameStarted: 0
+  availableModels:
+  - {fileID: 4654169354143642748, guid: 60a8ea5616972f349866f26f658752e9, type: 3}
+  - {fileID: 9045437640196017442, guid: ec1362297cf72f247b0e8503b1bee4aa, type: 3}
+  - {fileID: 4327554239690434035, guid: b4f027b10cf5c0740836dbc6e0f07423, type: 3}
+  - {fileID: 2593501273369941865, guid: 11e71e5410dea0448af2d2c72c496fe1, type: 3}
+  - {fileID: 1382415590175112493, guid: 62cd309ac61547a4b91e3b39e52ecd76, type: 3}
+  - {fileID: 4413422750511649257, guid: 234cb5b6f89d81444bb8ab4c95075128, type: 3}
+  - {fileID: 6426448535808468658, guid: c6b4bc5ed6676c74187c18bb475a876d, type: 3}
+  - {fileID: 4837809409617120937, guid: 7adc3164e382e5d41baabf58bec2ca02, type: 3}
+  - {fileID: 8990274814273490366, guid: 8c7d51a172e03d54f9e1131b9f2a4d28, type: 3}
+  - {fileID: 1041079475191451442, guid: b2ceed32f06bb3d4fad7143908e232a1, type: 3}
+  - {fileID: 5340848751068435002, guid: bff470154fa4ca943b91fcac3b85f16c, type: 3}
+  - {fileID: 889281368292808121, guid: cfcce12dbd16ce942979c83f142b4f3b, type: 3}
+  - {fileID: 3494143232912680633, guid: d36bcee3948377442aff10e11613bf1e, type: 3}
+  - {fileID: 1815771157371148635, guid: c2f34f8512842fc4b94756f9eea44358, type: 3}
+  - {fileID: 7679883492405747841, guid: 00e4450e4eb6d42488d31e56c39aeffe, type: 3}
+  - {fileID: 3356954314092586124, guid: b69fb1e7a7347b646a8e1c3a15d2edab, type: 3}
+  - {fileID: 8599341287498971579, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46, type: 3}
+  spawnedModel: {fileID: 0}
+  enemiesAnimatorSpeed:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  playerAnimatorSpeed: 0
+  gamePaused: 0
+  lightAmount: 1.5
