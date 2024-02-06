@@ -50,6 +50,8 @@ public class MainMenu : MonoBehaviour
         {
             Instance = this;
         }
+        
+        PlayerPrefs.SetInt("Gold", 10000);
     }
     private void Start()
     {
@@ -869,7 +871,7 @@ public class MainMenu : MonoBehaviour
     }
     public IEnumerator InitializeUI()
     {
-        coinInfo.text =PlayerPrefs.GetInt("Gold").ToString();
+        coinInfo.text = PlayerPrefs.GetInt("Gold").ToString();
         unlockButton.SetActive(false);
         foreach(ChangeAnimator ca in allModels)
         {
