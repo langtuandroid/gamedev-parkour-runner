@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     bool canPuff = true;
     bool canVault = true;
     public bool canMove = true;
-    
+    public bool canKnockback;
     
 
     [Header("Settings")]
@@ -23,6 +23,8 @@ public class PlayerScript : MonoBehaviour
     public float defaultForwardMoveSpeed;
     public float upMoveSpeed;
     float defaultUpMoveSpeed;
+    private float knockbackForce = 15f;
+    private float knockbackDuration = 1f;
     public float raycastMaxDistance;
     public LayerMask environment;
     public float strafeSpeed;
@@ -56,6 +58,9 @@ public class PlayerScript : MonoBehaviour
     public int animatorFrontWall;
     public int animatorJump;
     public int animatorSlide;
+    public int animatorFall;
+    public int animatorStandUp;
+    public int animatorGetUp;
 
     [Header("Referrences")]
     public Transform raycastPositionBottom;
@@ -87,7 +92,7 @@ public class PlayerScript : MonoBehaviour
         animatorFrontWall = Animator.StringToHash("FrontWall"); 
         animatorJump = Animator.StringToHash("Jump");
         animatorSlide = Animator.StringToHash("Slide");
-
+        animatorFall = Animator.StringToHash("Fall");
     }
     private void Start()
     {
@@ -113,7 +118,6 @@ public class PlayerScript : MonoBehaviour
         if (Physics.Raycast(raycastPositionBottom.position, transform.forward, 2, environment) && grounded)
         {
                 StartCoroutine(Jump());
-
         }
     }
     private void FixedUpdate()
@@ -158,7 +162,9 @@ public class PlayerScript : MonoBehaviour
         if (!grounded && !onRightWall && !onLeftWall && !onFrontWall)
         {
             onAirTime += Time.deltaTime;
-            playerRigidbody.velocity = new Vector3(0, playerRigidbody.velocity.y, playerRigidbody.velocity.z);
+            var velocity = playerRigidbody.velocity;
+            velocity = new Vector3(0, velocity.y, velocity.z);
+            playerRigidbody.velocity = velocity;
             transform.Translate(Vector3.right * Time.deltaTime * strafeSpeed * mX, Space.World);
             transform.Translate(Vector3.right * Time.deltaTime * strafeSpeed * pX, Space.World);
         }
@@ -393,6 +399,22 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         canVault = true;
         canJump = true;
+    }
+    public IEnumerator Knockback()
+    {
+        if (!canKnockback) yield break;
+    
+        canKnockback = false;
+        canMoveForward = false; // Предотвращаем движение вперед
+        playerRigidbody.velocity = Vector3.zero; // Сброс скорости
+        playerRigidbody.AddForce(-transform.forward * knockbackForce, ForceMode.Impulse);
+        //grounded = false;
+        playerAnimator.CrossFade(animatorFall,0.1f);
+       
+        yield return new WaitForSeconds(knockbackDuration); // Ждем определенное время
+        canMoveForward = true; // Разрешаем движение вперед снова
+        canKnockback = true; // Позволяем снова использовать отбрасывание
+
     }
 }
 

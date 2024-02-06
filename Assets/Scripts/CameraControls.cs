@@ -15,13 +15,10 @@ public class CameraControls : MonoBehaviour
     }
     void FixedUpdate()
     {
-        
         playerPosition = player.transform.position;
         //transform.position = Vector3.Lerp(transform.position, playerPosition + offset, cameraSmoothing);
         transform.position = Vector3.SmoothDamp(transform.position, playerPosition + offset, ref velocity, cameraSmoothing);
         //tragameObject.nsform.position = new Vector3(Mathf.Lerp(transform.position.x, playerPosition.x,cameraSmoothing) + offset.x, playerPosition.y + offset.y, playerPosition.z + offset.z);
         //gameObject.GetComponent<Rigidbody>().velocity = velocity;
-
-
     }
 }

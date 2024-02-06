@@ -10,7 +10,8 @@ public class Obstacles : MonoBehaviour
         GoUnder,
         Booster,
         SideBooster,
-        Vaultable
+        Vaultable,
+        Knockback
 
     }
 
@@ -105,16 +106,30 @@ public class Obstacles : MonoBehaviour
                         break;
                     }
                 case ObstaclesTypes.Vaultable:
+                {
+                    if (player.forwardMoveSpeed < player.defaultForwardMoveSpeed + 4 &&
+                        !GameManager.Instance.gamePaused)
                     {
-                        if (player.forwardMoveSpeed < player.defaultForwardMoveSpeed + 4 && !GameManager.Instance.gamePaused)
-                        {
-                            player.jumpStrength += .5f;
-                            player.forwardMoveSpeed += .7f;
-                            player.playerAnimator.speed += 0.06f;
-                        }
-                        StartCoroutine(player.Vault());
+                        player.jumpStrength += .5f;
+                        player.forwardMoveSpeed += .7f;
+                        player.playerAnimator.speed += 0.06f;
+                    }
 
-                        break;
+                    StartCoroutine(player.Vault());
+                    break;
+                }
+                case ObstaclesTypes.Knockback:
+                      {
+                          if (player.forwardMoveSpeed < player.defaultForwardMoveSpeed + 4 && !GameManager.Instance.gamePaused)
+                          {
+                              player.jumpStrength -= 0.1f;
+                              player.forwardMoveSpeed -= 0.1f;
+                              player.playerAnimator.speed -= 0.01f;
+                          }
+                          player.canKnockback = true;
+                          StartCoroutine(player.Knockback());
+
+                      break;
                     }
             }
         }

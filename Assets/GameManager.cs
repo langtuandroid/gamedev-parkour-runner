@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour
         PauseGame();
         StartCoroutine(StopPlayer());
         gameEnded = true;
-        UIManager.Instance.EnableEndWindowUI();
+        UIManagerpr.Instance.EnableEndWindowUI();
         //AdManager.instance.ShowInterstitial();
     }
    

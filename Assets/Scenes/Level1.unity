@@ -9355,6 +9355,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
+        type: 3}
+      propertyPath: m_FollowOffset.x
+      value: -13.29667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
+        type: 3}
+      propertyPath: m_FollowOffset.y
+      value: -0.2694161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
+        type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -9.552314
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40871,6 +40886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2789945153619193403, guid: 1c3d23fabd67fa3438cd42ff9c79fb37,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789945153619193403, guid: 1c3d23fabd67fa3438cd42ff9c79fb37,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -41014,20 +41034,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 997535192, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.5998535
+      objectReference: {fileID: 0}
     - target: {fileID: 1974504783077693176, guid: e708c098af6fc8449b6dce5ebad52927,
         type: 3}
       propertyPath: m_Name
       value: Primary UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974504783077693176, guid: e708c098af6fc8449b6dce5ebad52927,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974504783077693176, guid: e708c098af6fc8449b6dce5ebad52927,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1974504783077693180, guid: e708c098af6fc8449b6dce5ebad52927,
         type: 3}
@@ -41038,11 +41052,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974504783077693180, guid: e708c098af6fc8449b6dce5ebad52927,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1974504783077693180, guid: e708c098af6fc8449b6dce5ebad52927,
         type: 3}
@@ -41162,6 +41171,11 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 746776845}
+    - target: {fileID: 7052160075427780617, guid: d52b0e7dd043ffa48ae21a7d8c7e11ca,
+        type: 3}
+      propertyPath: knockbackDuration
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7052160075427780618, guid: d52b0e7dd043ffa48ae21a7d8c7e11ca,
         type: 3}
       propertyPath: m_RootOrder
