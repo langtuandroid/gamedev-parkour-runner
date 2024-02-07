@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         PauseGame();
         StartCoroutine(StopPlayer());
         gameEnded = true;
-        UIManagerpr.Instance.EnableEndWindowUI();
+        UIManagerpr.Instancepr.EnableEndWindowUIpr();
         //AdManager.instance.ShowInterstitial();
     }
    

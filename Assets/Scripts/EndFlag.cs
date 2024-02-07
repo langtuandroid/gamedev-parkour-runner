@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using Game;
+
 public class EndFlag : MonoBehaviour
 {
 
@@ -10,7 +12,7 @@ public class EndFlag : MonoBehaviour
     public float distanceBetweenPlayer;
     public float distanceBeweenPlayerAtStart;
     public PlayerScript player;
-    public List<DistanceMeter> distanceFromtheEnd;
+    public List<DistanceMeterpr> distanceFromtheEnd;
     public Transform playerParent;
     public int startPos = 0;
 
@@ -21,7 +23,7 @@ public class EndFlag : MonoBehaviour
         progressSlider = FindObjectOfType<Slider>();
         foreach (Transform playersPos in playerParent)
         {
-            distanceFromtheEnd.Add(playersPos.GetComponent<DistanceMeter>());
+            distanceFromtheEnd.Add(playersPos.GetComponent<DistanceMeterpr>());
         }
     }
 
@@ -56,14 +58,14 @@ public class EndFlag : MonoBehaviour
         {
             for (int i = startPos; i < playerParent.childCount; i++)
             {
-                distanceFromtheEnd[i].distance = DistanceFinder(distanceFromtheEnd[i].transform);
+                distanceFromtheEnd[i].distancepr = DistanceFinder(distanceFromtheEnd[i].transform);
 
             }
-            distanceFromtheEnd = distanceFromtheEnd.OrderBy(i => i.GetComponent<DistanceMeter>().distance).ToList();
+            distanceFromtheEnd = distanceFromtheEnd.OrderBy(i => i.GetComponent<DistanceMeterpr>().distancepr).ToList();
 
             for (int i = startPos; i < distanceFromtheEnd.Count; i++)
             {
-                distanceFromtheEnd[i].positionInRace = i + 1;
+                distanceFromtheEnd[i].positionInRacepr = i + 1;
             }
         }
     }

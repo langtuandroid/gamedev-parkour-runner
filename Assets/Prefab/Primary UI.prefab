@@ -316,7 +316,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: GoToMainMenu
+        m_MethodName: GoToMainMenupr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 784022016}
   - component: {fileID: 784022015}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LevelInfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,7 +360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.1, y: 7.3418}
+  m_AnchoredPosition: {x: -4, y: 0}
   m_SizeDelta: {x: 963.45, y: 539.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &784022016
@@ -529,7 +529,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ShowPopUp
+        m_MethodName: ShowPopUppr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -916,7 +916,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ClosePopUp
+        m_MethodName: ClosePopUppr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1123,7 +1123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: GoToMainMenu
+        m_MethodName: GoToMainMenupr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1255,7 +1255,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: LoadLevel
+        m_MethodName: LoadLevelpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1387,7 +1387,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ResumeGame
+        m_MethodName: ResumeGamepr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1523,7 +1523,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: GoToMainMenu
+        m_MethodName: GoToMainMenupr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1802,26 +1802,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faaa28f13c7d3ba4fb877af65a7042b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endGameWindow: {fileID: 1974504784272058587}
-  nextButton: {fileID: 1974504783616538431}
-  retryButton: {fileID: 1974504783785560870}
-  infoTextWindow: {fileID: 1974504784141517216}
-  handUI: {fileID: 1974504784779702992}
-  gameStartButton: {fileID: 1974504784467740534}
-  shopButton: {fileID: 0}
-  joystick: {fileID: 4016748529719409396}
-  playerPos: {fileID: 1974504784340592319}
-  endPlayerPosition: {fileID: 1974504783407707125}
-  gameRunning: {fileID: 3976063811595973564}
-  pauseMenu: {fileID: 67970239}
-  UImanagerAnimator: {fileID: 0}
-  popUpText: {fileID: 1372486566}
-  popUpMessageWindow: {fileID: 997535191}
-  levelInfo: {fileID: 784022015}
-  coinInfo: {fileID: 5481202446539256610}
-  coinCounter: {fileID: 3193595555811668593}
-  coinExplosion: {fileID: 8363287000225654349}
-  coinExplosionSettings: {fileID: 8929544939668958900}
+  joystickpr: {fileID: 4016748529719409396}
+  endGameWindowpr: {fileID: 1974504784272058587}
+  nextButtonpr: {fileID: 1974504783616538431}
+  retryButtonpr: {fileID: 1974504783785560870}
+  infoTextWindowpr: {fileID: 1974504784141517216}
+  handUIpr: {fileID: 1974504784779702992}
+  gameStartButtonpr: {fileID: 1974504784467740534}
+  shopButtonpr: {fileID: 0}
+  playerPospr: {fileID: 1974504784340592319}
+  endPlayerPositionpr: {fileID: 1974504783407707125}
+  gameRunningpr: {fileID: 3976063811595973564}
+  pauseMenupr: {fileID: 67970239}
+  UImanagerAnimatorpr: {fileID: 3132674501728112902}
+  popUpTextpr: {fileID: 1372486566}
+  popUpMessageWindowpr: {fileID: 997535191}
+  levelInfopr: {fileID: 784022015}
+  coinInfopr: {fileID: 5481202446539256610}
+  coinCounterpr: {fileID: 3193595555811668593}
+  coinExplosionpr: {fileID: 8363287000225654349}
+  coinExplosionSettingspr: {fileID: 8929544939668958900}
 --- !u!1 &1974504783284763105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,7 +2553,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974504783077693181}
         m_TargetAssemblyTypeName: 
-        m_MethodName: StartGamePressed
+        m_MethodName: StartGamePressedpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

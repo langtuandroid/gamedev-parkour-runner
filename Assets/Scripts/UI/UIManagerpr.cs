@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,134 +8,129 @@ namespace UI
 {
     public class UIManagerpr : MonoBehaviour
     {
-        public Transform endGameWindow;
-        public GameObject nextButton;
-        public GameObject retryButton;
-        public Text infoTextWindow;
-        PlayerScript player;
-        public static UIManagerpr Instance;
-        public GameObject handUI;
-        public GameObject gameStartButton;
-        public GameObject shopButton;
-        public FloatingJoystick joystick;
-        public Text playerPos;
-        public Text endPlayerPosition;
-        public Animator gameRunning;
-        public GameObject pauseMenu;
-        public Animator UImanagerAnimator;
-        public Text popUpText;
-        public GameObject popUpMessageWindow;
-        public Text levelInfo;
-        public Text coinInfo;
-        public GameObject coinCounter;
-        public ParticleSystem coinExplosion;
-        public ParticleControlScript coinExplosionSettings;
-        int goldAtStart = 0;
-        int goldEarned = 0;
+        public static UIManagerpr Instancepr;
+        PlayerScript playerpr;
+        public FloatingJoystick joystickpr;
+        public Transform endGameWindowpr;
+        public GameObject nextButtonpr;
+        public GameObject retryButtonpr;
+        public Text infoTextWindowpr;
+        public GameObject handUIpr;
+        public GameObject gameStartButtonpr;
+        public GameObject shopButtonpr;
+        public Text playerPospr;
+        public Text endPlayerPositionpr;
+        public Animator gameRunningpr;
+        public GameObject pauseMenupr;
+        public Animator UImanagerAnimatorpr;
+        public Text popUpTextpr;
+        public GameObject popUpMessageWindowpr;
+        public Text levelInfopr;
+        public Text coinInfopr;
+        public GameObject coinCounterpr;
+        public ParticleSystem coinExplosionpr;
+        public ParticleControlScript coinExplosionSettingspr;
+        int goldAtStartpr = 0;
+        int goldEarnedpr = 0;
     
         private void Awake()
         {
-            if (!Instance)
+            if (!Instancepr)
             {
-                Instance = this;
+                Instancepr = this;
             }
         }
         private void Start()
         {
-            coinInfo.text = PlayerPrefs.GetInt("Gold").ToString();
-            goldAtStart = PlayerPrefs.GetInt("Gold");
-            player = FindObjectOfType<PlayerScript>();
-            player.joystick = joystick;
-            player.GetComponent<DistanceMeter>().playerPos = playerPos;
-            UImanagerAnimator = GetComponentInChildren<Animator>();
-            UImanagerAnimator.SetTrigger("In");
-            coinCounter.SetActive(true);
+            coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
+            goldAtStartpr = PlayerPrefs.GetInt("Gold");
+            playerpr = FindObjectOfType<PlayerScript>();
+            playerpr.joystick = joystickpr;
+            playerpr.GetComponent<DistanceMeterpr>().playerPospr = playerPospr;
+            UImanagerAnimatorpr = GetComponentInChildren<Animator>();
+            UImanagerAnimatorpr.SetTrigger("In");
+            coinCounterpr.SetActive(true);
 
 
         }
         private void Update()
         {
-            //if (Application.platform == RuntimePlatform.Android)
-            //{
             if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.gameEnded && GameManager.Instance.gameStarted)
             {
                 if (!GameManager.Instance.gamePaused)
                 {
                     GameManager.Instance.PauseGame();
-                    if (!pauseMenu.activeSelf)
+                    if (!pauseMenupr.activeSelf)
                     {
-                        pauseMenu.SetActive(true);
-                        pauseMenu.GetComponent<Animator>().SetTrigger("In");
+                        pauseMenupr.SetActive(true);
+                        pauseMenupr.GetComponent<Animator>().SetTrigger("In");
                     }
                 }
                 else
                 {
-                    ResumeGame();
-                    ClosePauseMenu();
+                    ResumeGamepr();
+                    ClosePauseMenupr();
                 }
-
-                return;
             }
-            //}
         }
-        public void EnableEndWindowUI()
+        public void EnableEndWindowUIpr()
         {
-            StartCoroutine(ShowEndGameDetails());
+            StartCoroutine(ShowEndGameDetailspr());
         }
-        IEnumerator ShowEndGameDetails()
+        IEnumerator ShowEndGameDetailspr()
         {
-            gameRunning.SetTrigger("End");
+            gameRunningpr.SetTrigger("End");
             yield return new WaitForSeconds(3);
-            coinCounter.SetActive(true);
-            endGameWindow.gameObject.SetActive(true);
+            coinCounterpr.SetActive(true);
+            endGameWindowpr.gameObject.SetActive(true);
         
-            if (player.gameObject.GetComponent<DistanceMeter>().positionInRace == 1)
+            if (playerpr.gameObject.GetComponent<DistanceMeterpr>().positionInRacepr == 1)
             {
             
-                retryButton.SetActive(false);
-                infoTextWindow.gameObject.SetActive(false);
+                retryButtonpr.SetActive(false);
+                infoTextWindowpr.gameObject.SetActive(false);
                 PlayerPrefs.SetInt("LevelProgression", PlayerPrefs.GetInt("LevelProgression",2) + 1);
-                endPlayerPosition.text = player.GetComponent<DistanceMeter>().playerPos.text;
-                goldEarned = Random.Range(100, 200);
-                coinExplosionSettings.coinsCount = goldEarned / 3;
+                endPlayerPositionpr.text = playerpr.GetComponent<DistanceMeterpr>().playerPospr.text;
+                goldEarnedpr = Random.Range(100, 200);
+                coinExplosionSettingspr.coinsCount = goldEarnedpr / 3;
                 yield return new WaitForSeconds(1);
-                coinExplosion.gameObject.SetActive(true);
+                coinExplosionpr.gameObject.SetActive(true);
                 yield return new WaitForSeconds(1);
-                for (int i =0;i< goldEarned; i++ )
+                for (int i =0;i< goldEarnedpr; i++ )
                 {
-                    AddGold(1);
+                    AddGoldpr(1);
                     yield return null;
                 }
             }
             else
             {
-                nextButton.SetActive(false);
-                endPlayerPosition.text = player.GetComponent<DistanceMeter>().playerPos.text;
-                goldEarned = Random.Range(10, 100);
-                coinExplosionSettings.coinsCount = goldEarned / 3;
+                nextButtonpr.SetActive(false);
+                endPlayerPositionpr.text = playerpr.GetComponent<DistanceMeterpr>().playerPospr.text;
+                goldEarnedpr = Random.Range(10, 100);
+                coinExplosionSettingspr.coinsCount = goldEarnedpr / 3;
                 yield return new WaitForSeconds(1);
-                coinExplosion.gameObject.SetActive(true);
+                coinExplosionpr.gameObject.SetActive(true);
                 yield return new WaitForSeconds(1);
-                for (int i = 0; i < goldEarned; i++)
+                for (int i = 0; i < goldEarnedpr; i++)
                 {
-                    AddGold(1);
+                    AddGoldpr(1);
                     yield return null;
                 }
             }
         }
 
-        public void LoadLevel()
+        public void LoadLevelpr()
         {
 
             SoundManager.Instance.PlayButtonPressedSound();
-            if (PlayerPrefs.GetInt("Gold") != goldAtStart + goldEarned)
-                PlayerPrefs.SetInt("Gold", goldAtStart + goldEarned);
-            StartCoroutine(LoadLevelAsync());
+            if (PlayerPrefs.GetInt("Gold") != goldAtStartpr + goldEarnedpr)
+                PlayerPrefs.SetInt("Gold", goldAtStartpr + goldEarnedpr);
+            StartCoroutine(LoadLevelAsyncpr());
             //AdManager.instance.ShowAd();
 
         }
 
-        public IEnumerator LoadLevelAsync()
+        public IEnumerator LoadLevelAsyncpr()
         {
             AsyncOperation loadingprogress = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("LevelProgression",2));
             loadingprogress.allowSceneActivation = true;
@@ -144,41 +140,41 @@ namespace UI
             }
         }
 
-        public void StartGamePressed()
+        public void StartGamePressedpr()
         {
-            handUI.SetActive(false);
-            levelInfo.text = (PlayerPrefs.GetInt("LevelProgression",2)-1).ToString();
-            gameRunning.SetTrigger("Start");
-            UImanagerAnimator.SetTrigger("Out");
-            gameStartButton.SetActive(false);
-            coinCounter.SetActive(false);
+            handUIpr.SetActive(false);
+            levelInfopr.text = (PlayerPrefs.GetInt("LevelProgression",2)-1).ToString();
+            gameRunningpr.SetTrigger("Start");
+            UImanagerAnimatorpr.SetTrigger("Out");
+            gameStartButtonpr.SetActive(false);
+            coinCounterpr.SetActive(false);
             GameManager.Instance.StartGame();
         }
-        public void ShowPopUp()
+        public void ShowPopUppr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            popUpMessageWindow.SetActive(true);        
-            popUpMessageWindow.GetComponent<Animator>().SetTrigger("In");
-            popUpText.text = "You Will Lose Any Unsaved Progress!";
+            popUpMessageWindowpr.SetActive(true);        
+            popUpMessageWindowpr.GetComponent<Animator>().SetTrigger("In");
+            popUpTextpr.text = "You Will Lose Any Unsaved Progress!";
 
         }
 
-        public void ClosePopUp()
+        public void ClosePopUppr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            StartCoroutine(DisableWindow(popUpMessageWindow));
+            StartCoroutine(DisableWindowpr(popUpMessageWindowpr));
         }
-        public void GoToMainMenu()
+        public void GoToMainMenupr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
             SceneManager.LoadScene(0);
         }
-        public void ClosePauseMenu()
+        public void ClosePauseMenupr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            StartCoroutine(DisableWindow(pauseMenu));
+            StartCoroutine(DisableWindowpr(pauseMenupr));
         }
-        IEnumerator DisableWindow(GameObject window)
+        IEnumerator DisableWindowpr(GameObject window)
         {
             window.GetComponent<Animator>().SetTrigger("Out");
             yield return new WaitForSeconds(0.2f);
@@ -186,21 +182,21 @@ namespace UI
 
         }
 
-        public void ResumeGame()
+        public void ResumeGamepr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            ClosePauseMenu();
-            if(popUpMessageWindow.activeSelf)
+            ClosePauseMenupr();
+            if(popUpMessageWindowpr.activeSelf)
             {
-                StartCoroutine(DisableWindow(popUpMessageWindow));
+                StartCoroutine(DisableWindowpr(popUpMessageWindowpr));
             }
             GameManager.Instance.ResumeGame();
 
         }
-        public void AddGold(int amount)
+        public void AddGoldpr(int amount)
         {
             PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") + amount);
-            coinInfo.text = PlayerPrefs.GetInt("Gold").ToString();
+            coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
         }
 
     }
