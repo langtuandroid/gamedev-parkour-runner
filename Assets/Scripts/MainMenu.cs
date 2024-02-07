@@ -56,7 +56,6 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         SoundManager.Instance.PlayBGMusicOne();
-        StartCoroutine( InitializeUI());
         if (!PlayerPrefs.HasKey("ChoosenCharacter"))
         {
             PlayerPrefs.SetInt("ChoosenCharacter", (int)ModelIDs.repairer);
@@ -80,7 +79,7 @@ public class MainMenu : MonoBehaviour
         }
         else
             Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
-
+        StartCoroutine( InitializeUI());
         loadingDone = true;
     }
     public void ResertLevelProgression()
@@ -877,7 +876,6 @@ public class MainMenu : MonoBehaviour
         {
             if (PlayerPrefs.GetString(ca.name) == "True")
             {
-                
                 ca.AlreadyUnlocked();
             }
             else
