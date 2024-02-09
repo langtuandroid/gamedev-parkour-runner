@@ -13593,6 +13593,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299150874902270213, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
+      propertyPath: _playerpr
+      value: 
+      objectReference: {fileID: 618905217}
+    - target: {fileID: 3299150874902270213, guid: 0e4a9f2ffe6fbab4db269f178197463e,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -43682,6 +43687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 618905213}
   - {fileID: 641024221}
   - {fileID: 2071728196}
   - {fileID: 156885922}
@@ -43690,7 +43696,6 @@ Transform:
   - {fileID: 2057116265}
   - {fileID: 1979927190}
   - {fileID: 832025700}
-  - {fileID: 618905213}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1703570448 stripped
@@ -43892,13 +43897,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5714832f4a04c8489cf11b0afbf4a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressSlider: {fileID: 0}
-  distanceBetweenPlayer: 0
-  distanceBeweenPlayerAtStart: 0
-  player: {fileID: 0}
-  distanceFromtheEnd: []
-  playerParent: {fileID: 1702534703}
-  startPos: 0
+  progressSlider: {fileID: 1787741221}
+  _distanceBetweenPlayerpr: 0
+  _distanceBeweenPlayerAtStartpr: 0
+  _playerpr: {fileID: 618905217}
+  _distanceFromtheEndpr: []
+  _playerParentpr: {fileID: 1702534703}
+  _startPospr: 0
 --- !u!1001 &1710990440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46364,6 +46369,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
+--- !u!114 &1787741221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1974504784061759851, guid: e708c098af6fc8449b6dce5ebad52927,
+    type: 3}
+  m_PrefabInstance: {fileID: 1787741220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1790081268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56068,17 +56085,17 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 458367728}
-  - {fileID: 1943479803}
   - {fileID: 858202854}
+  - {fileID: 458367728}
+  - {fileID: 12738225}
+  - {fileID: 1971047995}
+  - {fileID: 1787741220}
+  - {fileID: 1709620101}
+  - {fileID: 1702534703}
+  - {fileID: 1943479803}
   - {fileID: 435922343}
   - {fileID: 208681116}
   - {fileID: 1027103082}
-  - {fileID: 1709620101}
   - {fileID: 1753977424}
-  - {fileID: 1702534703}
   - {fileID: 483539092}
   - {fileID: 1754547409}
-  - {fileID: 1787741220}
-  - {fileID: 12738225}
-  - {fileID: 1971047995}

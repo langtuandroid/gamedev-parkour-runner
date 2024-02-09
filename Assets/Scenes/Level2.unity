@@ -1461,6 +1461,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2897976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &65750414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1974504784061759851, guid: e708c098af6fc8449b6dce5ebad52927,
+    type: 3}
+  m_PrefabInstance: {fileID: 950133046}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &65983596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3167,9 +3179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf432df706ce6954b9fceb410924cef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialNo: 6
-  textAnimator: {fileID: 854084160}
-  text: {fileID: 854084157}
+  slowdownpr: 0
+  speeduppr: 0
+  tutorialNopr: 6
+  textAnimatorpr: {fileID: 854084160}
+  textpr: {fileID: 854084157}
 --- !u!65 &197157719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4480,7 +4494,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &260516276
 Canvas:
   m_ObjectHideFlags: 0
@@ -4582,7 +4596,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &265812402
 Canvas:
   m_ObjectHideFlags: 0
@@ -7815,8 +7829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296ed1b5dfc38cf44b097e40f9c4b2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: 0, y: -0.01}
-  rendererer: {fileID: 0}
 --- !u!23 &453001497
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7999,8 +8011,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299150874902270213, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
+      propertyPath: _playerpr
+      value: 
+      objectReference: {fileID: 880276513}
+    - target: {fileID: 3299150874902270213, guid: 0e4a9f2ffe6fbab4db269f178197463e,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299150874902270213, guid: 0e4a9f2ffe6fbab4db269f178197463e,
+        type: 3}
+      propertyPath: _offsetpr.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299150874902270213, guid: 0e4a9f2ffe6fbab4db269f178197463e,
+        type: 3}
+      propertyPath: _offsetpr.z
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3299150874902270213, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
@@ -8809,8 +8836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296ed1b5dfc38cf44b097e40f9c4b2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: 0, y: -0.01}
-  rendererer: {fileID: 0}
 --- !u!23 &512213971
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23213,8 +23238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296ed1b5dfc38cf44b097e40f9c4b2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: 0, y: -0.01}
-  rendererer: {fileID: 0}
 --- !u!23 &1497901484
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26579,13 +26602,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5714832f4a04c8489cf11b0afbf4a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressSlider: {fileID: 0}
-  distanceBetweenPlayer: 0
-  distanceBeweenPlayerAtStart: 0
-  player: {fileID: 0}
-  distanceFromtheEnd: []
-  playerParent: {fileID: 1702534703}
-  startPos: 0
+  progressSlider: {fileID: 65750414}
+  _distanceBetweenPlayerpr: 0
+  _distanceBeweenPlayerAtStartpr: 0
+  _playerpr: {fileID: 880276513}
+  _distanceFromtheEndpr: []
+  _playerParentpr: {fileID: 1702534703}
+  _startPospr: 0
 --- !u!1001 &1713193013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30183,7 +30206,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1926941123
 Canvas:
   m_ObjectHideFlags: 0
@@ -31688,9 +31711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf432df706ce6954b9fceb410924cef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialNo: 4
-  textAnimator: {fileID: 854084160}
-  text: {fileID: 854084157}
+  slowdownpr: 0
+  speeduppr: 0
+  tutorialNopr: 4
+  textAnimatorpr: {fileID: 854084160}
+  textpr: {fileID: 854084157}
 --- !u!65 &2061718288
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32625,9 +32650,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf432df706ce6954b9fceb410924cef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialNo: 5
-  textAnimator: {fileID: 854084160}
-  text: {fileID: 854084157}
+  slowdownpr: 0
+  speeduppr: 0
+  tutorialNopr: 5
+  textAnimatorpr: {fileID: 854084160}
+  textpr: {fileID: 854084157}
 --- !u!65 &2098501712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33636,24 +33663,24 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1573986673}
-  - {fileID: 547893701}
-  - {fileID: 458367728}
-  - {fileID: 1943479803}
   - {fileID: 858202854}
+  - {fileID: 1573986673}
+  - {fileID: 1203075202}
+  - {fileID: 458367728}
+  - {fileID: 950133046}
+  - {fileID: 547893701}
   - {fileID: 851606500}
+  - {fileID: 1753977424}
+  - {fileID: 1702534703}
+  - {fileID: 1943479803}
   - {fileID: 435922343}
   - {fileID: 208681116}
   - {fileID: 1027103082}
   - {fileID: 483539092}
   - {fileID: 1709620101}
-  - {fileID: 1753977424}
-  - {fileID: 1702534703}
   - {fileID: 260516277}
   - {fileID: 1926941124}
   - {fileID: 265812403}
   - {fileID: 2061718291}
   - {fileID: 2098501715}
   - {fileID: 197157722}
-  - {fileID: 950133046}
-  - {fileID: 1203075202}

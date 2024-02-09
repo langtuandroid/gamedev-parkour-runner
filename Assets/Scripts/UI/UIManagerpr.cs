@@ -3,11 +3,14 @@ using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace UI
 {
     public class UIManagerpr : MonoBehaviour
     {
+        [SerializeField] 
+        private Button _pausepr;
         public static UIManagerpr Instancepr;
         PlayerScript playerpr;
         public FloatingJoystick joystickpr;
@@ -39,6 +42,7 @@ namespace UI
             {
                 Instancepr = this;
             }
+            _pausepr.onClick.AddListener(PausedGamepr);
         }
         private void Start()
         {
@@ -50,27 +54,36 @@ namespace UI
             UImanagerAnimatorpr = GetComponentInChildren<Animator>();
             UImanagerAnimatorpr.SetTrigger("In");
             coinCounterpr.SetActive(true);
-
-
         }
+
+        private void OnDestroy()
+        {
+            _pausepr.onClick.RemoveListener(PausedGamepr);
+        }
+
+        private void PausedGamepr()
+        {
+            if (!GameManager.Instance.gamePaused)
+            {
+                GameManager.Instance.PauseGame();
+                if (!pauseMenupr.activeSelf)
+                {
+                    pauseMenupr.SetActive(true);
+                    pauseMenupr.GetComponent<Animator>().SetTrigger("In");
+                }
+            }
+            else
+            {
+                ResumeGamepr();
+                ClosePauseMenupr();
+            }
+        }
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.gameEnded && GameManager.Instance.gameStarted)
             {
-                if (!GameManager.Instance.gamePaused)
-                {
-                    GameManager.Instance.PauseGame();
-                    if (!pauseMenupr.activeSelf)
-                    {
-                        pauseMenupr.SetActive(true);
-                        pauseMenupr.GetComponent<Animator>().SetTrigger("In");
-                    }
-                }
-                else
-                {
-                    ResumeGamepr();
-                    ClosePauseMenupr();
-                }
+                PausedGamepr();
             }
         }
         public void EnableEndWindowUIpr()

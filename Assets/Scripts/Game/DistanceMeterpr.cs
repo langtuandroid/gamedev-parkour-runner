@@ -11,7 +11,7 @@ namespace Game
         public float distancepr;
         public int positionInRacepr = 1;
     
-        void Start()
+        private void Start()
         {
             if (tag == "Enemy")
             {
@@ -19,7 +19,7 @@ namespace Game
             }
         }
     
-        void Update()
+        private void Update()
         {
             if (positionInRacepr < 4)
 

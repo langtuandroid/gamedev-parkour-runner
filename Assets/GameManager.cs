@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UI;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public PlayerScript player;
-    public CameraControls mainCamera;
+    public CameraControlspr mainCamera;
     public Transform allPlayersTransform;
     public List<Enemy> enemies;
     public ParticleSystem.MainModule main;
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
 
         if (gameEnded)
         {
-            mainCamera.cameraSmoothing = Mathf.Lerp(mainCamera.cameraSmoothing, 0, 0.01f);
+            mainCamera.CameraSmoothing = Mathf.Lerp(mainCamera.CameraSmoothing, 0, 0.01f);
             main.simulationSpeed = Mathf.Lerp(main.simulationSpeed,0,0.005f);
         }
 
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
         
         player = FindObjectOfType<PlayerScript>();
         main = player.speedEffect.main;
-        mainCamera = FindObjectOfType<CameraControls>();
+        mainCamera = FindObjectOfType<CameraControlspr>();
         PauseGame();
         StartCoroutine(StopPlayer());
         gameEnded = true;

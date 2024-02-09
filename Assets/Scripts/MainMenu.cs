@@ -109,7 +109,7 @@ public class MainMenu : MonoBehaviour
     public void LoadLevel()
     {
         SoundManager.Instance.PlayButtonPressedSound();
-        int level = PlayerPrefs.GetInt("LevelProgression", 2);
+        int level = PlayerPrefs.GetInt("LevelProgression", 1);
         print(level);
         SceneManager.LoadScene(level);
     }
