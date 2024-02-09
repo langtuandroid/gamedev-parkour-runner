@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using Game;
 using UI;
 using UnityEngine;
+using Zenject;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public PlayerScript player;
-    public CameraControlspr mainCamera;
-    public Transform allPlayersTransform;
+    
     public List<Enemy> enemies;
     public ParticleSystem.MainModule main;
     public bool gameEnded = false;
@@ -20,6 +19,18 @@ public class GameManager : MonoBehaviour
     public float playerAnimatorSpeed;
     public bool gamePaused = false;
     public float lightAmount;
+    
+    private  PlayerScript _playerpr;
+    private CameraControlspr _mainCamerapr;
+    private Transform _allPlayersTransformpr;
+
+    [Inject]
+    private void  Context(PlayerScript player, CameraControlspr mainCamera)
+    {
+        _playerpr = player;
+        _mainCamerapr = mainCamera;
+        _allPlayersTransformpr = _playerpr.gameObject.transform.parent;
+    }
     private void Awake()
     {
         if(!Instance)
@@ -30,16 +41,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SoundManager.Instance.PlayerBGMusicTwo();
-        player = FindObjectOfType<PlayerScript>();
-        player.canMove = false;
-        spawnedModel = Instantiate(availableModels[PlayerPrefs.GetInt("ChoosenCharacter")], player.transform);
-        player.playerAnimator = spawnedModel.GetComponent<Animator>();
-        player.playerAnimator.speed = 1.2f;
-        player.playerBody = spawnedModel.transform;
-        player.playerBody.transform.localScale = new Vector3(.4f, .4f, .4f);
-        player.playerBody.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        _playerpr = FindObjectOfType<PlayerScript>();
+        _playerpr.canMove = false;
+        spawnedModel = Instantiate(availableModels[PlayerPrefs.GetInt("ChoosenCharacter")], _playerpr.transform);
+        _playerpr.playerAnimator = spawnedModel.GetComponent<Animator>();
+        _playerpr.playerAnimator.speed = 1.2f;
+        _playerpr.playerBody = spawnedModel.transform;
+        _playerpr.playerBody.transform.localScale = new Vector3(.4f, .4f, .4f);
+        _playerpr.playerBody.transform.localRotation = Quaternion.Euler(0, 0, 0);
         StartCoroutine(spawnedModel.GetComponent<ChangeAnimator>().EnableTrails());
-        foreach (Transform players in allPlayersTransform)
+        foreach (Transform players in _allPlayersTransformpr)
         {
             if (players.GetComponent<Enemy>() != null)
             {
@@ -63,7 +74,7 @@ public class GameManager : MonoBehaviour
 
         if (gameEnded)
         {
-            mainCamera.CameraSmoothing = Mathf.Lerp(mainCamera.CameraSmoothing, 0, 0.01f);
+            _mainCamerapr.CameraSmoothing = Mathf.Lerp(_mainCamerapr.CameraSmoothing, 0, 0.01f);
             main.simulationSpeed = Mathf.Lerp(main.simulationSpeed,0,0.005f);
         }
 
@@ -73,8 +84,8 @@ public class GameManager : MonoBehaviour
     {
         if (gameStarted) return;
         gameStarted = true;
-        player.canMove = true;
-        player.playerAnimator.SetBool("CanRun", true);
+        _playerpr.canMove = true;
+        _playerpr.playerAnimator.SetBool("CanRun", true);
         if (enemies.Count != 0)
         {
             foreach (Enemy ene in enemies)
@@ -91,9 +102,9 @@ public class GameManager : MonoBehaviour
     {
         SoundManager.Instance.PlayEndSound();
         
-        player = FindObjectOfType<PlayerScript>();
-        main = player.speedEffect.main;
-        mainCamera = FindObjectOfType<CameraControlspr>();
+        _playerpr = FindObjectOfType<PlayerScript>();
+        main = _playerpr.speedEffect.main;
+        _mainCamerapr = FindObjectOfType<CameraControlspr>();
         PauseGame();
         StartCoroutine(StopPlayer());
         gameEnded = true;
@@ -104,12 +115,12 @@ public class GameManager : MonoBehaviour
     IEnumerator StopPlayer()
     {
         yield return new WaitForSeconds(.1f);
-        mainCamera.GetComponent<Animator>().SetTrigger("End Game");
-        player.canMove = false;
-        player.playerRigidbody.isKinematic = true;
-        player.playerAnimator.speed = 0;
-        player.confettiEffect.Play();
-        player.fallingConfetti.Play();
+        _mainCamerapr.GetComponent<Animator>().SetTrigger("End Game");
+        _playerpr.canMove = false;
+        _playerpr.playerRigidbody.isKinematic = true;
+        _playerpr.playerAnimator.speed = 0;
+        _playerpr.confettiEffect.Play();
+        _playerpr.fallingConfetti.Play();
     }
     
     public void PauseGame()
@@ -117,7 +128,7 @@ public class GameManager : MonoBehaviour
         //AdManager.instance.ShowInterstitial();
         gamePaused = true;
         int i = 0;
-        playerAnimatorSpeed = player.playerAnimator.speed;
+        playerAnimatorSpeed = _playerpr.playerAnimator.speed;
         foreach (Enemy ene in enemies)
         {
             if (ene != null)
@@ -129,9 +140,9 @@ public class GameManager : MonoBehaviour
                 i++;
             }
         }
-        player.canMove = false;
-        player.playerAnimator.speed = 0;
-        player.playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        _playerpr.canMove = false;
+        _playerpr.playerAnimator.speed = 0;
+        _playerpr.playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public void ResumeGame()
@@ -147,9 +158,9 @@ public class GameManager : MonoBehaviour
                 i++;
             }
         }
-        player.canMove = true;
-        player.playerAnimator.speed = playerAnimatorSpeed;
-        player.playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        _playerpr.canMove = true;
+        _playerpr.playerAnimator.speed = playerAnimatorSpeed;
+        _playerpr.playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         gamePaused = false;
     }
     public float GetLightAmount()

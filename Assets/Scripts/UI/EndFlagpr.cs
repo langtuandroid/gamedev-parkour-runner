@@ -3,30 +3,36 @@ using System.Linq;
 using Game;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI
 {
     public class EndFlagpr : MonoBehaviour
     {
-        public Slider progressSlider;
         [SerializeField]
         private float _distanceBetweenPlayerpr;
         [SerializeField] 
         private float _distanceBeweenPlayerAtStartpr;
         [SerializeField]
-        private PlayerScript _playerpr;
-        [SerializeField]
         private List<DistanceMeterpr> _distanceFromtheEndpr;
-        [SerializeField] 
-        private Transform _playerParentpr;
         [SerializeField]
         private int _startPospr = 0;
+        
+        private  Slider _progressSliderpr;
+        private PlayerScript _playerpr;
+        private Transform _playerParentpr;
+        
+        [Inject]
+        private void  Context(PlayerScript player)
+        {
+            _playerpr = player;
+            _playerParentpr = player.gameObject.transform.parent;
+        }
 
         private void Start()
         {
-            _playerpr = FindObjectOfType<PlayerScript>();
+            _progressSliderpr = FindObjectOfType<Slider>();
             _distanceBeweenPlayerAtStartpr = Vector3.Distance(transform.position, _playerpr.transform.position);
-            progressSlider = FindObjectOfType<Slider>();
             foreach (Transform playersPos in _playerParentpr)
             {
                 _distanceFromtheEndpr.Add(playersPos.GetComponent<DistanceMeterpr>());
@@ -36,7 +42,7 @@ namespace UI
         private void Update()
         {
             _distanceBetweenPlayerpr = Vector3.Distance(transform.position, _playerpr.transform.position);
-            progressSlider.value = 100 -  (_distanceBetweenPlayerpr / _distanceBeweenPlayerAtStartpr) * 100 ;
+            _progressSliderpr.value = 100 -  (_distanceBetweenPlayerpr / _distanceBeweenPlayerAtStartpr) * 100 ;
 
             {
                 for (int i = _startPospr; i < _playerParentpr.childCount; i++)
@@ -54,12 +60,12 @@ namespace UI
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player")
+            if (other.CompareTag("Player"))
             {
                 GameManager.Instance.EndGame();
                 gameObject.SetActive(false);
             }
-            else if (other.tag == "Enemy")
+            else if (other.CompareTag("Enemy"))
             {
                 _startPospr++;
                 other.gameObject.SetActive(false);

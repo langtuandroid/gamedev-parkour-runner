@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Game
 {
@@ -8,8 +9,6 @@ namespace Game
         private Vector3 _offsetpr;
         [SerializeField]
         private Vector3 _playerPositionpr;
-        [SerializeField]
-        private PlayerScript _playerpr;
         [SerializeField]
         private Vector3 _velocitypr = Vector3.zero;
         [SerializeField]
@@ -21,6 +20,14 @@ namespace Game
             set => _cameraSmoothingpr = value;
         }
 
+        private PlayerScript _playerpr;
+        
+        [Inject]
+        private void  Context(PlayerScript player)
+        {
+            _playerpr = player;
+        }
+        
         private void Start()
         {
             _offsetpr = transform.position - _playerpr.transform.position;
