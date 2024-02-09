@@ -2236,7 +2236,7 @@ GameObject:
   - component: {fileID: 25303111}
   - component: {fileID: 25303110}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: FlattyBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6187,7 +6187,7 @@ GameObject:
   - component: {fileID: 204370334}
   - component: {fileID: 204370333}
   m_Layer: 5
-  m_Name: Image (18)
+  m_Name: Roller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8966,25 +8966,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300e94ec47076364d87cf6eb07d40152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _privacyPolicyURL: https://www.google.com
   spawnLocation: {fileID: 1267377262}
   modelsToSpawn:
-  - {fileID: 4654169354143642748, guid: 60a8ea5616972f349866f26f658752e9, type: 3}
-  - {fileID: 9045437640196017442, guid: ec1362297cf72f247b0e8503b1bee4aa, type: 3}
-  - {fileID: 4327554239690434035, guid: b4f027b10cf5c0740836dbc6e0f07423, type: 3}
-  - {fileID: 2593501273369941865, guid: 11e71e5410dea0448af2d2c72c496fe1, type: 3}
+  - {fileID: 889281368292808121, guid: cfcce12dbd16ce942979c83f142b4f3b, type: 3}
   - {fileID: 1382415590175112493, guid: 62cd309ac61547a4b91e3b39e52ecd76, type: 3}
   - {fileID: 4413422750511649257, guid: 234cb5b6f89d81444bb8ab4c95075128, type: 3}
-  - {fileID: 6426448535808468658, guid: c6b4bc5ed6676c74187c18bb475a876d, type: 3}
-  - {fileID: 4837809409617120937, guid: 7adc3164e382e5d41baabf58bec2ca02, type: 3}
   - {fileID: 8990274814273490366, guid: 8c7d51a172e03d54f9e1131b9f2a4d28, type: 3}
-  - {fileID: 1041079475191451442, guid: b2ceed32f06bb3d4fad7143908e232a1, type: 3}
-  - {fileID: 5340848751068435002, guid: bff470154fa4ca943b91fcac3b85f16c, type: 3}
-  - {fileID: 889281368292808121, guid: cfcce12dbd16ce942979c83f142b4f3b, type: 3}
-  - {fileID: 3494143232912680633, guid: d36bcee3948377442aff10e11613bf1e, type: 3}
+  - {fileID: 2593501273369941865, guid: 11e71e5410dea0448af2d2c72c496fe1, type: 3}
   - {fileID: 1815771157371148635, guid: c2f34f8512842fc4b94756f9eea44358, type: 3}
-  - {fileID: 7679883492405747841, guid: 00e4450e4eb6d42488d31e56c39aeffe, type: 3}
-  - {fileID: 3356954314092586124, guid: b69fb1e7a7347b646a8e1c3a15d2edab, type: 3}
+  - {fileID: 1041079475191451442, guid: b2ceed32f06bb3d4fad7143908e232a1, type: 3}
   - {fileID: 8599341287498971579, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46, type: 3}
+  - {fileID: 4654169354143642748, guid: 60a8ea5616972f349866f26f658752e9, type: 3}
+  - {fileID: 4327554239690434035, guid: b4f027b10cf5c0740836dbc6e0f07423, type: 3}
+  - {fileID: 4837809409617120937, guid: 7adc3164e382e5d41baabf58bec2ca02, type: 3}
+  - {fileID: 9045437640196017442, guid: ec1362297cf72f247b0e8503b1bee4aa, type: 3}
+  - {fileID: 5340848751068435002, guid: bff470154fa4ca943b91fcac3b85f16c, type: 3}
+  - {fileID: 3356954314092586124, guid: b69fb1e7a7347b646a8e1c3a15d2edab, type: 3}
+  - {fileID: 7679883492405747841, guid: 00e4450e4eb6d42488d31e56c39aeffe, type: 3}
+  - {fileID: 3494143232912680633, guid: d36bcee3948377442aff10e11613bf1e, type: 3}
+  - {fileID: 6426448535808468658, guid: c6b4bc5ed6676c74187c18bb475a876d, type: 3}
   CharacterSelectionWindow: {fileID: 1288735268}
   mainMenuWindow: {fileID: 862220460}
   tempInt: 0
@@ -9004,11 +9005,11 @@ MonoBehaviour:
   - {fileID: 316635149}
   - {fileID: 474140014}
   - {fileID: 177209279}
-  - {fileID: 1418143756}
   - {fileID: 757102882}
   - {fileID: 299801687}
   - {fileID: 2143820682}
   - {fileID: 2096932861}
+  - {fileID: 1418143756}
   acknowledgementAnimator: {fileID: 305963946}
   acknowledgementGameObject: {fileID: 305963944}
   popUpMessage: {fileID: 980540860}
@@ -9236,7 +9237,7 @@ GameObject:
   - component: {fileID: 413293484}
   - component: {fileID: 413293483}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Clown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12804,7 +12805,7 @@ GameObject:
   - component: {fileID: 457997637}
   - component: {fileID: 457997636}
   m_Layer: 5
-  m_Name: Image (12)
+  m_Name: GoalKeeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14950,7 +14951,7 @@ GameObject:
   - component: {fileID: 570997617}
   - component: {fileID: 570997616}
   m_Layer: 5
-  m_Name: Image (15)
+  m_Name: Tennis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15177,7 +15178,7 @@ GameObject:
   - component: {fileID: 590703315}
   - component: {fileID: 590703314}
   m_Layer: 5
-  m_Name: Image (14)
+  m_Name: Karate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18353,7 +18354,7 @@ GameObject:
   - component: {fileID: 794848457}
   - component: {fileID: 794848456}
   m_Layer: 5
-  m_Name: Image (07)
+  m_Name: Hockey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18486,10 +18487,10 @@ GameObject:
   m_Component:
   - component: {fileID: 797229045}
   - component: {fileID: 797229048}
-  - component: {fileID: 797229047}
   - component: {fileID: 797229046}
+  - component: {fileID: 797229047}
   m_Layer: 5
-  m_Name: Image (10)
+  m_Name: Amazon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18538,7 +18539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 929bf262cd265cf4f8457457a321c563, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22770,7 +22771,7 @@ GameObject:
   - component: {fileID: 977268409}
   - component: {fileID: 977268408}
   m_Layer: 5
-  m_Name: Image (13)
+  m_Name: BaseBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24589,7 +24590,7 @@ GameObject:
   - component: {fileID: 1082217673}
   - component: {fileID: 1082217672}
   m_Layer: 5
-  m_Name: Image (17)
+  m_Name: Skier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28197,7 +28198,7 @@ GameObject:
   - component: {fileID: 1258214941}
   - component: {fileID: 1258214940}
   m_Layer: 5
-  m_Name: Image (16)
+  m_Name: Football
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39992,9 +39993,9 @@ RectTransform:
   - {fileID: 977268407}
   - {fileID: 590703313}
   - {fileID: 570997615}
-  - {fileID: 1258214939}
   - {fileID: 1082217671}
   - {fileID: 204370332}
+  - {fileID: 1258214939}
   m_Father: {fileID: 1282838535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -44514,7 +44515,7 @@ GameObject:
   - component: {fileID: 1564030529}
   - component: {fileID: 1564030528}
   m_Layer: 5
-  m_Name: Image (8)
+  m_Name: Repair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50269,7 +50270,7 @@ GameObject:
   - component: {fileID: 1703297716}
   - component: {fileID: 1703297715}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: Boxer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51351,7 +51352,7 @@ GameObject:
   - component: {fileID: 1769148595}
   - component: {fileID: 1769148594}
   m_Layer: 5
-  m_Name: Image (11)
+  m_Name: BioHaz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55428,7 +55429,7 @@ GameObject:
   - component: {fileID: 1897771060}
   - component: {fileID: 1897771059}
   m_Layer: 5
-  m_Name: Image (6)
+  m_Name: Skater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58032,7 +58033,7 @@ GameObject:
   - component: {fileID: 2017218265}
   - component: {fileID: 2017218264}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58425,7 +58426,7 @@ GameObject:
   - component: {fileID: 2050923219}
   - component: {fileID: 2050923218}
   m_Layer: 5
-  m_Name: Image (09)
+  m_Name: VolleyBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    private string _privacyPolicyURL;
     public static MainMenu Instance;
     public Transform spawnLocation;
     public GameObject[] modelsToSpawn;
@@ -26,23 +28,23 @@ public class MainMenu : MonoBehaviour
     public Text unlockInfo;
     public enum ModelIDs
     {
-        amazon, //Key in playerPref: Amazon
-        baseball, //Key in playerPref: Baseball
-        bioHazzard, //Key in playerPref: BioHazz
-        boxer,
-        clown,
-        flatyBoss,
-        footballer,
-        goalkeeper,
-        hero,
-        hockey,
-        karate,
-        repairer,
-        roller,
-        skater,
-        skier,
-        tennis,
-        volley
+        repairer = 0,
+        clown = 1,
+        flatyBoss = 2,
+        hero = 3,
+        boxer = 4,
+        skater = 5,
+        hockey = 6,
+        volley = 7,
+        amazon = 8, 
+        bioHazzard = 9,
+        goalkeeper = 10, 
+        baseball = 11,
+        karate = 12,
+        tennis = 13,
+        skier = 14,
+        roller = 15,
+        footballer = 16
     }
     private void Awake()
     {
@@ -78,7 +80,10 @@ public class MainMenu : MonoBehaviour
             Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
         }
         else
+        {
             Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
+        }
+        
         StartCoroutine( InitializeUI());
         loadingDone = true;
     }
@@ -121,7 +126,7 @@ public class MainMenu : MonoBehaviour
         SoundManager.Instance.PlayButtonPressedSound();
         Destroy(spawnLocation.GetChild(0).gameObject);
         currentlySelectedModel = ModelIDs.amazon;
-        Instantiate(modelsToSpawn[(int)ModelIDs.amazon], spawnLocation).GetComponent<Animator>().SetTrigger("Selected"); ;
+        Instantiate(modelsToSpawn[(int)ModelIDs.amazon], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
         if (!PlayerPrefs.HasKey("Amazon"))
         {
             PlayerPrefs.SetString("Amazon", "False");
@@ -139,7 +144,8 @@ public class MainMenu : MonoBehaviour
     }
     public void ChangeToBaseball()
     {
-        SoundManager.Instance.PlayButtonPressedSound(); Destroy(spawnLocation.GetChild(0).gameObject);
+        SoundManager.Instance.PlayButtonPressedSound(); 
+        Destroy(spawnLocation.GetChild(0).gameObject);
         currentlySelectedModel = ModelIDs.baseball;
         Instantiate(modelsToSpawn[(int)ModelIDs.baseball], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
         if (!PlayerPrefs.HasKey("Baseball"))
@@ -159,7 +165,8 @@ public class MainMenu : MonoBehaviour
     }
     public void ChangeToBioHaz()
     {
-        SoundManager.Instance.PlayButtonPressedSound(); Destroy(spawnLocation.GetChild(0).gameObject);
+        SoundManager.Instance.PlayButtonPressedSound(); 
+        Destroy(spawnLocation.GetChild(0).gameObject);
         currentlySelectedModel = ModelIDs.bioHazzard;
         Instantiate(modelsToSpawn[(int)ModelIDs.bioHazzard], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
         if (!PlayerPrefs.HasKey("BioHaz"))
@@ -900,6 +907,7 @@ public class MainMenu : MonoBehaviour
 
     public void PP()
     {
-        Application.OpenURL("https://unconditionalgames.blogspot.com/2020/01/privacy-policy-this-privacy-policy.html");
+        Application.OpenURL(_privacyPolicyURL);
+        //Application.OpenURL("https://unconditionalgames.blogspot.com/2020/01/privacy-policy-this-privacy-policy.html");
     }
 }
