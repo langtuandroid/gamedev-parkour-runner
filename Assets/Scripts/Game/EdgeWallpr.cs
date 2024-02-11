@@ -1,21 +1,24 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Game
 {
     public class EdgeWallpr : MonoBehaviour
     {
-        private PlayerScript playerpr;
-        private void Start()
+        private PlayerScript _playerpr;
+        
+        [Inject]
+        private void  Context(PlayerScript player)
         {
-            playerpr = FindObjectOfType<PlayerScript>();
+            _playerpr = player;
         }
         private void OnTriggerExit(Collider other)
         {
-            if (other.tag == "Player")
+            if (other.CompareTag("Player"))
             {
-                StartCoroutine(playerpr.Jump());
+                StartCoroutine(_playerpr.Jump());
             }
-            else if(other.tag == "Enemy")
+            else if(other.CompareTag("Enemy"))
             {
                 StartCoroutine(other.GetComponent<Enemy>().Jump());
             }

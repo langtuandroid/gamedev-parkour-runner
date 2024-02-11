@@ -1280,6 +1280,16 @@ PrefabInstance:
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 5429064845285023356, guid: b4f027b10cf5c0740836dbc6e0f07423,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4059,6 +4069,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5463537997003783099, guid: b69fb1e7a7347b646a8e1c3a15d2edab,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1922500761}
+    - target: {fileID: 5463537997003783099, guid: b69fb1e7a7347b646a8e1c3a15d2edab,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -4070,6 +4085,21 @@ PrefabInstance:
     - target: {fileID: 5463537997003783099, guid: b69fb1e7a7347b646a8e1c3a15d2edab,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 663725195}
+    - target: {fileID: 5463537997003783099, guid: b69fb1e7a7347b646a8e1c3a15d2edab,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463537997003783099, guid: b69fb1e7a7347b646a8e1c3a15d2edab,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463537997003783099, guid: b69fb1e7a7347b646a8e1c3a15d2edab,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 663725195}
     - target: {fileID: 5546081454474859811, guid: b69fb1e7a7347b646a8e1c3a15d2edab,
@@ -8785,7 +8815,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: PP
+        m_MethodName: OpenPrivacyPolicypr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9003,10 +9033,10 @@ MonoBehaviour:
   - {fileID: 116582872}
   - {fileID: 904723377}
   - {fileID: 316635149}
-  - {fileID: 474140014}
-  - {fileID: 177209279}
   - {fileID: 757102882}
+  - {fileID: 474140014}
   - {fileID: 299801687}
+  - {fileID: 177209279}
   - {fileID: 2143820682}
   - {fileID: 2096932861}
   - {fileID: 1418143756}
@@ -10884,6 +10914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7411380643709772706, guid: bff470154fa4ca943b91fcac3b85f16c,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1826617112}
+    - target: {fileID: 7411380643709772706, guid: bff470154fa4ca943b91fcac3b85f16c,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -10895,6 +10930,21 @@ PrefabInstance:
     - target: {fileID: 7411380643709772706, guid: bff470154fa4ca943b91fcac3b85f16c,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 206545234}
+    - target: {fileID: 7411380643709772706, guid: bff470154fa4ca943b91fcac3b85f16c,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411380643709772706, guid: bff470154fa4ca943b91fcac3b85f16c,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411380643709772706, guid: bff470154fa4ca943b91fcac3b85f16c,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 206545234}
     - target: {fileID: 7669714604285355850, guid: bff470154fa4ca943b91fcac3b85f16c,
@@ -11412,6 +11462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1065798872003629714, guid: ec1362297cf72f247b0e8503b1bee4aa,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 244450147}
+    - target: {fileID: -1065798872003629714, guid: ec1362297cf72f247b0e8503b1bee4aa,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -11423,6 +11478,21 @@ PrefabInstance:
     - target: {fileID: -1065798872003629714, guid: ec1362297cf72f247b0e8503b1bee4aa,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1772160186}
+    - target: {fileID: -1065798872003629714, guid: ec1362297cf72f247b0e8503b1bee4aa,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1065798872003629714, guid: ec1362297cf72f247b0e8503b1bee4aa,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1065798872003629714, guid: ec1362297cf72f247b0e8503b1bee4aa,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1772160186}
     - target: {fileID: 533559367097618582, guid: ec1362297cf72f247b0e8503b1bee4aa,
@@ -16053,6 +16123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 164928797170451362, guid: 00e4450e4eb6d42488d31e56c39aeffe,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1088065700}
+    - target: {fileID: 164928797170451362, guid: 00e4450e4eb6d42488d31e56c39aeffe,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -16064,6 +16139,21 @@ PrefabInstance:
     - target: {fileID: 164928797170451362, guid: 00e4450e4eb6d42488d31e56c39aeffe,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1554261133}
+    - target: {fileID: 164928797170451362, guid: 00e4450e4eb6d42488d31e56c39aeffe,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 164928797170451362, guid: 00e4450e4eb6d42488d31e56c39aeffe,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 164928797170451362, guid: 00e4450e4eb6d42488d31e56c39aeffe,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1554261133}
     - target: {fileID: 476040998897072018, guid: 00e4450e4eb6d42488d31e56c39aeffe,
@@ -17045,6 +17135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6646644282247663926, guid: 60a8ea5616972f349866f26f658752e9,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1951462987}
+    - target: {fileID: -6646644282247663926, guid: 60a8ea5616972f349866f26f658752e9,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -17056,6 +17151,21 @@ PrefabInstance:
     - target: {fileID: -6646644282247663926, guid: 60a8ea5616972f349866f26f658752e9,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1048096587}
+    - target: {fileID: -6646644282247663926, guid: 60a8ea5616972f349866f26f658752e9,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -6646644282247663926, guid: 60a8ea5616972f349866f26f658752e9,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -6646644282247663926, guid: 60a8ea5616972f349866f26f658752e9,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1048096587}
     - target: {fileID: 4654169354143642748, guid: 60a8ea5616972f349866f26f658752e9,
@@ -20728,6 +20838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1692817609363881655, guid: d36bcee3948377442aff10e11613bf1e,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 907884367}
+    - target: {fileID: -1692817609363881655, guid: d36bcee3948377442aff10e11613bf1e,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -20739,6 +20854,21 @@ PrefabInstance:
     - target: {fileID: -1692817609363881655, guid: d36bcee3948377442aff10e11613bf1e,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1583632638}
+    - target: {fileID: -1692817609363881655, guid: d36bcee3948377442aff10e11613bf1e,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1692817609363881655, guid: d36bcee3948377442aff10e11613bf1e,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1692817609363881655, guid: d36bcee3948377442aff10e11613bf1e,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1583632638}
     - target: {fileID: 134048025231046188, guid: d36bcee3948377442aff10e11613bf1e,
@@ -29713,6 +29843,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4170564212669535632, guid: 7adc3164e382e5d41baabf58bec2ca02,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 748093016}
+    - target: {fileID: 4170564212669535632, guid: 7adc3164e382e5d41baabf58bec2ca02,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -29724,6 +29859,21 @@ PrefabInstance:
     - target: {fileID: 4170564212669535632, guid: 7adc3164e382e5d41baabf58bec2ca02,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1491128310}
+    - target: {fileID: 4170564212669535632, guid: 7adc3164e382e5d41baabf58bec2ca02,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170564212669535632, guid: 7adc3164e382e5d41baabf58bec2ca02,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170564212669535632, guid: 7adc3164e382e5d41baabf58bec2ca02,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1491128310}
     - target: {fileID: 4508844443327748502, guid: 7adc3164e382e5d41baabf58bec2ca02,
@@ -31220,6 +31370,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
         type: 3}
+      propertyPath: lockerpr
+      value: 
+      objectReference: {fileID: 78170276}
+    - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
+        type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 78170276}
+    - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -31230,7 +31390,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
         type: 3}
+      propertyPath: animationIDpr
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
+        type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 34667850}
+    - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
+        type: 3}
+      propertyPath: unlockedBannerpr
+      value: 
+      objectReference: {fileID: 34667850}
+    - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -5711718166299204132, guid: cfcce12dbd16ce942979c83f142b4f3b,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 34667850}
     - target: {fileID: 141801038699081572, guid: cfcce12dbd16ce942979c83f142b4f3b,
@@ -33317,6 +33502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -701865426449298232, guid: c2f34f8512842fc4b94756f9eea44358,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 382502516}
+    - target: {fileID: -701865426449298232, guid: c2f34f8512842fc4b94756f9eea44358,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -33328,6 +33518,21 @@ PrefabInstance:
     - target: {fileID: -701865426449298232, guid: c2f34f8512842fc4b94756f9eea44358,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1384232103}
+    - target: {fileID: -701865426449298232, guid: c2f34f8512842fc4b94756f9eea44358,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -701865426449298232, guid: c2f34f8512842fc4b94756f9eea44358,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -701865426449298232, guid: c2f34f8512842fc4b94756f9eea44358,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1384232103}
     - target: {fileID: 13797575140240660, guid: c2f34f8512842fc4b94756f9eea44358,
@@ -35925,6 +36130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3015996801749526778, guid: b2ceed32f06bb3d4fad7143908e232a1,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 435448843}
+    - target: {fileID: 3015996801749526778, guid: b2ceed32f06bb3d4fad7143908e232a1,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -35936,6 +36146,21 @@ PrefabInstance:
     - target: {fileID: 3015996801749526778, guid: b2ceed32f06bb3d4fad7143908e232a1,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 802336541}
+    - target: {fileID: 3015996801749526778, guid: b2ceed32f06bb3d4fad7143908e232a1,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015996801749526778, guid: b2ceed32f06bb3d4fad7143908e232a1,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015996801749526778, guid: b2ceed32f06bb3d4fad7143908e232a1,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 802336541}
     - target: {fileID: 3119559670045636970, guid: b2ceed32f06bb3d4fad7143908e232a1,
@@ -37056,6 +37281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7817577395739437527, guid: 62cd309ac61547a4b91e3b39e52ecd76,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1008202362}
+    - target: {fileID: -7817577395739437527, guid: 62cd309ac61547a4b91e3b39e52ecd76,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -37067,6 +37297,21 @@ PrefabInstance:
     - target: {fileID: -7817577395739437527, guid: 62cd309ac61547a4b91e3b39e52ecd76,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1402161142}
+    - target: {fileID: -7817577395739437527, guid: 62cd309ac61547a4b91e3b39e52ecd76,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -7817577395739437527, guid: 62cd309ac61547a4b91e3b39e52ecd76,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -7817577395739437527, guid: 62cd309ac61547a4b91e3b39e52ecd76,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1402161142}
     - target: {fileID: 484105291008966593, guid: 62cd309ac61547a4b91e3b39e52ecd76,
@@ -40061,6 +40306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1291960386076267884, guid: 234cb5b6f89d81444bb8ab4c95075128,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1141287633}
+    - target: {fileID: -1291960386076267884, guid: 234cb5b6f89d81444bb8ab4c95075128,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -40072,6 +40322,21 @@ PrefabInstance:
     - target: {fileID: -1291960386076267884, guid: 234cb5b6f89d81444bb8ab4c95075128,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 493681802}
+    - target: {fileID: -1291960386076267884, guid: 234cb5b6f89d81444bb8ab4c95075128,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1291960386076267884, guid: 234cb5b6f89d81444bb8ab4c95075128,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1291960386076267884, guid: 234cb5b6f89d81444bb8ab4c95075128,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 493681802}
     - target: {fileID: 3982537483165088, guid: 234cb5b6f89d81444bb8ab4c95075128, type: 3}
@@ -41815,6 +42080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1421851401815851923, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1619330411}
+    - target: {fileID: -1421851401815851923, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -41826,6 +42096,21 @@ PrefabInstance:
     - target: {fileID: -1421851401815851923, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1699921870}
+    - target: {fileID: -1421851401815851923, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1421851401815851923, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -1421851401815851923, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1699921870}
     - target: {fileID: 148560437766235413, guid: 1ab1b5e1a27e30d499dbcbaaf1ecac46,
@@ -45212,6 +45497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114872059111245123, guid: 11e71e5410dea0448af2d2c72c496fe1,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 700042962}
+    - target: {fileID: 114872059111245123, guid: 11e71e5410dea0448af2d2c72c496fe1,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -45223,6 +45513,21 @@ PrefabInstance:
     - target: {fileID: 114872059111245123, guid: 11e71e5410dea0448af2d2c72c496fe1,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 413288787}
+    - target: {fileID: 114872059111245123, guid: 11e71e5410dea0448af2d2c72c496fe1,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872059111245123, guid: 11e71e5410dea0448af2d2c72c496fe1,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872059111245123, guid: 11e71e5410dea0448af2d2c72c496fe1,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 413288787}
     - target: {fileID: 257614223087313433, guid: 11e71e5410dea0448af2d2c72c496fe1,
@@ -46565,6 +46870,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4778125664214843832, guid: c6b4bc5ed6676c74187c18bb475a876d,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 623798407}
+    - target: {fileID: -4778125664214843832, guid: c6b4bc5ed6676c74187c18bb475a876d,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -46576,6 +46886,21 @@ PrefabInstance:
     - target: {fileID: -4778125664214843832, guid: c6b4bc5ed6676c74187c18bb475a876d,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 793048447}
+    - target: {fileID: -4778125664214843832, guid: c6b4bc5ed6676c74187c18bb475a876d,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -4778125664214843832, guid: c6b4bc5ed6676c74187c18bb475a876d,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -4778125664214843832, guid: c6b4bc5ed6676c74187c18bb475a876d,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 793048447}
     - target: {fileID: 211024122163568781, guid: c6b4bc5ed6676c74187c18bb475a876d,
@@ -52721,6 +53046,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -536688745112127484, guid: 8c7d51a172e03d54f9e1131b9f2a4d28,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 1200799888}
+    - target: {fileID: -536688745112127484, guid: 8c7d51a172e03d54f9e1131b9f2a4d28,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -52732,6 +53062,21 @@ PrefabInstance:
     - target: {fileID: -536688745112127484, guid: 8c7d51a172e03d54f9e1131b9f2a4d28,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 1381518444}
+    - target: {fileID: -536688745112127484, guid: 8c7d51a172e03d54f9e1131b9f2a4d28,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -536688745112127484, guid: 8c7d51a172e03d54f9e1131b9f2a4d28,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -536688745112127484, guid: 8c7d51a172e03d54f9e1131b9f2a4d28,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 1381518444}
     - target: {fileID: 344372516969125479, guid: 8c7d51a172e03d54f9e1131b9f2a4d28,
@@ -59564,6 +59909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
         type: 3}
+      propertyPath: _lockerpr
+      value: 
+      objectReference: {fileID: 187651690}
+    - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
+        type: 3}
       propertyPath: costToUnlock
       value: 500
       objectReference: {fileID: 0}
@@ -59575,6 +59925,21 @@ PrefabInstance:
     - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
         type: 3}
       propertyPath: unlockedBanner
+      value: 
+      objectReference: {fileID: 2114748840}
+    - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
+        type: 3}
+      propertyPath: _costToUnlockpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
+        type: 3}
+      propertyPath: _costToUnlockprpr
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419598103401905324, guid: b4f027b10cf5c0740836dbc6e0f07423,
+        type: 3}
+      propertyPath: _unlockedBannerpr
       value: 
       objectReference: {fileID: 2114748840}
     - target: {fileID: 5429064845285023356, guid: b4f027b10cf5c0740836dbc6e0f07423,
@@ -61914,11 +62279,11 @@ AudioSource:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1943479803}
-  - {fileID: 1293230750}
-  - {fileID: 826774259}
   - {fileID: 274475597}
+  - {fileID: 826774259}
   - {fileID: 383253389}
   - {fileID: 1809103290}
+  - {fileID: 1293230750}
+  - {fileID: 1943479803}
   - {fileID: 944440258}
   - {fileID: 4589555270044412182}

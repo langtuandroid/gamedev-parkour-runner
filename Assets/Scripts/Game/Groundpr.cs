@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Game
 {
     public class Groundpr : MonoBehaviour
     {
-        private PlayerScript playerpr;
         private Enemy enemypr;
-        private void Start()
+        private PlayerScript _playerpr;
+        
+        [Inject]
+        private void  Context(PlayerScript player)
         {
-            playerpr = FindObjectOfType<PlayerScript>();
+            _playerpr = player;
         }
         
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player")
             {
-                playerpr.transform.position = playerpr.lastCheckpoint.position;
-                playerpr.ResetMovementValues();
+                _playerpr.transform.position = _playerpr.lastCheckpoint.position;
+                _playerpr.ResetMovementValues();
             }
             else if (other.tag == "Enemy")
             {

@@ -6,14 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class ChangeAnimator : MonoBehaviour
 {
-    public RuntimeAnimatorController mainMenuAnimator;
-    Animator currentAnimator;
-    public int animationID;
-    public Image locker;
-    public TrailRenderer leftHandTrail, rightHandTrail;
-    public Renderer material;
-    public int costToUnlock;
-    public GameObject unlockedBanner;
+    public RuntimeAnimatorController mainMenuAnimatorpr;
+    [SerializeField]
+    private int _animationIDpr;
+    [SerializeField]
+    private TrailRenderer leftHandTrail, rightHandTrail;
+    [SerializeField]
+    private int _costToUnlockprpr;
+    [SerializeField]
+    private Image _lockerpr;
+    [SerializeField]
+    public GameObject _unlockedBannerpr;
+
+    //private Renderer material;
+    private Animator currentAnimator;
 
     private void Start()
     {
@@ -25,8 +31,8 @@ public class ChangeAnimator : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            currentAnimator.runtimeAnimatorController = mainMenuAnimator;
-            currentAnimator.SetInteger("AnimationID", animationID);
+            currentAnimator.runtimeAnimatorController = mainMenuAnimatorpr;
+            currentAnimator.SetInteger("AnimationID", _animationIDpr);
         }
         else
         {
@@ -41,31 +47,31 @@ public class ChangeAnimator : MonoBehaviour
     }
     public void LockThisCharacter()
     {
-        material = gameObject.transform.Find("body").GetComponent<Renderer>();
-        locker.gameObject.SetActive(true);
-        unlockedBanner.SetActive(false);
+        //material = gameObject.transform.Find("body").GetComponent<Renderer>();
+        _lockerpr.gameObject.SetActive(true);
+        _unlockedBannerpr.SetActive(false);
         //material.materials[0].SetColor("_BaseColor", Color.gray);
         //material.materials[1].SetColor("_BaseColor", Color.gray);
     }
     public void UnlockThisCharacter()
     {
-        material = gameObject.transform.Find("body").GetComponent<Renderer>();
-        locker.gameObject.SetActive(false);
-        unlockedBanner.SetActive(true);
+        //material = gameObject.transform.Find("body").GetComponent<Renderer>();
+        _lockerpr.gameObject.SetActive(false);
+        _unlockedBannerpr.SetActive(true);
         //material.materials[0].SetColor("_BaseColor", Color.white);
         //material.materials[1].SetColor("_BaseColor", Color.yellow);
     }
     public void AlreadyUnlocked()
     {
-        material = gameObject.transform.Find("body").GetComponent<Renderer>();
-        locker.gameObject.SetActive(false);
-        unlockedBanner.SetActive(true);
+        //material = gameObject.transform.Find("body").GetComponent<Renderer>();
+        _lockerpr.gameObject.SetActive(false);
+        _unlockedBannerpr.SetActive(true);
         //material.materials[0].SetColor("_BaseColor", Color.white);
         //material.materials[1].SetColor("_BaseColor", Color.yellow);
 
     }
     public int GetCostToUnlock()
     {
-        return costToUnlock;
+        return _costToUnlockprpr;
     }
 }

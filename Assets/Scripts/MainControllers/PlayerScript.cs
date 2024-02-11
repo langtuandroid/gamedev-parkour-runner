@@ -13,7 +13,6 @@ public class PlayerScript : MonoBehaviour
     bool canVault = true;
     public bool canMove = true;
     public bool canKnockback;
-    
 
     [Header("Settings")]
     public FloatingJoystick joystick;
@@ -41,7 +40,6 @@ public class PlayerScript : MonoBehaviour
     public float onAirTime;
 
     [Header("Player State Bools")]
-
     public bool grounded;
     public bool onLeftWall;
     public bool onRightWall;
@@ -50,7 +48,6 @@ public class PlayerScript : MonoBehaviour
     Vector3 forceDirection;
 
     [Header("Animator Hash")]
-
     public int animatorGrounded;
     public int animatorLeftWall;
     public int animatorRightWall;
@@ -413,7 +410,6 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(knockbackDuration); // Ждем определенное время
         canMoveForward = true; // Разрешаем движение вперед снова
         canKnockback = true; // Позволяем снова использовать отбрасывание
-
     }
 }
 

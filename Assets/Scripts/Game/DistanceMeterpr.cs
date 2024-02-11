@@ -13,7 +13,7 @@ namespace Game
     
         private void Start()
         {
-            if (tag == "Enemy")
+            if (CompareTag("Enemy"))
             {
                 playerNamepr.text = playerNames[Random.Range(0, playerNames.Length)];
             }

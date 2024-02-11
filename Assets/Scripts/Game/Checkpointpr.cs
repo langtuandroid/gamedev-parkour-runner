@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Game
 {
@@ -6,12 +7,14 @@ namespace Game
     {
         private readonly string _playerTagpr = "Player";
         private readonly string _enemyTagpr = "Enemy";
-    
-        private PlayerScript _playerpr;
+        
         public Transform[] correspondingPlatform;
-        private void Start()
+        private PlayerScript _playerpr;
+        
+        [Inject]
+        private void  Context(PlayerScript player)
         {
-            _playerpr = FindObjectOfType<PlayerScript>();
+            _playerpr = player;
         }
 
         private void OnTriggerEnter(Collider other)
