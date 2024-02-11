@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MainControllers;
+using UnityEngine;
 using Zenject;
 
 namespace Game
@@ -16,11 +17,11 @@ namespace Game
 
         }
 
-        private PlayerScript _playerpr;
+        private PlayerScriptpr _playerpr;
         public ObstaclesTypes obstaclesType;
 
         [Inject]
-        private void  Context(PlayerScript player)
+        private void  Context(PlayerScriptpr player)
         {
             _playerpr = player;
         }
@@ -30,7 +31,7 @@ namespace Game
             if (other.CompareTag("Player"))
             {
                 SoundManager.Instance.PlayBoostSound();
-                AndroidManager.HapticFeedback();
+                AndroidManagerpr.HapticFeedback();
                 if (!_playerpr.speedEffect.isPlaying)
                     _playerpr.speedEffect.Play();
                 _playerpr.speedUpEffect.Play();
@@ -137,30 +138,30 @@ namespace Game
             else if (other.tag == "Enemy")
             {
             
-                Enemy enemy = other.GetComponent<Enemy>();
+                Enemypr enemypr = other.GetComponent<Enemypr>();
 
                 switch (obstaclesType)
                 {
                     case ObstaclesTypes.Booster:
                     {
-                        enemy.forwardMoveSpeed += 1;
-                        if (!enemy.grounded && !GameManager.Instance.gamePaused)
+                        enemypr.forwardMoveSpeed += 1;
+                        if (!enemypr.grounded && !GameManager.Instance.gamePaused)
                         {
-                            enemy.forwardMoveSpeed += 2;
-                            enemy.jumpStrength += 10;
-                            enemy.playerAnimator.speed += 0.1f;
+                            enemypr.forwardMoveSpeed += 2;
+                            enemypr.jumpStrength += 10;
+                            enemypr.playerAnimator.speed += 0.1f;
                         }
-                        StartCoroutine(enemy.Jump());
+                        StartCoroutine(enemypr.Jump());
                         break;
                     }
                     case ObstaclesTypes.GoUnder:
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemy.forwardMoveSpeed += .5f;
-                            enemy.jumpStrength += 0.5f;
-                            StartCoroutine(enemy.PerformSlide());
-                            enemy.playerAnimator.speed += 0.04f;
+                            enemypr.forwardMoveSpeed += .5f;
+                            enemypr.jumpStrength += 0.5f;
+                            StartCoroutine(enemypr.PerformSlide());
+                            enemypr.playerAnimator.speed += 0.04f;
                         }
 
                         break;
@@ -169,10 +170,10 @@ namespace Game
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemy.forwardMoveSpeed += .5f;
-                            enemy.jumpStrength += 0.5f;
-                            StartCoroutine(enemy.JumpOverObstacles());
-                            enemy.playerAnimator.speed += 0.04f;
+                            enemypr.forwardMoveSpeed += .5f;
+                            enemypr.jumpStrength += 0.5f;
+                            StartCoroutine(enemypr.JumpOverObstacles());
+                            enemypr.playerAnimator.speed += 0.04f;
                         }
                         break;
                     }
@@ -180,9 +181,9 @@ namespace Game
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemy.jumpStrength += .5f;
-                            enemy.forwardMoveSpeed += .5f;
-                            enemy.playerAnimator.speed += 0.04f;
+                            enemypr.jumpStrength += .5f;
+                            enemypr.forwardMoveSpeed += .5f;
+                            enemypr.playerAnimator.speed += 0.04f;
                         }
                         break;
                     }
@@ -190,11 +191,11 @@ namespace Game
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemy.jumpStrength += .5f;
-                            enemy.forwardMoveSpeed += .5f;
-                            enemy.playerAnimator.speed += 0.04f;
+                            enemypr.jumpStrength += .5f;
+                            enemypr.forwardMoveSpeed += .5f;
+                            enemypr.playerAnimator.speed += 0.04f;
                         }
-                        StartCoroutine(enemy.Vault());
+                        StartCoroutine(enemypr.Vault());
                         break;
                     }
                 }

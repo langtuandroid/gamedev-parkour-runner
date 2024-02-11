@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MainControllers;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DebugScript : MonoBehaviour
 {
-    public PlayerScript player;
+    public PlayerScriptpr player;
     public Text debugText;
     private void Start()
     {
-        player = FindObjectOfType<PlayerScript>();
+        player = FindObjectOfType<PlayerScriptpr>();
         debugText = GetComponent<Text>();
     }
     private void Update()

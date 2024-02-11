@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using MainControllers;
+using UnityEngine;
 using Zenject;
 
 namespace Game
 {
     public class Groundpr : MonoBehaviour
     {
-        private Enemy enemypr;
-        private PlayerScript _playerpr;
+        private Enemypr enemypr;
+        private PlayerScriptpr _playerpr;
         
         [Inject]
-        private void  Context(PlayerScript player)
+        private void  Context(PlayerScriptpr player)
         {
             _playerpr = player;
         }
@@ -23,7 +24,7 @@ namespace Game
             }
             else if (other.tag == "Enemy")
             {
-                enemypr = other.GetComponent<Enemy>();
+                enemypr = other.GetComponent<Enemypr>();
                 enemypr.ResetMovementValues();
                 enemypr.transform.position = enemypr.lastCheckpoint.position;
             }

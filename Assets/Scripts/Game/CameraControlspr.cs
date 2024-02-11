@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MainControllers;
+using UnityEngine;
 using Zenject;
 
 namespace Game
@@ -20,10 +21,10 @@ namespace Game
             set => _cameraSmoothingpr = value;
         }
 
-        private PlayerScript _playerpr;
+        private PlayerScriptpr _playerpr;
         
         [Inject]
-        private void  Context(PlayerScript player)
+        private void  Context(PlayerScriptpr player)
         {
             _playerpr = player;
         }

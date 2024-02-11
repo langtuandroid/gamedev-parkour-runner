@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Game;
+using MainControllers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -19,11 +20,11 @@ namespace UI
         private int _startPospr = 0;
         
         private  Slider _progressSliderpr;
-        private PlayerScript _playerpr;
+        private PlayerScriptpr _playerpr;
         private Transform _playerParentpr;
         
         [Inject]
-        private void  Context(PlayerScript player)
+        private void  Context(PlayerScriptpr player)
         {
             _playerpr = player;
             _playerParentpr = player.gameObject.transform.parent;

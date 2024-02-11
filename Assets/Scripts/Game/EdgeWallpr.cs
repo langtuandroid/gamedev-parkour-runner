@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using MainControllers;
+using UnityEngine;
 using Zenject;
 
 namespace Game
 {
     public class EdgeWallpr : MonoBehaviour
     {
-        private PlayerScript _playerpr;
+        private PlayerScriptpr _playerpr;
         
         [Inject]
-        private void  Context(PlayerScript player)
+        private void  Context(PlayerScriptpr player)
         {
             _playerpr = player;
         }
@@ -20,7 +21,7 @@ namespace Game
             }
             else if(other.CompareTag("Enemy"))
             {
-                StartCoroutine(other.GetComponent<Enemy>().Jump());
+                StartCoroutine(other.GetComponent<Enemypr>().Jump());
             }
         }
 

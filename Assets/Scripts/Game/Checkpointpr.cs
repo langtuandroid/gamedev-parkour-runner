@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MainControllers;
+using UnityEngine;
 using Zenject;
 
 namespace Game
@@ -9,10 +10,10 @@ namespace Game
         private readonly string _enemyTagpr = "Enemy";
         
         public Transform[] correspondingPlatform;
-        private PlayerScript _playerpr;
+        private PlayerScriptpr _playerpr;
         
         [Inject]
-        private void  Context(PlayerScript player)
+        private void  Context(PlayerScriptpr player)
         {
             _playerpr = player;
         }
@@ -26,9 +27,9 @@ namespace Game
 
             else if(other.CompareTag(_enemyTagpr) && correspondingPlatform.Length != 0)
             {
-                Enemy enemy = other.GetComponent<Enemy>();
-                enemy.nearestPlatform = correspondingPlatform[Random.Range(0, correspondingPlatform.Length)];
-                enemy.lastCheckpoint = transform;
+                Enemypr enemypr = other.GetComponent<Enemypr>();
+                enemypr.nearestPlatform = correspondingPlatform[Random.Range(0, correspondingPlatform.Length)];
+                enemypr.lastCheckpoint = transform;
             }
         }
     }

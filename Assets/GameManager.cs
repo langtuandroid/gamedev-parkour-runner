@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Game;
+using MainControllers;
 using UI;
 using UnityEngine;
 using Zenject;
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     
-    public List<Enemy> enemies;
+    public List<Enemypr> enemies;
     public ParticleSystem.MainModule main;
     public bool gameEnded = false;
     public bool gameStarted = false;
@@ -20,12 +21,12 @@ public class GameManager : MonoBehaviour
     public bool gamePaused = false;
     public float lightAmount;
     
-    private  PlayerScript _playerpr;
+    private  PlayerScriptpr _playerpr;
     private CameraControlspr _mainCamerapr;
     private Transform _allPlayersTransformpr;
 
     [Inject]
-    private void  Context(PlayerScript player, CameraControlspr mainCamera)
+    private void  Context(PlayerScriptpr player, CameraControlspr mainCamera)
     {
         _playerpr = player;
         _mainCamerapr = mainCamera;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SoundManager.Instance.PlayerBGMusicTwo();
-        _playerpr = FindObjectOfType<PlayerScript>();
+        _playerpr = FindObjectOfType<PlayerScriptpr>();
         _playerpr.canMove = false;
         spawnedModel = Instantiate(availableModels[PlayerPrefs.GetInt("ChoosenCharacter")], _playerpr.transform);
         _playerpr.playerAnimator = spawnedModel.GetComponent<Animator>();
@@ -52,17 +53,17 @@ public class GameManager : MonoBehaviour
         StartCoroutine(spawnedModel.GetComponent<ChangeAnimator>().EnableTrails());
         foreach (Transform players in _allPlayersTransformpr)
         {
-            if (players.GetComponent<Enemy>() != null)
+            if (players.GetComponent<Enemypr>() != null)
             {
-                Enemy enemyScript = players.GetComponent<Enemy>();
-                enemies.Add(enemyScript);
-                enemyScript.canMove = false;
+                Enemypr enemyprScript = players.GetComponent<Enemypr>();
+                enemies.Add(enemyprScript);
+                enemyprScript.canMove = false;
                 GameObject gg =  Instantiate(availableModels[Random.Range(0,availableModels.Length)], players.transform);
-                enemyScript.playerBody = gg.transform;
-                enemyScript.playerAnimator = gg.GetComponent<Animator>();
-                enemyScript.playerAnimator.speed = 1.2f;
-                enemyScript.playerBody.transform.localScale = new Vector3(.4f, .4f, .4f);
-                enemyScript.playerBody.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                enemyprScript.playerBody = gg.transform;
+                enemyprScript.playerAnimator = gg.GetComponent<Animator>();
+                enemyprScript.playerAnimator.speed = 1.2f;
+                enemyprScript.playerBody.transform.localScale = new Vector3(.4f, .4f, .4f);
+                enemyprScript.playerBody.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
             
         }
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
         _playerpr.playerAnimator.SetBool("CanRun", true);
         if (enemies.Count != 0)
         {
-            foreach (Enemy ene in enemies)
+            foreach (Enemypr ene in enemies)
             {
                 ene.canMove = true;
                 ene.playerAnimator.SetBool("CanRun", true);
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
     {
         SoundManager.Instance.PlayEndSound();
         
-        _playerpr = FindObjectOfType<PlayerScript>();
+        _playerpr = FindObjectOfType<PlayerScriptpr>();
         main = _playerpr.speedEffect.main;
         _mainCamerapr = FindObjectOfType<CameraControlspr>();
         PauseGame();
@@ -129,7 +130,7 @@ public class GameManager : MonoBehaviour
         gamePaused = true;
         int i = 0;
         playerAnimatorSpeed = _playerpr.playerAnimator.speed;
-        foreach (Enemy ene in enemies)
+        foreach (Enemypr ene in enemies)
         {
             if (ene != null)
             {
@@ -148,7 +149,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         int i = 0;
-        foreach (Enemy ene in enemies)
+        foreach (Enemypr ene in enemies)
         {
             if (ene != null)
             {

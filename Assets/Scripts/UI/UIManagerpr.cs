@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Game;
+using MainControllers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ namespace UI
         [SerializeField] 
         private Button _pausepr;
         public static UIManagerpr Instancepr;
-        PlayerScript playerpr;
+        PlayerScriptpr playerpr;
         public FloatingJoystick joystickpr;
         public Transform endGameWindowpr;
         public GameObject nextButtonpr;
@@ -48,7 +49,7 @@ namespace UI
         {
             coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
             goldAtStartpr = PlayerPrefs.GetInt("Gold");
-            playerpr = FindObjectOfType<PlayerScript>();
+            playerpr = FindObjectOfType<PlayerScriptpr>();
             playerpr.joystick = joystickpr;
             playerpr.GetComponent<DistanceMeterpr>().playerPospr = playerPospr;
             UImanagerAnimatorpr = GetComponentInChildren<Animator>();
