@@ -36,7 +36,7 @@ namespace UI
         public ParticleControlScript coinExplosionSettingspr;
         int goldAtStartpr = 0;
         int goldEarnedpr = 0;
-    
+        private int presentLevel;
         private void Awake()
         {
             if (!Instancepr)
@@ -47,6 +47,7 @@ namespace UI
         }
         private void Start()
         {
+            presentLevel = SceneManager.GetActiveScene().buildIndex;
             coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
             goldAtStartpr = PlayerPrefs.GetInt("Gold");
             playerpr = FindObjectOfType<PlayerScriptpr>();
@@ -100,10 +101,14 @@ namespace UI
         
             if (playerpr.gameObject.GetComponent<DistanceMeterpr>().positionInRacepr == 1)
             {
-            
                 retryButtonpr.SetActive(false);
                 infoTextWindowpr.gameObject.SetActive(false);
-                PlayerPrefs.SetInt("LevelProgression", PlayerPrefs.GetInt("LevelProgression",2) + 1);
+                int level = PlayerPrefs.GetInt("LevelProgression");
+                if (level <= 21)
+                {
+                    PlayerPrefs.SetInt("LevelProgression", PlayerPrefs.GetInt("LevelProgression",2) + 1);
+                }
+                
                 endPlayerPositionpr.text = playerpr.GetComponent<DistanceMeterpr>().playerPospr.text;
                 goldEarnedpr = Random.Range(100, 200);
                 coinExplosionSettingspr.coinsCount = goldEarnedpr / 3;
@@ -133,20 +138,40 @@ namespace UI
             }
         }
 
-        public void LoadLevelpr()
+        public void RestartLevelpr()
         {
-
             SoundManager.Instance.PlayButtonPressedSound();
             if (PlayerPrefs.GetInt("Gold") != goldAtStartpr + goldEarnedpr)
                 PlayerPrefs.SetInt("Gold", goldAtStartpr + goldEarnedpr);
-            StartCoroutine(LoadLevelAsyncpr());
+            StartCoroutine(LoadLevelAsyncpr(presentLevel));
             //AdManager.instance.ShowAd();
-
+        }
+        
+        public void LoadLevelpr()
+        {
+            SoundManager.Instance.PlayButtonPressedSound();
+            if (PlayerPrefs.GetInt("Gold") != goldAtStartpr + goldEarnedpr)
+                PlayerPrefs.SetInt("Gold", goldAtStartpr + goldEarnedpr);
+            
+            int lasOpenLevel = PlayerPrefs.GetInt("LevelProgression", 2);
+            StartCoroutine(LoadLevelAsyncpr(lasOpenLevel));
+            //AdManager.instance.ShowAd();
         }
 
-        public IEnumerator LoadLevelAsyncpr()
+        public IEnumerator LoadLevelAsyncpr(int level)
         {
-            AsyncOperation loadingprogress = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("LevelProgression",2));
+            AsyncOperation loadingprogress = new AsyncOperation();
+           
+            if (level > 21)
+            {
+                int randomtLevel = Random.Range(5, 20);
+                loadingprogress = SceneManager.LoadSceneAsync(randomtLevel);
+            }
+            else
+            {
+                loadingprogress = SceneManager.LoadSceneAsync(level);
+            }
+            
             loadingprogress.allowSceneActivation = true;
             while (!loadingprogress.isDone)
             {
@@ -157,7 +182,7 @@ namespace UI
         public void StartGamePressedpr()
         {
             handUIpr.SetActive(false);
-            levelInfopr.text = (PlayerPrefs.GetInt("LevelProgression",2)-1).ToString();
+            levelInfopr.text = presentLevel.ToString();
             gameRunningpr.SetTrigger("Start");
             UImanagerAnimatorpr.SetTrigger("Out");
             gameStartButtonpr.SetActive(false);

@@ -13664,17 +13664,17 @@ PrefabInstance:
     - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: m_FollowOffset.x
-      value: -16.529999
+      value: -16.53
       objectReference: {fileID: 0}
     - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: -0.16000056
+      value: -0.1600006
       objectReference: {fileID: 0}
     - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -12.040004
+      value: -12.04
       objectReference: {fileID: 0}
     - target: {fileID: 3299150875419626762, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
@@ -23703,7 +23703,7 @@ PrefabInstance:
     - target: {fileID: 8181076879936897601, guid: ccefca63ba90dd24e97d77a574d54167,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 44.82
+      value: 20.77
       objectReference: {fileID: 0}
     - target: {fileID: 8181076879936897601, guid: ccefca63ba90dd24e97d77a574d54167,
         type: 3}
@@ -46099,6 +46099,14 @@ PrefabInstance:
     - target: {fileID: 1624883469, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624883471, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevelpr
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624883471, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.UIManagerpr, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1820613565, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
       propertyPath: m_StaticEditorFlags

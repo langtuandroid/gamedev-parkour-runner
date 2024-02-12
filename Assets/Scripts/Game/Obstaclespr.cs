@@ -135,7 +135,7 @@ namespace Game
                     }
                 }
             }
-            else if (other.tag == "Enemy")
+            else if (other.CompareTag("Enemy"))
             {
             
                 Enemypr enemypr = other.GetComponent<Enemypr>();

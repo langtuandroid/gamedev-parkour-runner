@@ -17,12 +17,12 @@ namespace Game
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player")
+            if (other.CompareTag("Player"))
             {
                 _playerpr.transform.position = _playerpr.lastCheckpointpr.position;
                 _playerpr.ResetMovementValuespr();
             }
-            else if (other.tag == "Enemy")
+            else if (other.CompareTag("Enemy"))
             {
                 enemypr = other.GetComponent<Enemypr>();
                 enemypr.ResetMovementValuespr();

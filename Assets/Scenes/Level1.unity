@@ -38436,6 +38436,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 8.5998535
       objectReference: {fileID: 0}
+    - target: {fileID: 1624883471, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevelpr
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624883471, guid: e708c098af6fc8449b6dce5ebad52927, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.UIManagerpr, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1974504783077693176, guid: e708c098af6fc8449b6dce5ebad52927,
         type: 3}
       propertyPath: m_Name

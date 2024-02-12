@@ -10572,7 +10572,7 @@ PrefabInstance:
     - target: {fileID: 3299150874362083049, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: near clip plane
-      value: 0.01
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 3299150874362083050, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
@@ -10727,17 +10727,17 @@ PrefabInstance:
     - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: m_FollowOffset.x
-      value: -13.47269
+      value: -13.76
       objectReference: {fileID: 0}
     - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: -2.177349
+      value: -2.450001
       objectReference: {fileID: 0}
     - target: {fileID: 3299150875419626761, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5.029337
+      value: -4.740005
       objectReference: {fileID: 0}
     - target: {fileID: 3299150875419626762, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
@@ -10822,7 +10822,7 @@ PrefabInstance:
     - target: {fileID: 3299150875500772078, guid: 0e4a9f2ffe6fbab4db269f178197463e,
         type: 3}
       propertyPath: m_Lens.NearClipPlane
-      value: 0.01
+      value: 0.001
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3299150874902270215, guid: 0e4a9f2ffe6fbab4db269f178197463e, type: 3}
