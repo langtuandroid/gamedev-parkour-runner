@@ -19,14 +19,14 @@ namespace Game
         {
             if (other.tag == "Player")
             {
-                _playerpr.transform.position = _playerpr.lastCheckpoint.position;
-                _playerpr.ResetMovementValues();
+                _playerpr.transform.position = _playerpr.lastCheckpointpr.position;
+                _playerpr.ResetMovementValuespr();
             }
             else if (other.tag == "Enemy")
             {
                 enemypr = other.GetComponent<Enemypr>();
-                enemypr.ResetMovementValues();
-                enemypr.transform.position = enemypr.lastCheckpoint.position;
+                enemypr.ResetMovementValuespr();
+                enemypr.transform.position = enemypr.lastCheckpointpr.position;
             }
 
         }

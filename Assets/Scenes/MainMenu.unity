@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: QuitGame
+        m_MethodName: QuitGamepr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2091,7 +2091,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: EnableCharacterSelectionWindow
+        m_MethodName: EnableCharacterSelectionWindowpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2321,7 +2321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToFlatyBoss
+        m_MethodName: ChangeToFlatyBosspr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4467,7 +4467,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ToggleAcknowledgement
+        m_MethodName: ToggleAcknowledgementpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5236,7 +5236,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: PopUpClose
+        m_MethodName: PopUpClosepr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6292,7 +6292,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToRoller
+        m_MethodName: ChangeToRollerpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8997,7 +8997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _privacyPolicyURL: https://www.google.com
-  spawnLocation: {fileID: 1267377262}
+  spawnLocationpr: {fileID: 1267377262}
   modelsToSpawn:
   - {fileID: 889281368292808121, guid: cfcce12dbd16ce942979c83f142b4f3b, type: 3}
   - {fileID: 1382415590175112493, guid: 62cd309ac61547a4b91e3b39e52ecd76, type: 3}
@@ -9016,12 +9016,10 @@ MonoBehaviour:
   - {fileID: 7679883492405747841, guid: 00e4450e4eb6d42488d31e56c39aeffe, type: 3}
   - {fileID: 3494143232912680633, guid: d36bcee3948377442aff10e11613bf1e, type: 3}
   - {fileID: 6426448535808468658, guid: c6b4bc5ed6676c74187c18bb475a876d, type: 3}
-  CharacterSelectionWindow: {fileID: 1288735268}
-  mainMenuWindow: {fileID: 862220460}
-  tempInt: 0
-  loadingDone: 0
-  unlockButton: {fileID: 1484689173}
-  currentlySelectedModel: 11
+  CharacterSelectionWindowpr: {fileID: 1288735268}
+  mainMenuWindowpr: {fileID: 862220460}
+  unlockButtonpr: {fileID: 1484689173}
+  currentlySelectedModelpr: 11
   allModels:
   - {fileID: 1517141645}
   - {fileID: 1699010009}
@@ -9040,14 +9038,14 @@ MonoBehaviour:
   - {fileID: 2143820682}
   - {fileID: 2096932861}
   - {fileID: 1418143756}
-  acknowledgementAnimator: {fileID: 305963946}
-  acknowledgementGameObject: {fileID: 305963944}
-  popUpMessage: {fileID: 980540860}
-  popUpMessageText: {fileID: 608232893}
-  popUpMessage2: {fileID: 1785528849}
-  popUpMessage2Text: {fileID: 1269558769}
-  coinInfo: {fileID: 1882258765}
-  unlockInfo: {fileID: 1402208997}
+  acknowledgementAnimatorpr: {fileID: 305963946}
+  acknowledgementGameObjectpr: {fileID: 305963944}
+  popUpMessagepr: {fileID: 980540860}
+  popUpMessageTextpr: {fileID: 608232893}
+  popUpMessage2pr: {fileID: 1785528849}
+  popUpMessage2Textpr: {fileID: 1269558769}
+  coinInfopr: {fileID: 1882258765}
+  unlockInfopr: {fileID: 1402208997}
 --- !u!1001 &388497995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9342,7 +9340,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToClown
+        m_MethodName: ChangeToClownpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12950,7 +12948,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToGoalKeeper
+        m_MethodName: ChangeToGoalKeeperpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13547,7 +13545,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: AddGold
+        m_MethodName: AddGoldpr
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15096,7 +15094,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToTennis
+        m_MethodName: ChangeToTennispr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15323,7 +15321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToKarate
+        m_MethodName: ChangeToKaratepr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15456,7 +15454,7 @@ GameObject:
   - component: {fileID: 608232894}
   - component: {fileID: 608232893}
   m_Layer: 5
-  m_Name: Text
+  m_Name: popup1Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18539,7 +18537,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToHockey
+        m_MethodName: ChangeToHockeypr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18705,7 +18703,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToAmazon
+        m_MethodName: ChangeToAmazonpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22840,7 +22838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: LoadLevel
+        m_MethodName: LoadLevelpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22976,7 +22974,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToBaseball
+        m_MethodName: ChangeToBaseballpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23109,7 +23107,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: Unlock
+        m_MethodName: Unlockpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24795,7 +24793,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToSkier
+        m_MethodName: ChangeToSkierpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27877,7 +27875,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: EnableCharacterSelectionWindow
+        m_MethodName: EnableCharacterSelectionWindowpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28403,7 +28401,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToFootballer
+        m_MethodName: ChangeToFootballerpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28644,7 +28642,7 @@ GameObject:
   - component: {fileID: 1269558770}
   - component: {fileID: 1269558769}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Popup2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40061,7 +40059,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ToggleAcknowledgement
+        m_MethodName: ToggleAcknowledgementpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -44875,7 +44873,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToRepairer
+        m_MethodName: ChangeToRepairerpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -50670,7 +50668,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToBoxer
+        m_MethodName: ChangeToBoxerpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -51752,7 +51750,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToBioHaz
+        m_MethodName: ChangeToBioHazpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -52948,7 +52946,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: PopUpClose
+        m_MethodName: PopUpClosepr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -55849,7 +55847,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToSkater
+        m_MethodName: ChangeToSkaterpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57781,7 +57779,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: GoBackToMainMenu
+        m_MethodName: GoBackToMainMenupr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -58453,7 +58451,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToHero
+        m_MethodName: ChangeToHeropr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -58846,7 +58844,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383253390}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeToVolleyBall
+        m_MethodName: ChangeToVolleyBallpr
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

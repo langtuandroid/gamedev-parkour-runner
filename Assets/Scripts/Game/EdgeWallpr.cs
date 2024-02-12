@@ -17,11 +17,11 @@ namespace Game
         {
             if (other.CompareTag("Player"))
             {
-                StartCoroutine(_playerpr.Jump());
+                StartCoroutine(_playerpr.Jumppr());
             }
             else if(other.CompareTag("Enemy"))
             {
-                StartCoroutine(other.GetComponent<Enemypr>().Jump());
+                StartCoroutine(other.GetComponent<Enemypr>().Jumppr());
             }
         }
 

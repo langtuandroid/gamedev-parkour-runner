@@ -19560,6 +19560,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7052160076229793472}
+  - {fileID: 3745187635269862763}
   - {fileID: 4457758124423597161}
   - {fileID: 7052160076832621577}
   - {fileID: 3745187635463694213}
@@ -19567,7 +19568,6 @@ Transform:
   - {fileID: 3745187635126023684}
   - {fileID: 3740634631758009401}
   - {fileID: 3740700610319098702}
-  - {fileID: 3745187635269862763}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7052160075427780616
@@ -19632,49 +19632,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a7b82c815b02449a972e2c28d42078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMoveForward: 1
-  canMove: 1
-  joystick: {fileID: 0}
-  rotationSpeed: 400
-  forwardMoveSpeed: 4
-  defaultForwardMoveSpeed: 0
-  upMoveSpeed: 2
-  raycastMaxDistance: 0.35
-  environment:
+  joystickpr: {fileID: 0}
+  rotationSpeedpr: 400
+  forwardMoveSpeedpr: 4
+  defaultForwardMoveSpeedpr: 0
+  upMoveSpeedpr: 2
+  raycastMaxDistancepr: 0.35
+  environmentpr:
     serializedVersion: 2
     m_Bits: 256
-  strafeSpeed: 4
-  jumpStrength: 6
-  obstaclesJumpStrength: 3
-  rotationSmoothing: 0.3
-  lastCheckpoint: {fileID: 0}
-  onAirTime: 0
-  grounded: 1
-  onLeftWall: 0
-  onRightWall: 1
-  onFrontWall: 0
-  onFrontWallSecondary: 0
-  animatorGrounded: 0
-  animatorLeftWall: 0
-  animatorRightWall: 0
-  animatorFrontWall: 0
-  animatorJump: 0
-  animatorSlide: 0
-  raycastPositionBottom: {fileID: 7052160076229793472}
-  raycastPositionTop: {fileID: 3745187635269862763}
-  playerRigidbody: {fileID: 0}
-  playerAnimator: {fileID: 0}
-  playerCollider: {fileID: 0}
-  playerBody: {fileID: 0}
-  jumpPuff: {fileID: 4457758124438800681}
-  landPuff: {fileID: 7052160076850970953}
-  speedEffect: {fileID: 3745187635463694214}
-  speedUpEffect: {fileID: 3745187635126023686}
-  trailEffect: {fileID: 3745187636351738633}
-  confettiEffect: {fileID: 3547010557641766098}
-  fallingConfetti: {fileID: 3547463029359236037}
-  playerName: {fileID: 0}
-  playerPosition: {fileID: 0}
+  strafeSpeedpr: 4
+  jumpStrengthpr: 6
+  obstaclesJumpStrengthpr: 3
+  rotationSmoothingpr: 0.3
+  lastCheckpointpr: {fileID: 0}
+  raycastPositionBottompr: {fileID: 7052160076229793472}
+  raycastPositionToppr: {fileID: 3745187635269862763}
+  playerRigidbodypr: {fileID: 0}
+  playerAnimatorpr: {fileID: 0}
+  playerBodypr: {fileID: 0}
+  jumpPuffpr: {fileID: 4457758124438800681}
+  landPuffpr: {fileID: 7052160076850970953}
+  speedEffectpr: {fileID: 3745187635463694214}
+  speedUpEffectpr: {fileID: 3745187635126023686}
+  trailEffectpr: {fileID: 3745187636351738633}
+  confettiEffectpr: {fileID: 3547010557641766098}
+  fallingConfettipr: {fileID: 3547463029359236037}
 --- !u!114 &7052160075427780624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19687,11 +19670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8321f14b93beec46b7aa5c702eb73a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: {fileID: 0}
-  playerPos: {fileID: 0}
+  playerNamepr: {fileID: 0}
+  playerPospr: {fileID: 0}
   playerNames: []
-  distance: 0
-  positionInRace: 0
+  distancepr: 0
+  positionInRacepr: 1
 --- !u!1 &7052160076229793487
 GameObject:
   m_ObjectHideFlags: 0

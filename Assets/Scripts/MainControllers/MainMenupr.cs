@@ -30,24 +30,24 @@ namespace MainControllers
          
         [SerializeField]
         private string _privacyPolicyURL;
-        public static MainMenupr Instance;
-        public Transform spawnLocation;
+        public static MainMenupr Instancepr;
+        public Transform spawnLocationpr;
         public GameObject[] modelsToSpawn;
-        public Animator CharacterSelectionWindow;
-        public Animator mainMenuWindow;
-        public int tempInt;
-        public bool loadingDone;
-        public GameObject unlockButton;
-        public ModelIDs currentlySelectedModel;
+        public Animator CharacterSelectionWindowpr;
+        public Animator mainMenuWindowpr;
+        private int tempIntpr;
+        private bool loadingDonepr;
+        public GameObject unlockButtonpr;
+        public ModelIDs currentlySelectedModelpr;
         public List<ChangeAnimator> allModels;
-        public Animator acknowledgementAnimator;
-        public GameObject acknowledgementGameObject;
-        public GameObject popUpMessage;
-        public Text popUpMessageText;
-        public GameObject popUpMessage2;
-        public Text popUpMessage2Text;
-        public Text coinInfo;
-        public Text unlockInfo;
+        public Animator acknowledgementAnimatorpr;
+        public GameObject acknowledgementGameObjectpr;
+        public GameObject popUpMessagepr;
+        public Text popUpMessageTextpr;
+        public GameObject popUpMessage2pr;
+        public Text popUpMessage2Textpr;
+        public Text coinInfopr;
+        public Text unlockInfopr;
         
         public enum ModelIDs
         {
@@ -69,15 +69,17 @@ namespace MainControllers
             roller = 15,
             footballer = 16
         }
+        
         private void Awake()
         {
-            if (!Instance)
+            if (!Instancepr)
             {
-                Instance = this;
+                Instancepr = this;
             }
         
             PlayerPrefs.SetInt("Gold", 10000);
         }
+        
         private void Start()
         {
             SoundManager.Instance.PlayBGMusicOne();
@@ -97,37 +99,37 @@ namespace MainControllers
             {
                 PlayerPrefs.SetInt("Gold", 0);
             }
-            if (spawnLocation.GetChild(0).gameObject != null)
+            if (spawnLocationpr.GetChild(0).gameObject != null)
             {
-                Destroy(spawnLocation.GetChild(0).gameObject);
-                Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
+                Destroy(spawnLocationpr.GetChild(0).gameObject);
+                Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
             }
             else
             {
-                Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
+                Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
             }
         
-            StartCoroutine( InitializeUI());
-            loadingDone = true;
+            StartCoroutine( InitializeUIpr());
+            loadingDonepr = true;
         }
         
-        public void EnableCharacterSelectionWindow()
+        public void EnableCharacterSelectionWindowpr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            mainMenuWindow.SetTrigger("MoveOut");
-            CharacterSelectionWindow.SetTrigger("MoveIn");
-            Destroy(spawnLocation.GetChild(0).gameObject);
-            Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
+            mainMenuWindowpr.SetTrigger("MoveOut");
+            CharacterSelectionWindowpr.SetTrigger("MoveIn");
+            Destroy(spawnLocationpr.GetChild(0).gameObject);
+            Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
         }
         
-        public void GoBackToMainMenu()
+        public void GoBackToMainMenupr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            mainMenuWindow.SetTrigger("MoveIn");
-            CharacterSelectionWindow.SetTrigger("MoveOut");
+            mainMenuWindowpr.SetTrigger("MoveIn");
+            CharacterSelectionWindowpr.SetTrigger("MoveOut");
         }
 
-        public void LoadLevel()
+        public void LoadLevelpr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
             int level = PlayerPrefs.GetInt("LevelProgression", 1);
@@ -135,78 +137,78 @@ namespace MainControllers
             SceneManager.LoadScene(level);
         }
         
-        public void QuitGame()
+        public void QuitGamepr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
             Application.Quit();
         }
         
         #region Annoying Region
-          public void ChangeToAmazon()
+          public void ChangeToAmazonpr()
           {
               ChangeCharacter(ModelIDs.amazon, Amazon);
           }
-          public void ChangeToBaseball()
+          public void ChangeToBaseballpr()
           {
               ChangeCharacter(ModelIDs.baseball, Baseball);
           }
-          public void ChangeToBioHaz()
+          public void ChangeToBioHazpr()
           {
               ChangeCharacter(ModelIDs.bioHazzard, BioHaz);
           }
-          public void ChangeToBoxer()
+          public void ChangeToBoxerpr()
           {
               ChangeCharacter(ModelIDs.boxer, Boxer);
           }
-          public void ChangeToClown()
+          public void ChangeToClownpr()
           {
               ChangeCharacter(ModelIDs.clown, Clown);
           }
-          public void ChangeToSkater()
+          public void ChangeToSkaterpr()
           {
               ChangeCharacter(ModelIDs.skater, Skater);
           }
-          public void ChangeToFlatyBoss()
+          public void ChangeToFlatyBosspr()
           {
               ChangeCharacter(ModelIDs.flatyBoss, FlatyBoss);
           }
-          public void ChangeToFootballer()
+          public void ChangeToFootballerpr()
           {
               ChangeCharacter(ModelIDs.footballer, Footballer);
           }
-          public void ChangeToRoller()
+          public void ChangeToRollerpr()
           {
               ChangeCharacter(ModelIDs.roller, Roller);
           }
-          public void ChangeToGoalKeeper()
+          public void ChangeToGoalKeeperpr()
           {
               ChangeCharacter(ModelIDs.goalkeeper, Goalkeeper);
           }
-          public void ChangeToHero()
+          public void ChangeToHeropr()
           {
               ChangeCharacter(ModelIDs.hero, Hero);
           }
-          public void ChangeToHockey()
+          public void ChangeToHockeypr()
           {
               ChangeCharacter(ModelIDs.hockey, Hockey);
           }
-          public void ChangeToKarate()
+          public void ChangeToKaratepr()
           {
               ChangeCharacter(ModelIDs.karate, Karate);
           }
-          public void ChangeToRepairer()
+          public void ChangeToRepairerpr()
           {
               ChangeCharacter(ModelIDs.repairer, Repairer);
           }
-          public void ChangeToSkier()
+          public void ChangeToSkierpr()
           {
               ChangeCharacter(ModelIDs.skier, Skier);
           }
-          public void ChangeToTennis()
+          public void ChangeToTennispr()
           {
               ChangeCharacter(ModelIDs.tennis, Tennis);
           }
-          public void ChangeToVolleyBall()
+          public void ChangeToVolleyBallpr()
           {
               ChangeCharacter(ModelIDs.volley, Volleyball);
           }
@@ -214,185 +216,185 @@ namespace MainControllers
           private void ChangeCharacter(ModelIDs modelId, string characterKey)
           {
               SoundManager.Instance.PlayButtonPressedSound(); 
-              Destroy(spawnLocation.GetChild(0).gameObject);
-              currentlySelectedModel = modelId;
-              Instantiate(modelsToSpawn[(int)modelId], spawnLocation).GetComponent<Animator>().SetTrigger("Selected");
+              Destroy(spawnLocationpr.GetChild(0).gameObject);
+              currentlySelectedModelpr = modelId;
+              Instantiate(modelsToSpawn[(int)modelId], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
               if (!PlayerPrefs.HasKey(characterKey))
               {
                   PlayerPrefs.SetString(characterKey, "False");
-                  unlockButton.SetActive(true);
+                  unlockButtonpr.SetActive(true);
               }
               else if (PlayerPrefs.GetString(characterKey) == "True")
               {
                   PlayerPrefs.SetInt("ChoosenCharacter", (int)modelId);
-                  unlockButton.SetActive(false);
+                  unlockButtonpr.SetActive(false);
               }
               else
               {
-                  unlockButton.SetActive(true);
+                  unlockButtonpr.SetActive(true);
               }
           }
 
-          public void ToggleAcknowledgement()
+          public void ToggleAcknowledgementpr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
-              unlockButton.SetActive(false);
-              if (!acknowledgementGameObject.activeSelf)
+              unlockButtonpr.SetActive(false);
+              if (!acknowledgementGameObjectpr.activeSelf)
               {
-                  acknowledgementGameObject.SetActive(true);
-                  acknowledgementAnimator.SetTrigger("In");
-                  unlockInfo.text = "Unlock " + modelsToSpawn[(int)currentlySelectedModel].name + "?";
+                  acknowledgementGameObjectpr.SetActive(true);
+                  acknowledgementAnimatorpr.SetTrigger("In");
+                  unlockInfopr.text = "Unlock " + modelsToSpawn[(int)currentlySelectedModelpr].name + "?";
               }
               else
               {
-                  StartCoroutine(DisableWindow(acknowledgementGameObject));
-                  unlockButton.SetActive(true);
+                  StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr));
+                  unlockButtonpr.SetActive(true);
               }
           }
 
-          IEnumerator DisableWindow(GameObject window)
+          IEnumerator DisableWindowpr(GameObject window)
           {
               window.GetComponent<Animator>().SetTrigger("Out");
               yield return new WaitForSeconds(0.2f);
               window.SetActive(false);
           }
           
-          IEnumerator DisableWindow(GameObject window,float delay)
+          IEnumerator DisableWindowpr(GameObject window,float delay)
           {
               window.GetComponent<Animator>().SetTrigger("Out");
               yield return new WaitForSeconds(delay);
               window.SetActive(false);
           }
           
-          public void Unlock()
+          public void Unlockpr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
-              unlockButton.SetActive(false);
-              StartCoroutine(DisableWindow(acknowledgementGameObject,.2f));
-              switch (currentlySelectedModel)
+              unlockButtonpr.SetActive(false);
+              StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr,.2f));
+              switch (currentlySelectedModelpr)
               {
                   case ModelIDs.amazon:
                   {
-                      CheckUnlock(ModelIDs.amazon, Amazon);
+                      CheckUnlockpr(ModelIDs.amazon, Amazon);
                       break;
                   }
                   case ModelIDs.baseball:
                   {
-                      CheckUnlock(ModelIDs.baseball, Baseball);
+                      CheckUnlockpr(ModelIDs.baseball, Baseball);
                       break;
                   }
                   case ModelIDs.bioHazzard:
                   {
-                      CheckUnlock(ModelIDs.bioHazzard, BioHaz);
+                      CheckUnlockpr(ModelIDs.bioHazzard, BioHaz);
                       break;
                   }
                   case ModelIDs.boxer:
                   {
-                      CheckUnlock(ModelIDs.boxer, Boxer);
+                      CheckUnlockpr(ModelIDs.boxer, Boxer);
                       break;
                   }
                   case ModelIDs.clown:
                   {
-                      CheckUnlock(ModelIDs.clown, Clown);
+                      CheckUnlockpr(ModelIDs.clown, Clown);
                       break;
                   }
                   case ModelIDs.flatyBoss:
                   {
-                      CheckUnlock(ModelIDs.flatyBoss, FlatyBoss);
+                      CheckUnlockpr(ModelIDs.flatyBoss, FlatyBoss);
                       break;
                   }
                   case ModelIDs.footballer:
                   {
-                      CheckUnlock(ModelIDs.footballer, Footballer);
+                      CheckUnlockpr(ModelIDs.footballer, Footballer);
                       break;
                   }
                   case ModelIDs.goalkeeper:
                   {
-                      CheckUnlock(ModelIDs.goalkeeper, Goalkeeper);
+                      CheckUnlockpr(ModelIDs.goalkeeper, Goalkeeper);
                       break;
                   }
                   case ModelIDs.hero:
                   {
-                      CheckUnlock(ModelIDs.hero, Hero);
+                      CheckUnlockpr(ModelIDs.hero, Hero);
                       break;
                   }
                   case ModelIDs.hockey:
                   {
-                      CheckUnlock(ModelIDs.hockey, Hockey);
+                      CheckUnlockpr(ModelIDs.hockey, Hockey);
                       break;
                   }
                   case ModelIDs.karate:
                   {
-                      CheckUnlock(ModelIDs.karate, Karate);
+                      CheckUnlockpr(ModelIDs.karate, Karate);
                       break;
                   }
                   case ModelIDs.repairer:
                   {
-                      CheckUnlock(ModelIDs.repairer, Repairer);
+                      CheckUnlockpr(ModelIDs.repairer, Repairer);
                       break;
                   }
                   case ModelIDs.roller:
                   {
-                      CheckUnlock(ModelIDs.roller, Roller);
+                      CheckUnlockpr(ModelIDs.roller, Roller);
                       break;
                   }
                   case ModelIDs.skater:
                   {
-                      CheckUnlock(ModelIDs.skater, Skater);
+                      CheckUnlockpr(ModelIDs.skater, Skater);
                       break;
                   }
                   case ModelIDs.skier:
                   {
-                      CheckUnlock(ModelIDs.skier, Skier);
+                      CheckUnlockpr(ModelIDs.skier, Skier);
                       break;
                   }
                   case ModelIDs.tennis:
                   {
-                      CheckUnlock(ModelIDs.tennis, Tennis);
+                      CheckUnlockpr(ModelIDs.tennis, Tennis);
                       break;
                   }
                   case ModelIDs.volley:
                   {
-                      CheckUnlock(ModelIDs.volley, Volleyball);
+                      CheckUnlockpr(ModelIDs.volley, Volleyball);
                       break;
                   }
               }
           }
           
-          private void CheckUnlock(ModelIDs modelIDs, string modelName)
+          private void CheckUnlockpr(ModelIDs modelIDs, string modelName)
           {
               if (allModels[(int)modelIDs].GetCostToUnlock() > PlayerPrefs.GetInt("Gold"))
               {
-                  popUpMessage.SetActive(true);
-                  popUpMessage.GetComponent<Animator>().SetTrigger("In");
-                  Invoke("PopUpClose", 2); unlockButton.SetActive(true);
+                  popUpMessagepr.SetActive(true);
+                  popUpMessagepr.GetComponent<Animator>().SetTrigger("In");
+                  Invoke("PopUpClosepr", 2); unlockButtonpr.SetActive(true);
               }
               else
               {
                   PlayerPrefs.SetString(modelName, "True");
                   allModels[(int)modelIDs].UnlockThisCharacter();
-                  RemoveGold(allModels[(int)modelIDs].GetCostToUnlock());
+                  RemoveGoldpr(allModels[(int)modelIDs].GetCostToUnlock());
                   PlayerPrefs.SetInt("ChoosenCharacter", (int)modelIDs);
-                  popUpMessage2Text.text = $"You Have Unlocked The {modelName}";
-                  popUpMessage2.SetActive(true);
-                  popUpMessage2.GetComponent<Animator>().SetTrigger("In");
-                  Invoke("PopUpClose", 2);
+                  popUpMessage2Textpr.text = $"You Have Unlocked The {modelName}";
+                  popUpMessage2pr.SetActive(true);
+                  popUpMessage2pr.GetComponent<Animator>().SetTrigger("In");
+                  Invoke("PopUpClosepr", 2);
               }
           }
           
-          public void PopUpClose()
+          public void PopUpClosepr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
-              if (popUpMessage.activeSelf)
-                  StartCoroutine(DisableWindow(popUpMessage,0.2f));
-              else if(popUpMessage2.activeSelf)
-                  StartCoroutine(DisableWindow(popUpMessage2, 0.2f));
+              if (popUpMessagepr.activeSelf)
+                  StartCoroutine(DisableWindowpr(popUpMessagepr,0.2f));
+              else if(popUpMessage2pr.activeSelf)
+                  StartCoroutine(DisableWindowpr(popUpMessage2pr, 0.2f));
           }
           
-          public IEnumerator InitializeUI()
+          public IEnumerator InitializeUIpr()
           {
-              coinInfo.text = PlayerPrefs.GetInt("Gold").ToString();
-              unlockButton.SetActive(false);
+              coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
+              unlockButtonpr.SetActive(false);
               foreach(ChangeAnimator ca in allModels)
               {
                   if (PlayerPrefs.GetString(ca.name) == "True")
@@ -409,22 +411,21 @@ namespace MainControllers
         
         #endregion
 
-        public void AddGold(int amount)
+        public void AddGoldpr(int amount)
         {
             PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") + amount);
-            coinInfo.text = PlayerPrefs.GetInt("Gold").ToString();
+            coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
         }
         
-        public void RemoveGold(int amount)
+        public void RemoveGoldpr(int amount)
         {
             PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") - amount);
-            coinInfo.text = PlayerPrefs.GetInt("Gold").ToString();
+            coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
         }
 
         public void OpenPrivacyPolicypr()
         {
             Application.OpenURL(_privacyPolicyURL);
-            //Application.OpenURL("https://unconditionalgames.blogspot.com/2020/01/privacy-policy-this-privacy-policy.html");
         }
     }
 }

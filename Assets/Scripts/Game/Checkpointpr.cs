@@ -22,14 +22,14 @@ namespace Game
         {
             if(other.CompareTag(_playerTagpr))
             {
-                _playerpr.lastCheckpoint = transform;
+                _playerpr.lastCheckpointpr = transform;
             }
 
             else if(other.CompareTag(_enemyTagpr) && correspondingPlatform.Length != 0)
             {
                 Enemypr enemypr = other.GetComponent<Enemypr>();
-                enemypr.nearestPlatform = correspondingPlatform[Random.Range(0, correspondingPlatform.Length)];
-                enemypr.lastCheckpoint = transform;
+                enemypr.nearestPlatformpr = correspondingPlatform[Random.Range(0, correspondingPlatform.Length)];
+                enemypr.lastCheckpointpr = transform;
             }
         }
     }

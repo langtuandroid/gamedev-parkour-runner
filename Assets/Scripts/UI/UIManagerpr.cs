@@ -50,7 +50,7 @@ namespace UI
             coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
             goldAtStartpr = PlayerPrefs.GetInt("Gold");
             playerpr = FindObjectOfType<PlayerScriptpr>();
-            playerpr.joystick = joystickpr;
+            playerpr.joystickpr = joystickpr;
             playerpr.GetComponent<DistanceMeterpr>().playerPospr = playerPospr;
             UImanagerAnimatorpr = GetComponentInChildren<Animator>();
             UImanagerAnimatorpr.SetTrigger("In");

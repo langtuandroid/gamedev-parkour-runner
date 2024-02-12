@@ -14815,11 +14815,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8181076879135083659}
+  - {fileID: 1618368525201517315}
   - {fileID: 3281553267204363810}
   - {fileID: 8181076880679542338}
   - {fileID: 1137398930202709256}
   - {fileID: 1618368524443412110}
-  - {fileID: 1618368525201517315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8181076879936897600
@@ -14884,47 +14884,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72218fd201f5e7f4eb9112ce78079ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canNavigate: 0
-  canMove: 0
-  rotationSpeed: 400
-  forwardMoveSpeed: 4
-  upMoveSpeed: 2
-  raycastMaxDistance: 0.4
-  environment:
+  canNavigatepr: 0
+  canMovepr: 0
+  rotationSpeedpr: 400
+  forwardMoveSpeedpr: 4
+  upMoveSpeedpr: 2
+  raycastMaxDistancepr: 0.4
+  environmentpr:
     serializedVersion: 2
     m_Bits: 256
-  strafeSpeed: 8
-  jumpStrength: 6
-  obstaclesJumpStrength: 3
-  rotationSmoothing: 0.3
-  onAirTime: 0
-  collidersNearEnemy: []
-  nearestPlatform: {fileID: 0}
-  pX: 0
-  pY: 0
-  smoothTranslation: 2
-  lastCheckpoint: {fileID: 0}
-  playerPos: {fileID: 0}
-  playerName: {fileID: 0}
-  grounded: 1
-  onLeftWall: 0
-  onRightWall: 0
-  onFrontWall: 0
-  onFrontWallSecondary: 0
-  animatorGrounded: 0
-  animatorLeftWall: 0
-  animatorRightWall: 0
-  animatorFrontWall: 0
-  animatorJump: 0
-  animatorSlide: 0
-  forwarRaycastPosition: {fileID: 8181076879135083659}
-  raycastPositionTop: {fileID: 1618368525201517315}
-  playerRigidbody: {fileID: 0}
-  playerAnimator: {fileID: 0}
-  playerCollider: {fileID: 0}
-  playerBody: {fileID: 0}
-  jumpPuff: {fileID: 3281553267184964450}
-  landPuff: {fileID: 8181076880665385730}
+  strafeSpeedpr: 8
+  jumpStrengthpr: 6
+  obstaclesJumpStrengthpr: 3
+  rotationSmoothingpr: 0.3
+  onAirTimepr: 0
+  collidersNearEnemypr: []
+  nearestPlatformpr: {fileID: 0}
+  pXpr: 0
+  pYpr: 0
+  smoothTranslationpr: 2
+  lastCheckpointpr: {fileID: 0}
+  groundedpr: 0
+  forwarRaycastPositionpr: {fileID: 8181076879135083659}
+  raycastPositionToppr: {fileID: 1618368525201517315}
+  playerRigidbodypr: {fileID: 0}
+  playerAnimatorpr: {fileID: 0}
+  playerColliderpr: {fileID: 0}
+  playerBodypr: {fileID: 0}
+  jumpPuffpr: {fileID: 3281553267184964450}
+  landPuffpr: {fileID: 8181076880665385730}
 --- !u!114 &8181076879936897629
 MonoBehaviour:
   m_ObjectHideFlags: 0

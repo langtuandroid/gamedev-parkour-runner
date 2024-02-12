@@ -15,6 +15,6 @@ public class DebugScript : MonoBehaviour
     }
     private void Update()
     {
-        debugText.text = player.playerBody.name +" "+ player.playerAnimator.name + " " + player.playerRigidbody.name;
+        debugText.text = player.playerBodypr.name +" "+ player.playerAnimatorpr.name + " " + player.playerRigidbodypr.name;
     }
 }

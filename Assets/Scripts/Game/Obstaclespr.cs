@@ -32,104 +32,104 @@ namespace Game
             {
                 SoundManager.Instance.PlayBoostSound();
                 AndroidManagerpr.HapticFeedback();
-                if (!_playerpr.speedEffect.isPlaying)
-                    _playerpr.speedEffect.Play();
-                _playerpr.speedUpEffect.Play();
+                if (!_playerpr.speedEffectpr.isPlaying)
+                    _playerpr.speedEffectpr.Play();
+                _playerpr.speedUpEffectpr.Play();
 
-                if (_playerpr.forwardMoveSpeed >= 5.5f)
-                    _playerpr.trailEffect.gameObject.SetActive(true);
-                ParticleSystem.MainModule main = _playerpr.speedEffect.main;
+                if (_playerpr.forwardMoveSpeedpr >= 5.5f)
+                    _playerpr.trailEffectpr.gameObject.SetActive(true);
+                ParticleSystem.MainModule main = _playerpr.speedEffectpr.main;
                 main.maxParticles += 50;
                 switch (obstaclesType)
                 {
                 
                     case ObstaclesTypes.Booster:
                     {
-                        if (_playerpr.forwardMoveSpeed < _playerpr.defaultForwardMoveSpeed + 4 && !GameManager.Instance.gamePaused)
+                        if (_playerpr.forwardMoveSpeedpr < _playerpr.defaultForwardMoveSpeedpr + 4 && !GameManager.Instance.gamePaused)
                         {
-                            _playerpr.forwardMoveSpeed += .7f;
-                            _playerpr.jumpStrength += 0.5f;
-                            _playerpr.playerAnimator.speed += 0.06f;
+                            _playerpr.forwardMoveSpeedpr += .7f;
+                            _playerpr.jumpStrengthpr += 0.5f;
+                            _playerpr.playerAnimatorpr.speed += 0.06f;
 
-                            if (!_playerpr.grounded)
+                            if (!_playerpr.Groundedpr)
                             {
-                                _playerpr.forwardMoveSpeed += 2;
-                                _playerpr.jumpStrength += 10;
-                                _playerpr.playerAnimator.speed += 0.12f;
+                                _playerpr.forwardMoveSpeedpr += 2;
+                                _playerpr.jumpStrengthpr += 10;
+                                _playerpr.playerAnimatorpr.speed += 0.12f;
                             }
-                            else if(_playerpr.forwardMoveSpeed > _playerpr.defaultForwardMoveSpeed + 2.8f)
+                            else if(_playerpr.forwardMoveSpeedpr > _playerpr.defaultForwardMoveSpeedpr + 2.8f)
                             {
-                                _playerpr.forwardMoveSpeed += 3;
-                                _playerpr.jumpStrength += 5;
-                                _playerpr.playerAnimator.speed += 0.12f;
+                                _playerpr.forwardMoveSpeedpr += 3;
+                                _playerpr.jumpStrengthpr += 5;
+                                _playerpr.playerAnimatorpr.speed += 0.12f;
                             }
                             else
 
                             {
-                                _playerpr.forwardMoveSpeed += .7f;
-                                _playerpr.jumpStrength += 0.5f;
-                                _playerpr.playerAnimator.speed += 0.06f;
+                                _playerpr.forwardMoveSpeedpr += .7f;
+                                _playerpr.jumpStrengthpr += 0.5f;
+                                _playerpr.playerAnimatorpr.speed += 0.06f;
                             }
                         }
-                        StartCoroutine(_playerpr.Jump());
+                        StartCoroutine(_playerpr.Jumppr());
                         break;
                     }
                     case ObstaclesTypes.GoUnder:
                     {
-                        if (_playerpr.forwardMoveSpeed < _playerpr.defaultForwardMoveSpeed + 4 && !GameManager.Instance.gamePaused)
+                        if (_playerpr.forwardMoveSpeedpr < _playerpr.defaultForwardMoveSpeedpr + 4 && !GameManager.Instance.gamePaused)
                         {
-                            _playerpr.forwardMoveSpeed += .7f;
-                            _playerpr.jumpStrength += 0.5f;
-                            _playerpr.playerAnimator.speed += 0.06f;
+                            _playerpr.forwardMoveSpeedpr += .7f;
+                            _playerpr.jumpStrengthpr += 0.5f;
+                            _playerpr.playerAnimatorpr.speed += 0.06f;
                         }
-                        StartCoroutine(_playerpr.PerformSlide());
+                        StartCoroutine(_playerpr.PerformSlidepr());
                         break;
                     }
                     case ObstaclesTypes.JumpOver:
                     {
-                        if (_playerpr.forwardMoveSpeed < _playerpr.defaultForwardMoveSpeed + 4 && !GameManager.Instance.gamePaused)
+                        if (_playerpr.forwardMoveSpeedpr < _playerpr.defaultForwardMoveSpeedpr + 4 && !GameManager.Instance.gamePaused)
                         {
-                            _playerpr.forwardMoveSpeed += .7f;
-                            _playerpr.jumpStrength += 0.5f;
-                            _playerpr.playerAnimator.speed += 0.06f;
+                            _playerpr.forwardMoveSpeedpr += .7f;
+                            _playerpr.jumpStrengthpr += 0.5f;
+                            _playerpr.playerAnimatorpr.speed += 0.06f;
                         }
 
-                        StartCoroutine(_playerpr.JumpOverObstacles());
+                        StartCoroutine(_playerpr.JumpOverObstaclespr());
                         break;
                     }
                     case ObstaclesTypes.SideBooster:
                     {
-                        if (_playerpr.forwardMoveSpeed < _playerpr.defaultForwardMoveSpeed + 4 && !GameManager.Instance.gamePaused)
+                        if (_playerpr.forwardMoveSpeedpr < _playerpr.defaultForwardMoveSpeedpr + 4 && !GameManager.Instance.gamePaused)
                         {
-                            _playerpr.jumpStrength += .5f;
-                            _playerpr.forwardMoveSpeed += .7f;
-                            _playerpr.playerAnimator.speed += 0.06f;
+                            _playerpr.jumpStrengthpr += .5f;
+                            _playerpr.forwardMoveSpeedpr += .7f;
+                            _playerpr.playerAnimatorpr.speed += 0.06f;
                         }
                         break;
                     }
                     case ObstaclesTypes.Vaultable:
                     {
-                        if (_playerpr.forwardMoveSpeed < _playerpr.defaultForwardMoveSpeed + 4 &&
+                        if (_playerpr.forwardMoveSpeedpr < _playerpr.defaultForwardMoveSpeedpr + 4 &&
                             !GameManager.Instance.gamePaused)
                         {
-                            _playerpr.jumpStrength += .5f;
-                            _playerpr.forwardMoveSpeed += .7f;
-                            _playerpr.playerAnimator.speed += 0.06f;
+                            _playerpr.jumpStrengthpr += .5f;
+                            _playerpr.forwardMoveSpeedpr += .7f;
+                            _playerpr.playerAnimatorpr.speed += 0.06f;
                         }
 
-                        StartCoroutine(_playerpr.Vault());
+                        StartCoroutine(_playerpr.Vaultpr());
                         break;
                     }
                     case ObstaclesTypes.Knockback:
                     {
-                        if (_playerpr.forwardMoveSpeed < _playerpr.defaultForwardMoveSpeed + 4 && !GameManager.Instance.gamePaused)
+                        if (_playerpr.forwardMoveSpeedpr < _playerpr.defaultForwardMoveSpeedpr + 4 && !GameManager.Instance.gamePaused)
                         {
-                            _playerpr.jumpStrength -= 0.1f;
-                            _playerpr.forwardMoveSpeed -= 0.1f;
-                            _playerpr.playerAnimator.speed -= 0.01f;
+                            _playerpr.jumpStrengthpr -= 0.1f;
+                            _playerpr.forwardMoveSpeedpr -= 0.1f;
+                            _playerpr.playerAnimatorpr.speed -= 0.01f;
                         }
-                        _playerpr.canKnockback = true;
-                        StartCoroutine(_playerpr.Knockback());
+                        _playerpr.CanKnockback = true;
+                        StartCoroutine(_playerpr.Knockbackpr());
 
                         break;
                     }
@@ -144,24 +144,24 @@ namespace Game
                 {
                     case ObstaclesTypes.Booster:
                     {
-                        enemypr.forwardMoveSpeed += 1;
-                        if (!enemypr.grounded && !GameManager.Instance.gamePaused)
+                        enemypr.forwardMoveSpeedpr += 1;
+                        if (!enemypr.groundedpr && !GameManager.Instance.gamePaused)
                         {
-                            enemypr.forwardMoveSpeed += 2;
-                            enemypr.jumpStrength += 10;
-                            enemypr.playerAnimator.speed += 0.1f;
+                            enemypr.forwardMoveSpeedpr += 2;
+                            enemypr.jumpStrengthpr += 10;
+                            enemypr.playerAnimatorpr.speed += 0.1f;
                         }
-                        StartCoroutine(enemypr.Jump());
+                        StartCoroutine(enemypr.Jumppr());
                         break;
                     }
                     case ObstaclesTypes.GoUnder:
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemypr.forwardMoveSpeed += .5f;
-                            enemypr.jumpStrength += 0.5f;
-                            StartCoroutine(enemypr.PerformSlide());
-                            enemypr.playerAnimator.speed += 0.04f;
+                            enemypr.forwardMoveSpeedpr += .5f;
+                            enemypr.jumpStrengthpr += 0.5f;
+                            StartCoroutine(enemypr.PerformSlidepr());
+                            enemypr.playerAnimatorpr.speed += 0.04f;
                         }
 
                         break;
@@ -170,10 +170,10 @@ namespace Game
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemypr.forwardMoveSpeed += .5f;
-                            enemypr.jumpStrength += 0.5f;
-                            StartCoroutine(enemypr.JumpOverObstacles());
-                            enemypr.playerAnimator.speed += 0.04f;
+                            enemypr.forwardMoveSpeedpr += .5f;
+                            enemypr.jumpStrengthpr += 0.5f;
+                            StartCoroutine(enemypr.JumpOverObstaclespr());
+                            enemypr.playerAnimatorpr.speed += 0.04f;
                         }
                         break;
                     }
@@ -181,9 +181,9 @@ namespace Game
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemypr.jumpStrength += .5f;
-                            enemypr.forwardMoveSpeed += .5f;
-                            enemypr.playerAnimator.speed += 0.04f;
+                            enemypr.jumpStrengthpr += .5f;
+                            enemypr.forwardMoveSpeedpr += .5f;
+                            enemypr.playerAnimatorpr.speed += 0.04f;
                         }
                         break;
                     }
@@ -191,11 +191,11 @@ namespace Game
                     {
                         if (!GameManager.Instance.gamePaused)
                         {
-                            enemypr.jumpStrength += .5f;
-                            enemypr.forwardMoveSpeed += .5f;
-                            enemypr.playerAnimator.speed += 0.04f;
+                            enemypr.jumpStrengthpr += .5f;
+                            enemypr.forwardMoveSpeedpr += .5f;
+                            enemypr.playerAnimatorpr.speed += 0.04f;
                         }
-                        StartCoroutine(enemypr.Vault());
+                        StartCoroutine(enemypr.Vaultpr());
                         break;
                     }
                 }
