@@ -76,8 +76,6 @@ namespace MainControllers
             {
                 Instancepr = this;
             }
-        
-            PlayerPrefs.SetInt("Gold", 10000);
         }
         
         private void Start()
