@@ -3652,7 +3652,7 @@ PrefabInstance:
     - target: {fileID: 6264130437988824861, guid: 98f5564a80ef16c438ade535d8903e89,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevelpr
+      value: LoadLevelMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6264130437988824861, guid: 98f5564a80ef16c438ade535d8903e89,
         type: 3}
@@ -3698,7 +3698,7 @@ PrefabInstance:
     - target: {fileID: 6264130438023203700, guid: 98f5564a80ef16c438ade535d8903e89,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevelpr
+      value: RestartLevelpr
       objectReference: {fileID: 0}
     - target: {fileID: 6264130438023203700, guid: 98f5564a80ef16c438ade535d8903e89,
         type: 3}

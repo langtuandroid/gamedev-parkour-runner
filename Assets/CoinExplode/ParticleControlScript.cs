@@ -89,7 +89,7 @@ public class ParticleControlScript : MonoBehaviour
                 t += Time.deltaTime / 2f;
 
                 float smooth = Vector2.Distance(targetPos, distances[i]) / pTime;
-                Debug.Log("playing");
+               
                 particles[i].position = Vector2.MoveTowards(particles[i].position, targetPos, smooth * Time.deltaTime);
 
 

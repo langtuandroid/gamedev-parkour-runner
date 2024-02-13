@@ -104,9 +104,11 @@ namespace UI
                 retryButtonpr.SetActive(false);
                 infoTextWindowpr.gameObject.SetActive(false);
                 int level = PlayerPrefs.GetInt("LevelProgression");
-                if (level <= 21)
+                print("level = " + level);
+                print("presentLevel =" + presentLevel );
+                if (presentLevel == level)
                 {
-                    PlayerPrefs.SetInt("LevelProgression", PlayerPrefs.GetInt("LevelProgression",2) + 1);
+                    PlayerPrefs.SetInt("LevelProgression", ++level);
                 }
                 
                 endPlayerPositionpr.text = playerpr.GetComponent<DistanceMeterpr>().playerPospr.text;
@@ -140,37 +142,33 @@ namespace UI
 
         public void RestartLevelpr()
         {
-            SoundManager.Instance.PlayButtonPressedSound();
-            if (PlayerPrefs.GetInt("Gold") != goldAtStartpr + goldEarnedpr)
-                PlayerPrefs.SetInt("Gold", goldAtStartpr + goldEarnedpr);
             StartCoroutine(LoadLevelAsyncpr(presentLevel));
-            //AdManager.instance.ShowAd();
         }
         
-        public void LoadLevelpr()
+        public void GoToMainMenupr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
             if (PlayerPrefs.GetInt("Gold") != goldAtStartpr + goldEarnedpr)
                 PlayerPrefs.SetInt("Gold", goldAtStartpr + goldEarnedpr);
-            
-            int lasOpenLevel = PlayerPrefs.GetInt("LevelProgression", 2);
-            StartCoroutine(LoadLevelAsyncpr(lasOpenLevel));
-            //AdManager.instance.ShowAd();
+            PlayerPrefs.SetString("OpenMainMenu","True");
+            SceneManager.LoadScene(0);
+        }
+        
+        public void LoadLevelMenu()
+        {
+            SoundManager.Instance.PlayButtonPressedSound();
+            if (PlayerPrefs.GetInt("Gold") != goldAtStartpr + goldEarnedpr)
+                PlayerPrefs.SetInt("Gold", goldAtStartpr + goldEarnedpr);
+            PlayerPrefs.SetString("OpenMainMenu","False");
+            SceneManager.LoadScene(0);
         }
 
-        public IEnumerator LoadLevelAsyncpr(int level)
+        private IEnumerator LoadLevelAsyncpr(int level)
         {
-            AsyncOperation loadingprogress = new AsyncOperation();
-           
-            if (level > 21)
-            {
-                int randomtLevel = Random.Range(5, 20);
-                loadingprogress = SceneManager.LoadSceneAsync(randomtLevel);
-            }
-            else
-            {
-                loadingprogress = SceneManager.LoadSceneAsync(level);
-            }
+            SoundManager.Instance.PlayButtonPressedSound();
+            if (PlayerPrefs.GetInt("Gold") != goldAtStartpr + goldEarnedpr)
+                PlayerPrefs.SetInt("Gold", goldAtStartpr + goldEarnedpr);
+            AsyncOperation loadingprogress = SceneManager.LoadSceneAsync(level);
             
             loadingprogress.allowSceneActivation = true;
             while (!loadingprogress.isDone)
@@ -203,11 +201,7 @@ namespace UI
             SoundManager.Instance.PlayButtonPressedSound();
             StartCoroutine(DisableWindowpr(popUpMessageWindowpr));
         }
-        public void GoToMainMenupr()
-        {
-            SoundManager.Instance.PlayButtonPressedSound();
-            SceneManager.LoadScene(0);
-        }
+        
         public void ClosePauseMenupr()
         {
             SoundManager.Instance.PlayButtonPressedSound();

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,14 +29,26 @@ namespace MainControllers
           private const string Tennis = "Tennis";
           private const string Volleyball = "Volleyball";
         #endregion
-         
+        
+        [SerializeField]
+        private UIPanel _activePanel;
+        [SerializeField] 
+        private List<UIPanel> _allPanels;
+        [SerializeField]
+        private List<Button> _backToMainMenu;
+        [SerializeField]
+        private Button _openLevelMenu;
+        [SerializeField]
+        private Button _openSelectCharactersMenu;
+        
         [SerializeField]
         private string _privacyPolicyURL;
         public static MainMenupr Instancepr;
         public Transform spawnLocationpr;
         public GameObject[] modelsToSpawn;
-        public Animator CharacterSelectionWindowpr;
-        public Animator mainMenuWindowpr;
+        //public Animator CharacterSelectionWindowpr;
+        //public Animator LevelSelectionWindowpr;
+        //public Animator mainMenuWindowpr;
         private int tempIntpr;
         private bool loadingDonepr;
         public GameObject unlockButtonpr;
@@ -76,6 +90,33 @@ namespace MainControllers
             {
                 Instancepr = this;
             }
+
+            Subscribepr();
+        }
+
+        private void OnDestroy()
+        {
+            Unsubscibepr();
+        }
+
+        private void Subscribepr()
+        {
+            foreach (var button in _backToMainMenu)
+            {
+                button.onClick.AddListener(() => ActivatePanel(_allPanels[0]));
+            }
+            _openLevelMenu.onClick.AddListener(() => ActivatePanel(_allPanels[1]));
+            _openSelectCharactersMenu.onClick.AddListener(() => ActivatePanel(_allPanels[2]));
+        }
+
+        private void Unsubscibepr()
+        {
+            foreach (var button in _backToMainMenu)
+            {
+                button.onClick.RemoveListener(() => ActivatePanel(_allPanels[0]));
+            }
+            _openLevelMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[1]));
+            _openSelectCharactersMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[2]));
         }
         
         private void Start()
@@ -97,35 +138,60 @@ namespace MainControllers
             {
                 PlayerPrefs.SetInt("Gold", 0);
             }
-            if (spawnLocationpr.GetChild(0).gameObject != null)
-            {
-                Destroy(spawnLocationpr.GetChild(0).gameObject);
-                Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
-            }
-            else
-            {
-                Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
-            }
+            // if (spawnLocationpr.GetChild(0).gameObject != null)
+            // {
+            //     Destroy(spawnLocationpr.GetChild(0).gameObject);
+            //     Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
+            // }
+            // else
+            // {
+            //     Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
+            // }
         
             StartCoroutine( InitializeUIpr());
             loadingDonepr = true;
+            if (!PlayerPrefs.HasKey("OpenMainMenu"))
+            {
+                PlayerPrefs.SetString("OpenMainMenu", "True");
+            }
+            else
+            {
+                if (PlayerPrefs.GetString("OpenMainMenu") != "True")
+                {
+                   // _allPanels[1].GetComponent<Animator>().SetTrigger("MoveInInstantly");
+                    ActivatePanel(_allPanels[1]);
+                }
+            }
+            
+            
+        }
+        
+        private void ActivatePanel(UIPanel panel)
+        {
+            SoundManager.Instance.PlayButtonPressedSound();
+            if (_activePanel != null)
+                _activePanel.GetComponent<Animator>().SetTrigger("MoveOut");
+        
+            _activePanel = panel;
+            if (_activePanel.PanelType == PanelType.CharacterSelectionMenu)
+            {
+                EnableCharacterSelectionWindowpr();
+            }
+            _activePanel.GetComponent<Animator>().SetTrigger("MoveIn");
         }
         
         public void EnableCharacterSelectionWindowpr()
         {
-            SoundManager.Instance.PlayButtonPressedSound();
-            mainMenuWindowpr.SetTrigger("MoveOut");
-            CharacterSelectionWindowpr.SetTrigger("MoveIn");
             Destroy(spawnLocationpr.GetChild(0).gameObject);
             Instantiate(modelsToSpawn[PlayerPrefs.GetInt("ChoosenCharacter")], spawnLocationpr).GetComponent<Animator>().SetTrigger("Selected");
         }
-        
-        public void GoBackToMainMenupr()
-        {
-            SoundManager.Instance.PlayButtonPressedSound();
-            mainMenuWindowpr.SetTrigger("MoveIn");
-            CharacterSelectionWindowpr.SetTrigger("MoveOut");
-        }
+
+        // public void GoBackToMainMenupr()
+        // {
+        //     SoundManager.Instance.PlayButtonPressedSound();
+        //     mainMenuWindowpr.SetTrigger("MoveIn");
+        //     CharacterSelectionWindowpr.SetTrigger("MoveOut");
+        // }
 
         public void LoadLevelpr()
         {
@@ -134,10 +200,21 @@ namespace MainControllers
             print(level);
             SceneManager.LoadScene(level);
         }
-        
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            PlayerPrefs.SetString("OpenMainMenu", "True");
+        }
+
+        private void OnApplicationQuit()
+        {
+            PlayerPrefs.SetString("OpenMainMenu", "True");
+        }
+
         public void QuitGamepr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
+            PlayerPrefs.SetString("OpenMainMenu", "True");
             Application.Quit();
         }
         
@@ -391,6 +468,7 @@ namespace MainControllers
           
           public IEnumerator InitializeUIpr()
           {
+              _activePanel = _allPanels[0];
               coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
               unlockButtonpr.SetActive(false);
               foreach(ChangeAnimator ca in allModels)
