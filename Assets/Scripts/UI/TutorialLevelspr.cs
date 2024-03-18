@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
 
 namespace UI
 {
@@ -18,7 +18,7 @@ namespace UI
         [SerializeField]
         private Animator textAnimatorpr;
         [SerializeField]
-        private Text textpr;
+        private TextMeshProUGUI textpr;
         
 
         private void Update()

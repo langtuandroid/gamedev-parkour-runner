@@ -32522,6 +32522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1974504783557410513, guid: e708c098af6fc8449b6dce5ebad52927,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974504783557410513, guid: e708c098af6fc8449b6dce5ebad52927,
+        type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -32597,7 +32602,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 539d46ba3f6c56a4c9c905fc519703f3,
+      objectReference: {fileID: 12800000, guid: b2f5cde4246f246db92ac936698f861d,
         type: 3}
     - target: {fileID: 1974504784467740534, guid: e708c098af6fc8449b6dce5ebad52927,
         type: 3}

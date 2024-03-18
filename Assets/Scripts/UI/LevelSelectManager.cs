@@ -108,10 +108,11 @@ namespace UI
         {
             SoundManager.Instance.PlayButtonPressedSound();
             int lastlevel = PlayerPrefs.GetInt("LevelProgression", 1);
-            if (_levelSelectedfc <= lastlevel)
-            {
-                SceneManager.LoadScene(_levelSelectedfc);
-            }
+            // if (_levelSelectedfc <= lastlevel)
+            // {
+            //     SceneManager.LoadScene(_levelSelectedfc);
+            // }
+            SceneManager.LoadScene(_levelSelectedfc);
         }
     }
 }

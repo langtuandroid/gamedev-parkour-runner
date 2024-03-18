@@ -40,9 +40,9 @@ namespace MainControllers
         private Button _openLevelMenu;
         [SerializeField]
         private Button _openSelectCharactersMenu;
-        
         [SerializeField]
-        private string _privacyPolicyURL;
+        private Button _openSettingsMenu;
+        
         public static MainMenupr Instancepr;
         public Transform spawnLocationpr;
         public GameObject[] modelsToSpawn;
@@ -107,6 +107,7 @@ namespace MainControllers
             }
             _openLevelMenu.onClick.AddListener(() => ActivatePanel(_allPanels[1]));
             _openSelectCharactersMenu.onClick.AddListener(() => ActivatePanel(_allPanels[2]));
+            _openSettingsMenu.onClick.AddListener(() => ActivatePanel(_allPanels[3]));
         }
 
         private void Unsubscibepr()
@@ -117,6 +118,7 @@ namespace MainControllers
             }
             _openLevelMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[1]));
             _openSelectCharactersMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[2]));
+            _openSettingsMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[3]));
         }
         
         private void Start()
@@ -136,7 +138,7 @@ namespace MainControllers
             }
             if(!PlayerPrefs.HasKey("Gold"))
             {
-                PlayerPrefs.SetInt("Gold", 0);
+                PlayerPrefs.SetInt("Gold", 100);
             }
             // if (spawnLocationpr.GetChild(0).gameObject != null)
             // {
@@ -498,10 +500,6 @@ namespace MainControllers
             PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") - amount);
             coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
         }
-
-        public void OpenPrivacyPolicypr()
-        {
-            Application.OpenURL(_privacyPolicyURL);
-        }
+        
     }
 }

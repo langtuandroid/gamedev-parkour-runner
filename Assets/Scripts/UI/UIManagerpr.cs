@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Game;
 using MainControllers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ namespace UI
 {
     public class UIManagerpr : MonoBehaviour
     {
+        [SerializeField] 
+        private GameObject _blurBg;
         [SerializeField] 
         private Button _pausepr;
         public static UIManagerpr Instancepr;
@@ -27,7 +30,7 @@ namespace UI
         public Animator gameRunningpr;
         public GameObject pauseMenupr;
         public Animator UImanagerAnimatorpr;
-        public Text popUpTextpr;
+        public TextMeshProUGUI popUpTextpr;
         public GameObject popUpMessageWindowpr;
         public Text levelInfopr;
         public Text coinInfopr;
@@ -70,6 +73,7 @@ namespace UI
                 GameManager.Instance.PauseGame();
                 if (!pauseMenupr.activeSelf)
                 {
+                    _blurBg.SetActive(true);
                     pauseMenupr.SetActive(true);
                     pauseMenupr.GetComponent<Animator>().SetTrigger("In");
                 }
@@ -190,23 +194,34 @@ namespace UI
         public void ShowPopUppr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            popUpMessageWindowpr.SetActive(true);        
-            popUpMessageWindowpr.GetComponent<Animator>().SetTrigger("In");
-            popUpTextpr.text = "You Will Lose Any Unsaved Progress!";
+            popUpMessageWindowpr.SetActive(true);  
+            _blurBg.SetActive(true);
+            //popUpMessageWindowpr.GetComponent<Animator>().SetTrigger("In");
+            popUpTextpr.text = "YOU WILL LOSE ANY UNSAVED PROGRESS";
 
         }
 
         public void ClosePopUppr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
+            _blurBg.SetActive(false);
             StartCoroutine(DisableWindowpr(popUpMessageWindowpr));
         }
         
+        public void ClosePauseMenuCOnfirmpr()
+        {
+            SoundManager.Instance.PlayButtonPressedSound();
+            _blurBg.SetActive(false);
+            popUpMessageWindowpr.SetActive(false);
+        }
         public void ClosePauseMenupr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
+            _blurBg.SetActive(false);
             StartCoroutine(DisableWindowpr(pauseMenupr));
         }
+        
+        
         IEnumerator DisableWindowpr(GameObject window)
         {
             window.GetComponent<Animator>().SetTrigger("Out");
