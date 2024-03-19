@@ -15,6 +15,8 @@ public class ChangeAnimator : MonoBehaviour
     private int _costToUnlockprpr;
     [SerializeField]
     private Image _lockerpr;
+    [SerializeField]
+    private Image _lockBlurpr;
     // [SerializeField]
     // public GameObject _unlockedBannerpr;
 
@@ -49,7 +51,7 @@ public class ChangeAnimator : MonoBehaviour
     {
          material = gameObject.transform.Find("body").GetComponent<Renderer>();
         _lockerpr.gameObject.SetActive(true);
-        
+        _lockBlurpr.gameObject.SetActive(true);
         material.materials[0].SetColor("_BaseColor", Color.gray);
         material.materials[1].SetColor("_BaseColor", Color.gray);
     }
@@ -57,7 +59,7 @@ public class ChangeAnimator : MonoBehaviour
     {
         material = gameObject.transform.Find("body").GetComponent<Renderer>();
         _lockerpr.gameObject.SetActive(false);
-        
+        _lockBlurpr.gameObject.SetActive(false);
         material.materials[0].SetColor("_BaseColor", Color.white);
         material.materials[1].SetColor("_BaseColor", Color.yellow);
     }
@@ -65,7 +67,7 @@ public class ChangeAnimator : MonoBehaviour
     {
          material = gameObject.transform.Find("body").GetComponent<Renderer>();
         _lockerpr.gameObject.SetActive(false);
-       
+        _lockBlurpr.gameObject.SetActive(false);
         material.materials[0].SetColor("_BaseColor", Color.white);
         material.materials[1].SetColor("_BaseColor", Color.yellow);
     }

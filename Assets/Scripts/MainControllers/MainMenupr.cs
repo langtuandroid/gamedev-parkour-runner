@@ -90,7 +90,8 @@ namespace MainControllers
             {
                 Instancepr = this;
             }
-
+            // Отключаем мультитач
+            Input.multiTouchEnabled = false;
             Subscribepr();
         }
 
@@ -138,7 +139,7 @@ namespace MainControllers
             }
             if(!PlayerPrefs.HasKey("Gold"))
             {
-                PlayerPrefs.SetInt("Gold", 100);
+                PlayerPrefs.SetInt("Gold", 1000);
             }
             // if (spawnLocationpr.GetChild(0).gameObject != null)
             // {
@@ -161,7 +162,7 @@ namespace MainControllers
                 if (PlayerPrefs.GetString("OpenMainMenu") != "True")
                 {
                    // _allPanels[1].GetComponent<Animator>().SetTrigger("MoveInInstantly");
-                    ActivatePanel(_allPanels[1]);
+                   ActivatefastPanel(_allPanels[1]);
                 }
             }
             
@@ -180,6 +181,14 @@ namespace MainControllers
                 EnableCharacterSelectionWindowpr();
             }
             _activePanel.GetComponent<Animator>().SetTrigger("MoveIn");
+        }
+        
+        private void ActivatefastPanel(UIPanel panel)
+        {
+            SoundManager.Instance.PlayButtonPressedSound();
+            _allPanels[0].GetComponent<Animator>().SetTrigger("FastMainOut");
+            _activePanel = panel;
+            _activePanel.GetComponent<Animator>().SetTrigger("MoveInInstantly");
         }
         
         public void EnableCharacterSelectionWindowpr()

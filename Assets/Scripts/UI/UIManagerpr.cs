@@ -32,7 +32,7 @@ namespace UI
         public Animator UImanagerAnimatorpr;
         public TextMeshProUGUI popUpTextpr;
         public GameObject popUpMessageWindowpr;
-        public Text levelInfopr;
+        public TextMeshProUGUI levelInfopr;
         public Text coinInfopr;
         public GameObject coinCounterpr;
         public ParticleSystem coinExplosionpr;
