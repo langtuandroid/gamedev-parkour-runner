@@ -139,7 +139,7 @@ namespace MainControllers
             }
             if(!PlayerPrefs.HasKey("Gold"))
             {
-                PlayerPrefs.SetInt("Gold", 1000);
+                PlayerPrefs.SetInt("Gold", 100);
             }
             // if (spawnLocationpr.GetChild(0).gameObject != null)
             // {
