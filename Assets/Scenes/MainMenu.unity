@@ -76591,8 +76591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bb29587717c4adf9d0fe2782596552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _urlForPrivacyPolicy: https://docs.google.com/document/d/15W07eiKmUNbHi3uRD2sxs86jFN4JEdsy/edit#heading=h.gjdgxs
-  _urlForTermsOfUse: https://docs.google.com/document/d/1CZUv476S1li__-1-bQfYSkoPkRKhYnhh/edit?usp=sharing&ouid=101204207249069986994&rtpof=true&sd=true
+  _urlForPrivacyPolicy: https://docs.google.com/document/d/1yUXqwUIy6s_MYm8LSGKm3Jg5pFfqPxRK/edit?usp=sharing&ouid=100445178882567345843&rtpof=true&sd=true
+  _urlForTermsOfUse: https://docs.google.com/document/d/1C9sNAxuD0xDflsnp7jJiFSDqq-C9Wgg-/edit?usp=sharing&ouid=100445178882567345843&rtpof=true&sd=true
   _privacyButton: {fileID: 2146086999}
   _termsButton: {fileID: 2024674761}
 --- !u!114 &6349405037756971694
@@ -76677,7 +76677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75}
+  m_AnchoredPosition: {x: 0, y: -74.999985}
   m_SizeDelta: {x: 1040, y: -450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6720020535463996602
