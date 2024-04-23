@@ -56,7 +56,7 @@ namespace Integration
 			Debug.Log("_noAds=" +_noAds);
 			if (!_noAds)
 			{
-				//RequestBanner();
+				RequestBanner();
 				RequestInterstitialAd();
 			}
 
@@ -77,7 +77,7 @@ namespace Integration
 			_bannerViewController.CreateBannerView();
 			_bannerViewController.LoadAd();
 			_bannerViewController.HideAd();
-			ShowBanner(true);
+			//ShowBanner(true);
 		}
 
 		public void ShowBanner(bool show)
@@ -134,7 +134,6 @@ namespace Integration
 				GetReward?.Invoke();
 			};
 			RequestRewardedAd();
-			
 		}
 
 	}

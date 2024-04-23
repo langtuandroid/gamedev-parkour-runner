@@ -15,7 +15,7 @@ public class IAPService : MonoBehaviour, IStoreListener
         
         private const string subscriptionMonthProductID = "sub.gamedev.test.one.month";
         private const string subscriptionYearProductID = "sub.gamedev.test.one.year";
-        private const string subscriptionForeverProductID = "sub.gamedev.test.forever ";
+        private const string subscriptionForeverProductID = "sub.gamedev.test.forever";
         
         public const string buy100Id = "test.gamedev.buy100";
         public const string buy300Id = "test.gamedev.buy300";
