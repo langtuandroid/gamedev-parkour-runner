@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Integration;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,6 +29,7 @@ namespace UI
         private RectTransform MyScrollContentwp;
         private int _levelSelectedfc;
 
+       
         private void Awake()
         {
             MyScrollContentwp = _spawnScrollfc.GetComponent<RectTransform>();
@@ -107,11 +109,7 @@ namespace UI
         public void LoadLevelpr()
         {
             SoundManager.Instance.PlayButtonPressedSound();
-            int lastlevel = PlayerPrefs.GetInt("LevelProgression", 1);
-            // if (_levelSelectedfc <= lastlevel)
-            // {
-            //     SceneManager.LoadScene(_levelSelectedfc);
-            // }
+            int lastLevel = PlayerPrefs.GetInt("LevelProgression", 1);
             SceneManager.LoadScene(_levelSelectedfc);
         }
     }

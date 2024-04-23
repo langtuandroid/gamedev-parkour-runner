@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Integration;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,6 +43,8 @@ namespace MainControllers
         private Button _openSelectCharactersMenu;
         [SerializeField]
         private Button _openSettingsMenu;
+        [SerializeField]
+        private Button _openShopMenu;
         
         public static MainMenupr Instancepr;
         public Transform spawnLocationpr;
@@ -55,12 +58,13 @@ namespace MainControllers
         public ModelIDs currentlySelectedModelpr;
         public List<ChangeAnimator> allModels;
         public Animator acknowledgementAnimatorpr;
-        public GameObject acknowledgementGameObjectpr;
+        public List<GameObject> acknowledgementGameObjectpr;
         public GameObject popUpMessagepr;
         public Text popUpMessageTextpr;
         public GameObject popUpMessage2pr;
         public Text popUpMessage2Textpr;
         public Text coinInfopr;
+        public Text diamondInfopr;
         public Text unlockInfopr;
         
         public enum ModelIDs
@@ -109,8 +113,12 @@ namespace MainControllers
             _openLevelMenu.onClick.AddListener(() => ActivatePanel(_allPanels[1]));
             _openSelectCharactersMenu.onClick.AddListener(() => ActivatePanel(_allPanels[2]));
             _openSettingsMenu.onClick.AddListener(() => ActivatePanel(_allPanels[3]));
+            _openShopMenu.onClick.AddListener(() => ActivatePanel(_allPanels[4]));
+
+            AdMobController.Instance.GetReward += HandleRewardedAdSuccess;
         }
 
+        
         private void Unsubscibepr()
         {
             foreach (var button in _backToMainMenu)
@@ -120,6 +128,9 @@ namespace MainControllers
             _openLevelMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[1]));
             _openSelectCharactersMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[2]));
             _openSettingsMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[3]));
+            _openShopMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[4]));
+            
+            AdMobController.Instance.GetReward -= HandleRewardedAdSuccess;
         }
         
         private void Start()
@@ -139,8 +150,14 @@ namespace MainControllers
             }
             if(!PlayerPrefs.HasKey("Gold"))
             {
-                PlayerPrefs.SetInt("Gold", 0);
+                PlayerPrefs.SetInt("Gold", 10000);
             }
+            if(!PlayerPrefs.HasKey("Diamond"))
+            {
+                PlayerPrefs.SetInt("Diamond", 0);
+            }
+            RefreshGoldInfo();
+            RefreshDiamondInfo();
             // if (spawnLocationpr.GetChild(0).gameObject != null)
             // {
             //     Destroy(spawnLocationpr.GetChild(0).gameObject);
@@ -308,32 +325,129 @@ namespace MainControllers
               if (!PlayerPrefs.HasKey(characterKey))
               {
                   PlayerPrefs.SetString(characterKey, "False");
-                  unlockButtonpr.SetActive(true);
+                  //unlockButtonpr.SetActive(true);
               }
               else if (PlayerPrefs.GetString(characterKey) == "True")
               {
                   PlayerPrefs.SetInt("ChoosenCharacter", (int)modelId);
-                  unlockButtonpr.SetActive(false);
+                  //unlockButtonpr.SetActive(false);
               }
               else
               {
-                  unlockButtonpr.SetActive(true);
+                  SetOpenCharacter();
+                  //unlockButtonpr.SetActive(true);
               }
           }
+
+          private void SetOpenCharacter()
+          {
+               switch (currentlySelectedModelpr)
+              {
+                  case ModelIDs.repairer:
+                  {
+                      CheckUnlockpr(ModelIDs.repairer, Repairer);
+                      break;
+                  }
+                  case ModelIDs.clown:
+                  {
+                      CheckUnlockpr(ModelIDs.clown, Clown);
+                      break;
+                  }
+                  case ModelIDs.flatyBoss:
+                  {
+                      CheckUnlockpr(ModelIDs.flatyBoss, FlatyBoss);
+                      break;
+                  }
+                  case ModelIDs.hero:
+                  {
+                      CheckUnlockpr(ModelIDs.hero, Hero);
+                      break;
+                  }
+                  case ModelIDs.boxer:
+                  {
+                      CheckUnlockpr(ModelIDs.boxer, Boxer);
+                      break;
+                  }
+                  case ModelIDs.skater:
+                  {
+                      CheckUnlockpr(ModelIDs.skater, Skater);
+                      break;
+                  }
+                  
+                  case ModelIDs.hockey:
+                  {
+                      ShowRewardedAdForCharacter();
+                      break;
+                  }
+                  case ModelIDs.volley:
+                  {
+                      ShowRewardedAdForCharacter();
+                      break;
+                  }
+                  case ModelIDs.amazon:
+                  {
+                      ShowRewardedAdForCharacter();
+                      break;
+                  }
+                  case ModelIDs.bioHazzard:
+                  {
+                      ShowRewardedAdForCharacter();
+                      break;
+                  }
+                  case ModelIDs.goalkeeper:
+                  {
+                      ShowRewardedAdForCharacter();
+                      break;
+                  }
+                  case ModelIDs.baseball:
+                  {
+                      ShowRewardedAdForCharacter();
+                      break;
+                  }
+                  
+                  case ModelIDs.karate:
+                  {
+                      CheckUnlockDiaomodspr(ModelIDs.karate, Karate);
+                      break;
+                  }
+                  case ModelIDs.tennis:
+                  {
+                      CheckUnlockDiaomodspr(ModelIDs.tennis, Tennis);
+                      break;
+                  }
+                  case ModelIDs.skier:
+                  {
+                      CheckUnlockDiaomodspr(ModelIDs.skier, Skier);
+                      break;
+                  }
+                  case ModelIDs.roller:
+                  {
+                      CheckUnlockDiaomodspr(ModelIDs.roller, Roller);
+                      break;
+                  }
+                  case ModelIDs.footballer:
+                  {
+                      CheckUnlockDiaomodspr(ModelIDs.footballer, Footballer);
+                      break;
+                  }
+              }
+          }
+
+        
 
           public void ToggleAcknowledgementpr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
               unlockButtonpr.SetActive(false);
-              if (!acknowledgementGameObjectpr.activeSelf)
+              if (!acknowledgementGameObjectpr[0].activeSelf)
               {
-                  acknowledgementGameObjectpr.SetActive(true);
+                  acknowledgementGameObjectpr[0].SetActive(true);
                   acknowledgementAnimatorpr.SetTrigger("In");
                   unlockInfopr.text = "Unlock " + modelsToSpawn[(int)currentlySelectedModelpr].name + "?";
               }
               else
               {
-                  StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr));
+                  StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr[0]));
                   unlockButtonpr.SetActive(true);
               }
           }
@@ -352,11 +466,125 @@ namespace MainControllers
               window.SetActive(false);
           }
           
+          public void UnlockADspr()
+          {
+              SoundManager.Instance.PlayButtonPressedSound();
+              unlockButtonpr.SetActive(false);
+              StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr[1],.2f));
+              ShowRewardedAdForCharacter();
+          }
+
+          private void ShowRewardedAdForCharacter()
+          {
+              AdMobController.Instance.ShowRewardedAd();
+          }
+
+          private void HandleRewardedAdSuccess()
+          {
+              // Обработка успешного просмотра рекламы и разблокировка персонажа
+              string modelName = "";
+              switch (currentlySelectedModelpr)
+              {
+                  case ModelIDs.amazon:
+                  {
+                      modelName = Amazon;
+                      break;
+                  }
+                  case ModelIDs.baseball:
+                  {
+                      modelName = Baseball;
+                      break;
+                  }
+                  case ModelIDs.bioHazzard:
+                  {
+                      modelName = BioHaz;
+                      break;
+                  }
+                  case ModelIDs.boxer:
+                  {
+                      modelName =Boxer;
+                      break;
+                  }
+                  case ModelIDs.clown:
+                  {
+                      modelName = Clown;
+                      break;
+                  }
+                  case ModelIDs.flatyBoss:
+                  {
+                      modelName =FlatyBoss;
+                      break;
+                  }
+                  case ModelIDs.footballer:
+                  {
+                      modelName = Footballer;
+                      break;
+                  }
+                  case ModelIDs.goalkeeper:
+                  {
+                      modelName =Goalkeeper;
+                      break;
+                  }
+                  case ModelIDs.hero:
+                  {
+                      modelName =Hero;
+                      break;
+                  }
+                  case ModelIDs.hockey:
+                  {
+                      modelName = Hockey;
+                      break;
+                  }
+                  case ModelIDs.karate:
+                  {
+                      modelName = Karate;
+                      break;
+                  }
+                  case ModelIDs.repairer:
+                  {
+                      modelName = Repairer;
+                      break;
+                  }
+                  case ModelIDs.roller:
+                  {
+                      modelName =Roller;
+                      break;
+                  }
+                  case ModelIDs.skater:
+                  {
+                      modelName = Skater;
+                      break;
+                  }
+                  case ModelIDs.skier:
+                  {
+                      modelName = Skier;
+                      break;
+                  }
+                  case ModelIDs.tennis:
+                  {
+                      modelName = Tennis;
+                      break;
+                  }
+                  case ModelIDs.volley:
+                  {
+                      modelName =Volleyball;
+                      break;
+                  }
+              }
+              PlayerPrefs.SetString(modelName, "True");
+              allModels[(int)currentlySelectedModelpr].UnlockThisCharacter();
+              PlayerPrefs.SetInt("ChoosenCharacter", (int)currentlySelectedModelpr);
+              popUpMessage2Textpr.text = $"You Have Unlocked The {modelName}";
+              popUpMessage2pr.SetActive(true);
+              popUpMessage2pr.GetComponent<Animator>().SetTrigger("In");
+              Invoke("PopUpClosepr", 2);
+          }
+          
           public void Unlockpr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
               unlockButtonpr.SetActive(false);
-              StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr,.2f));
+              StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr[0],.2f));
               switch (currentlySelectedModelpr)
               {
                   case ModelIDs.amazon:
@@ -468,6 +696,27 @@ namespace MainControllers
               }
           }
           
+          private void CheckUnlockDiaomodspr(ModelIDs modelIDs, string modelName)
+          {
+              if (allModels[(int)modelIDs].GetCostToUnlock() > PlayerPrefs.GetInt("Diamond"))
+              {
+                  popUpMessagepr.SetActive(true);
+                  popUpMessagepr.GetComponent<Animator>().SetTrigger("In");
+                  Invoke("PopUpClosepr", 2); unlockButtonpr.SetActive(true);
+              }
+              else
+              {
+                  PlayerPrefs.SetString(modelName, "True");
+                  allModels[(int)modelIDs].UnlockThisCharacter();
+                  RemoveDiamondpr(allModels[(int)modelIDs].GetCostToUnlock());
+                  PlayerPrefs.SetInt("ChoosenCharacter", (int)modelIDs);
+                  popUpMessage2Textpr.text = $"You Have Unlocked The {modelName}";
+                  popUpMessage2pr.SetActive(true);
+                  popUpMessage2pr.GetComponent<Animator>().SetTrigger("In");
+                  Invoke("PopUpClosepr", 2);
+              }
+          }
+          
           public void PopUpClosepr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
@@ -501,13 +750,35 @@ namespace MainControllers
         public void AddGoldpr(int amount)
         {
             PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") + amount);
-            coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
+            RefreshGoldInfo();
         }
         
         public void RemoveGoldpr(int amount)
         {
             PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") - amount);
+            RefreshGoldInfo();
+        }
+        
+        private void RefreshGoldInfo()
+        {
             coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
+        }
+        
+        public void AddDiamondpr(int amount)
+        {
+            PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + amount);
+            RefreshDiamondInfo();
+        }
+        
+        public void RemoveDiamondpr(int amount)
+        {
+            PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") - amount);
+            RefreshDiamondInfo();
+        }
+        
+        private void RefreshDiamondInfo()
+        {
+            diamondInfopr.text = PlayerPrefs.GetInt("Diamond").ToString();
         }
         
     }

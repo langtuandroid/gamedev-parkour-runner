@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Game;
+using Integration;
 using MainControllers;
 using UI;
 using UnityEngine;
@@ -24,6 +25,10 @@ public class GameManager : MonoBehaviour
     private  PlayerScriptpr _playerpr;
     private CameraControlspr _mainCamerapr;
     private Transform _allPlayersTransformpr;
+    
+    private const string LoadLevelCountKey = "LoadLevelCount";
+
+    private int loadLevelCount = 0; 
 
     [Inject]
     private void  Context(PlayerScriptpr player, CameraControlspr mainCamera)
@@ -38,6 +43,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        loadLevelCount = PlayerPrefs.GetInt(LoadLevelCountKey, 0);
     }
     private void Start()
     {
@@ -68,8 +74,41 @@ public class GameManager : MonoBehaviour
             
         }
 
-        //AdManager.instance.LoadBanner();
+        var _noAds = PlayerPrefs.GetInt(AdMobController.Instance.noAdsKey, 0) == 1;
+        if (!_noAds)
+        {
+            ShowIntegration();
+        }
+       
     }
+
+    private void ShowIntegration()
+    {
+        AdMobController.Instance.ShowBanner(true);
+       
+        loadLevelCount++;
+
+        if (loadLevelCount % 6 == 0)
+        {
+            AdMobController.Instance.ShowInterstitialAd();
+        }
+        else if (loadLevelCount % 2 == 0)
+        {
+            AdMobController.Instance.ShowInterstitialAd();
+        }
+        else if (loadLevelCount % 3 == 0)
+        {
+            IAPService.Instance.ShowSubscriptionPanel();
+        }
+
+        if (loadLevelCount >= 3)
+        {
+            loadLevelCount = 0;
+        }
+        PlayerPrefs.SetInt(LoadLevelCountKey, loadLevelCount);
+        PlayerPrefs.Save(); // Сохраняем изменения в PlayerPrefs
+    }
+    
     private void Update()
     {
 

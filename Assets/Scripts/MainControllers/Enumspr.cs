@@ -5,6 +5,7 @@ namespace MainControllers
         MainMenu,
         LevelsMenu,
         CharacterSelectionMenu,
-        Settings
+        Settings,
+        Shop
     }
 }
