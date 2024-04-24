@@ -13,6 +13,11 @@ namespace MainControllers
 {
     public class MainMenupr : MonoBehaviour
     {
+        public event Action OnBuyPack1;
+        public event Action OnBuyPack2;
+        public event Action OnBuyPack3;
+        public event Action OnBuyPack4;
+        
         #region Constants
           private const string Amazon = "Amazon";
           private const string Baseball = "Baseball";
@@ -32,6 +37,14 @@ namespace MainControllers
           private const string Tennis = "Tennis";
           private const string Volleyball = "Volleyball";
         #endregion
+        [SerializeField]
+        private Button _buyProduct1;
+        [SerializeField]
+        private Button _buyProduct2;
+        [SerializeField]
+        private Button _buyProduct3;
+        [SerializeField]
+        private Button _buyProduct4;
         
         [SerializeField]
         private UIPanel _activePanel;
@@ -48,15 +61,13 @@ namespace MainControllers
         [SerializeField]
         private Button _openShopMenu;
         
-        public static MainMenupr Instancepr;
+        
         public Transform spawnLocationpr;
         public GameObject[] modelsToSpawn;
-        //public Animator CharacterSelectionWindowpr;
-        //public Animator LevelSelectionWindowpr;
-        //public Animator mainMenuWindowpr;
+        
         private int tempIntpr;
         private bool loadingDonepr;
-        //public GameObject unlockButtonpr;
+        
         public ModelIDs currentlySelectedModelpr;
         public List<ChangeAnimator> allModels;
         public Animator acknowledgementAnimatorpr;
@@ -92,21 +103,18 @@ namespace MainControllers
         
         private AdMobController _adMobController;
         private RewardedAdController _rewardedAdController;
+        private IAPService _iapService;
         
         [Inject]
-        private void  Conctruct(AdMobController adMobController,RewardedAdController rewardedAdController)
+        private void Construct(AdMobController adMobController, RewardedAdController rewardedAdController, IAPService iapService)
         {
             _adMobController = adMobController;
             _rewardedAdController = rewardedAdController;
+            _iapService = iapService;
         }
         
         private void Awake()
         {
-            if (!Instancepr)
-            {
-                Instancepr = this;
-            }
-            // Отключаем мультитач
             Input.multiTouchEnabled = false;
             Subscribepr();
             _adMobController.ShowBanner(true);
@@ -127,7 +135,11 @@ namespace MainControllers
             _openSelectCharactersMenu.onClick.AddListener(() => ActivatePanel(_allPanels[2]));
             _openSettingsMenu.onClick.AddListener(() => ActivatePanel(_allPanels[3]));
             _openShopMenu.onClick.AddListener(() => ActivatePanel(_allPanels[4]));
-
+            
+            _buyProduct1.onClick.AddListener(BuyProduct1);
+            _buyProduct2.onClick.AddListener(BuyProduct2);
+            _buyProduct3.onClick.AddListener(BuyProduct3);
+            _buyProduct4.onClick.AddListener(BuyProduct4);
             _rewardedAdController.GetRewarded += HandleRewardedAdSuccess;
         }
 
@@ -143,9 +155,13 @@ namespace MainControllers
             _openSettingsMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[3]));
             _openShopMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[4]));
             
+            _buyProduct1.onClick.RemoveListener(BuyProduct1);
+            _buyProduct2.onClick.RemoveListener(BuyProduct2);
+            _buyProduct3.onClick.RemoveListener(BuyProduct3);
+            _buyProduct4.onClick.RemoveListener(BuyProduct4);
             _rewardedAdController.GetRewarded -= HandleRewardedAdSuccess;
         }
-        
+
         private void Start()
         {
             SoundManager.Instance.PlayBGMusicOne();
@@ -196,6 +212,28 @@ namespace MainControllers
                 }
             }
             
+        }
+        
+        public void BuyProduct1()
+        {
+            _iapService.BuyPack1();
+            RefreshDiamondInfo();
+        }
+        
+        public void BuyProduct2()
+        {
+            _iapService.BuyPack2();
+            RefreshDiamondInfo();
+        }
+        public void BuyProduct3()
+        {
+            _iapService.BuyPack3();
+            RefreshDiamondInfo();
+        }
+        public void BuyProduct4()
+        {
+            _iapService.BuyPack4();
+            RefreshDiamondInfo();
         }
         
         private void ActivatePanel(UIPanel panel)

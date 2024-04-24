@@ -26,18 +26,20 @@ public class GameManager : MonoBehaviour
     private CameraControlspr _mainCamerapr;
     private Transform _allPlayersTransformpr;
     private AdMobController _adMobController;
+    private IAPService _iapService;
    
     private const string LoadLevelCountKey = "LoadLevelCount";
 
     private int loadLevelCount = 0; 
 
     [Inject]
-    private void  Context(PlayerScriptpr player, CameraControlspr mainCamera, AdMobController adMobController)
+    private void  Context(PlayerScriptpr player, CameraControlspr mainCamera, AdMobController adMobController, IAPService iapService)
     {
         _playerpr = player;
         _mainCamerapr = mainCamera;
         _allPlayersTransformpr = _playerpr.gameObject.transform.parent;
         _adMobController = adMobController;
+        _iapService = iapService;
     }
     private void Awake()
     {
@@ -101,7 +103,7 @@ public class GameManager : MonoBehaviour
         }
         else if (loadLevelCount % 3 == 0)
         {
-            IAPService.Instance.ShowSubscriptionPanel();
+            _iapService.ShowSubscriptionPanel();
         }
 
         if (loadLevelCount >= 3)

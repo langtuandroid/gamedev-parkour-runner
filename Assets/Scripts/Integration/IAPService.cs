@@ -11,8 +11,7 @@ public class IAPService : MonoBehaviour, IStoreListener
     {
         private static IStoreController _storeController;
         private static IExtensionProvider _extensionsProvider;
-        public static IAPService Instance { get; private set; }
-        
+
         private const string subscriptionMonthProductID = "sub.gamedev.test.one.month";
         private const string subscriptionYearProductID = "sub.gamedev.test.one.year";
         private const string subscriptionForeverProductID = "sub.gamedev.test.forever";
@@ -38,25 +37,16 @@ public class IAPService : MonoBehaviour, IStoreListener
         private GameObject _subscriptionCanvas;
         
         private AdMobController _adMobController;
-        private MainMenupr _mainMenupr;
+       
 
         [Inject]
-        private void Construct (AdMobController adMobController, MainMenupr mainMenupr )
+        private void Construct (AdMobController adMobController)
         {
             _adMobController = adMobController;
-            _mainMenupr = mainMenupr;
         }
 
         private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
             if (_storeController == null)
             {
                 InitializePurchasing();
@@ -245,22 +235,22 @@ public class IAPService : MonoBehaviour, IStoreListener
             }
             else if (String.Equals(args.purchasedProduct.definition.id, buy100Id, StringComparison.Ordinal))
             {
-                _mainMenupr.AddDiamondpr(100);
+                PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + 100);
                 Debug.Log($"ProcessPurchase: PASS. Product: '{args.purchasedProduct.definition.id}'");
             }
             else if (String.Equals(args.purchasedProduct.definition.id, buy300Id, StringComparison.Ordinal))
             {
-                _mainMenupr.AddDiamondpr(300);
+                PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + 300);
                 Debug.Log($"ProcessPurchase: PASS. Product: '{args.purchasedProduct.definition.id}'");
             }
             else if (String.Equals(args.purchasedProduct.definition.id, buy1000Id, StringComparison.Ordinal))
             {
-                _mainMenupr.AddDiamondpr(1000);
+                PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + 1000);
                 Debug.Log($"ProcessPurchase: PASS. Product: '{args.purchasedProduct.definition.id}'");
             }
             else if (String.Equals(args.purchasedProduct.definition.id, buy3000Id, StringComparison.Ordinal))
             {
-                _mainMenupr.AddDiamondpr(3000);
+                PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + 3000);
                 Debug.Log($"ProcessPurchase: PASS. Product: '{args.purchasedProduct.definition.id}'");
             }
             else
