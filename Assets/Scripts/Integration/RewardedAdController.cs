@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace Integration
 {
-    [AddComponentMenu("GoogleMobileAds/Samples/RewardedAdController")]
-    public class RewardedAdController : MonoBehaviour
+    public class RewardedAdController
     {
         public event Action GetRewarded;
         
@@ -69,7 +68,6 @@ namespace Integration
                     Debug.Log(String.Format("Rewarded ad granted a reward: {0} {1}",
                         reward.Amount,
                         reward.Type));
-                    GetRewarded?.Invoke();
                 });
             }
             else
@@ -127,6 +125,7 @@ namespace Integration
             ad.OnAdFullScreenContentClosed += () =>
             {
                 LoadAd();
+                GetRewarded?.Invoke();
                 Debug.Log("Rewarded ad full screen content closed.");
             };
             // Raised when the ad failed to open full screen content.

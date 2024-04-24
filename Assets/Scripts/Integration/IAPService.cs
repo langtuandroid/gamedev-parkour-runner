@@ -3,8 +3,8 @@ using Integration;
 using MainControllers;
 using UnityEngine;
 using UnityEngine.Purchasing;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Zenject;
 
 
 public class IAPService : MonoBehaviour, IStoreListener 
@@ -31,51 +31,68 @@ public class IAPService : MonoBehaviour, IStoreListener
         
         [SerializeField]
         public Button _buySubscriptionButton;
+        [SerializeField]
+        public Button _closeSubpanel;
         
         [SerializeField]
-        private MainMenupr _mainMenupr;
-        [SerializeField]
         private GameObject _subscriptionCanvas;
+        
+        private AdMobController _adMobController;
+        private MainMenupr _mainMenupr;
+
+        [Inject]
+        private void Construct (AdMobController adMobController, MainMenupr mainMenupr )
+        {
+            _adMobController = adMobController;
+            _mainMenupr = mainMenupr;
+        }
+
 
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
-                if (_storeController == null)
-                {
-                    InitializePurchasing();
-                    CheckSubscriptionStatus();
-                }
-                else
-                {
-                    string nameOfError = "error _storeController = null";
-                    Debug.Log(nameOfError);
-                }
             }
             else
             {
                 Destroy(gameObject);
             }
-            _buySubscriptionButton.onClick.AddListener(BuySubscription);
+            if (_storeController == null)
+            {
+                InitializePurchasing();
+                CheckSubscriptionStatus();  
+            }
+            else
+            {
+                string nameOfError = "error _storeController = null";
+                Debug.Log(nameOfError);
+            }
+            DontDestroyOnLoad(gameObject);
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            _buySubscriptionButton.onClick.AddListener(BuySubscription);
+            _closeSubpanel.onClick.AddListener(HideSubscriptionPanel);
+        }
+
+        private void OnDisable()
         {
             _buySubscriptionButton.onClick.RemoveListener(BuySubscription);
+            _closeSubpanel.onClick.RemoveListener(HideSubscriptionPanel);
         }
 
         public void ShowSubscriptionPanel()
         {
             _subscriptionCanvas.SetActive(true);
-            AdMobController.Instance.ShowBanner(false);
+            _adMobController.ShowBanner(false);
         }
         
         public void HideSubscriptionPanel()
         {
             _subscriptionCanvas.SetActive(false);
-            AdMobController.Instance.ShowBanner(true);
+            _adMobController.ShowBanner(true);
         }
         
         
@@ -120,7 +137,7 @@ public class IAPService : MonoBehaviour, IStoreListener
                 }
             }
 
-            PlayerPrefs.SetInt(AdMobController.Instance.noAdsKey, subscriptionActive ? 1 : 0);
+            PlayerPrefs.SetInt(_adMobController.noAdsKey, subscriptionActive ? 1 : 0);
             
             if (subscriptionActive && _subscriptionCanvas != null)
             {
@@ -244,19 +261,19 @@ public class IAPService : MonoBehaviour, IStoreListener
             if (String.Equals(args.purchasedProduct.definition.id, subscriptionMonthProductID, StringComparison.Ordinal))
             {
                 Debug.Log($"ProcessPurchase: PASS. Product: '{args.purchasedProduct.definition.id}'");
-                AdMobController.Instance.RemoveAds();
+                _adMobController.RemoveAds();
                 HideSubscriptionPanel();
             }
             else if (String.Equals(args.purchasedProduct.definition.id, subscriptionYearProductID, StringComparison.Ordinal))
             {
                 Debug.Log($"ProcessPurchase: PASS. Product: '{args.purchasedProduct.definition.id}'");
-                AdMobController.Instance.RemoveAds();
+                _adMobController.RemoveAds();
                 HideSubscriptionPanel();
             }
             else if (String.Equals(args.purchasedProduct.definition.id, subscriptionForeverProductID, StringComparison.Ordinal))
             {
                 Debug.Log($"ProcessPurchase: PASS. Product: '{args.purchasedProduct.definition.id}'");
-                AdMobController.Instance.RemoveAds();
+                _adMobController.RemoveAds();
                 HideSubscriptionPanel();
             }
             else if (String.Equals(args.purchasedProduct.definition.id, buy100Id, StringComparison.Ordinal))

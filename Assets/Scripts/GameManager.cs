@@ -25,17 +25,19 @@ public class GameManager : MonoBehaviour
     private  PlayerScriptpr _playerpr;
     private CameraControlspr _mainCamerapr;
     private Transform _allPlayersTransformpr;
-    
+    private AdMobController _adMobController;
+   
     private const string LoadLevelCountKey = "LoadLevelCount";
 
     private int loadLevelCount = 0; 
 
     [Inject]
-    private void  Context(PlayerScriptpr player, CameraControlspr mainCamera)
+    private void  Context(PlayerScriptpr player, CameraControlspr mainCamera, AdMobController adMobController)
     {
         _playerpr = player;
         _mainCamerapr = mainCamera;
         _allPlayersTransformpr = _playerpr.gameObject.transform.parent;
+        _adMobController = adMobController;
     }
     private void Awake()
     {
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
             
         }
 
-        var _noAds = PlayerPrefs.GetInt(AdMobController.Instance.noAdsKey, 0) == 1;
+        var _noAds = PlayerPrefs.GetInt(_adMobController.noAdsKey, 0) == 1;
         if (!_noAds)
         {
             ShowIntegration();
@@ -84,17 +86,18 @@ public class GameManager : MonoBehaviour
 
     private void ShowIntegration()
     {
-        AdMobController.Instance.ShowBanner(true);
-       
+
         loadLevelCount++;
 
         if (loadLevelCount % 6 == 0)
         {
-            AdMobController.Instance.ShowInterstitialAd();
+            _adMobController.ShowInterstitialAd();
+            _adMobController.ShowBanner(true);
         }
         else if (loadLevelCount % 2 == 0)
         {
-            AdMobController.Instance.ShowInterstitialAd();
+            _adMobController.ShowInterstitialAd();
+            _adMobController.ShowBanner(true);
         }
         else if (loadLevelCount % 3 == 0)
         {

@@ -11,8 +11,6 @@ public class FirebaseManager : MonoBehaviour
   {
     CreateFireBase();
     ConfirmGooglePlayServices();
-
-    DontDestroyOnLoad(this);
   }
 
   private void CreateFireBase()

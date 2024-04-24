@@ -1,6 +1,6 @@
-using System;
 using GoogleMobileAds.Api;
 using UnityEngine;
+using Zenject;
 
 namespace Integration  
 {
@@ -12,9 +12,7 @@ namespace Integration
 
 	public class AdMobController : MonoBehaviour
 	{
-		public static AdMobController Instance { get; private set; }
-		public event Action OnInterstitialAdClosed;
-		public event Action GetReward;
+		//public static AdMobController Instance { get; private set; }
 		public bool ShowingBanner { get; private set; }
 
 		private bool _noAds;
@@ -22,24 +20,37 @@ namespace Integration
 
 		[SerializeField] private AdMobSettings _settings;
 		[SerializeField] private bool IsProdaction;
-
-		[SerializeField] private BannerViewController _bannerViewController;
-		[SerializeField] private InterstitialAdController _interstitialAdController;
-		[SerializeField] private RewardedAdController _rewardedAdController;
 		
+		private BannerViewController _bannerViewController;
+		private InterstitialAdController _interstitialAdController;
+		private RewardedAdController _rewardedAdController;
 
+
+		[Inject]
+		private void Construct(
+			BannerViewController bannerViewController,
+			InterstitialAdController interstitialAdController,
+			RewardedAdController rewardedAdController)
+		{
+			_bannerViewController = bannerViewController;
+			_interstitialAdController = interstitialAdController;
+			_rewardedAdController = rewardedAdController;
+		}
 		private void Awake()
 		{
-			if (Instance == null)
+			// if (Instance == null)
+			// {
+			// 	Instance = this;
+			// }
+			// else
+			// {
+			// 	Destroy(gameObject);
+			// }
+			
+			MobileAds.Initialize(initStatus =>
 			{
-				Instance = this;
-				DontDestroyOnLoad(gameObject);
-				MobileAds.Initialize(initStatus => { });
-			}
-			else
-			{
-				Destroy(gameObject);
-			}
+				Debug.Log("InitAds = " + initStatus);
+			});
 		}
 
 		private void Start()
@@ -57,10 +68,10 @@ namespace Integration
 			if (!_noAds)
 			{
 				RequestBanner();
-				RequestInterstitialAd();
+				_interstitialAdController.LoadAd();
 			}
 
-			RequestRewardedAd();
+			_rewardedAdController.LoadAd();
 		}
 
 
@@ -77,7 +88,6 @@ namespace Integration
 			_bannerViewController.CreateBannerView();
 			_bannerViewController.LoadAd();
 			_bannerViewController.HideAd();
-			//ShowBanner(true);
 		}
 
 		public void ShowBanner(bool show)
@@ -99,41 +109,21 @@ namespace Integration
 		}
 
 // Interstitial		
-		public void RequestInterstitialAd()
-		{
-			_interstitialAdController.LoadAd();
-		}
 
 		public void ShowInterstitialAd()
 		{
 			_noAds = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
 			if (!_noAds)
 			{
-				RequestInterstitialAd();
 				_interstitialAdController.ShowAd();
-				// После показа интерстишл рекламы, вызываем событие OnAdClosed
-				_interstitialAdController.OnAdClosed += () =>
-				{
-					OnInterstitialAdClosed?.Invoke();
-				};
-				
 			}
 		}
 
 // Rewarded			
-		public void RequestRewardedAd()
-		{
-			_rewardedAdController.LoadAd();
-		}
 
 		public void ShowRewardedAd()
 		{
 			_rewardedAdController.ShowAd();
-			_rewardedAdController.GetRewarded += () =>
-			{
-				GetReward?.Invoke();
-			};
-			RequestRewardedAd();
 		}
 
 	}

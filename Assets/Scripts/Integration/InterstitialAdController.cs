@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace Integration
 {
-    [AddComponentMenu("GoogleMobileAds/Samples/InterstitialAdController")]
-    public class InterstitialAdController : MonoBehaviour
+    public class InterstitialAdController 
     {
         public event Action OnAdClosed;
         
@@ -19,7 +18,7 @@ namespace Integration
 
         public void LoadAd()
         {
-            // Clean up the old ad before loading a new one.
+           
             if (_interstitialAd != null)
             {
                 DestroyAd();
@@ -118,7 +117,6 @@ namespace Integration
             // Raised when the ad closed full screen content.
             ad.OnAdFullScreenContentClosed += () =>
             {
-                OnAdClosed?.Invoke();
                 LoadAd();
                 Debug.Log("Interstitial ad full screen content closed.");
             };

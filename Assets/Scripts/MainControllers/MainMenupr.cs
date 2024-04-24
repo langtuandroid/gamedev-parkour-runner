@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using Integration;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 namespace MainControllers
 {
@@ -54,7 +56,7 @@ namespace MainControllers
         //public Animator mainMenuWindowpr;
         private int tempIntpr;
         private bool loadingDonepr;
-        public GameObject unlockButtonpr;
+        //public GameObject unlockButtonpr;
         public ModelIDs currentlySelectedModelpr;
         public List<ChangeAnimator> allModels;
         public Animator acknowledgementAnimatorpr;
@@ -88,6 +90,16 @@ namespace MainControllers
             footballer = 16
         }
         
+        private AdMobController _adMobController;
+        private RewardedAdController _rewardedAdController;
+        
+        [Inject]
+        private void  Conctruct(AdMobController adMobController,RewardedAdController rewardedAdController)
+        {
+            _adMobController = adMobController;
+            _rewardedAdController = rewardedAdController;
+        }
+        
         private void Awake()
         {
             if (!Instancepr)
@@ -97,6 +109,7 @@ namespace MainControllers
             // Отключаем мультитач
             Input.multiTouchEnabled = false;
             Subscribepr();
+            _adMobController.ShowBanner(true);
         }
 
         private void OnDestroy()
@@ -115,7 +128,7 @@ namespace MainControllers
             _openSettingsMenu.onClick.AddListener(() => ActivatePanel(_allPanels[3]));
             _openShopMenu.onClick.AddListener(() => ActivatePanel(_allPanels[4]));
 
-            AdMobController.Instance.GetReward += HandleRewardedAdSuccess;
+            _rewardedAdController.GetRewarded += HandleRewardedAdSuccess;
         }
 
         
@@ -130,7 +143,7 @@ namespace MainControllers
             _openSettingsMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[3]));
             _openShopMenu.onClick.RemoveListener(() => ActivatePanel(_allPanels[4]));
             
-            AdMobController.Instance.GetReward -= HandleRewardedAdSuccess;
+            _rewardedAdController.GetRewarded -= HandleRewardedAdSuccess;
         }
         
         private void Start()
@@ -150,7 +163,7 @@ namespace MainControllers
             }
             if(!PlayerPrefs.HasKey("Gold"))
             {
-                PlayerPrefs.SetInt("Gold", 10000);
+                PlayerPrefs.SetInt("Gold", 0);
             }
             if(!PlayerPrefs.HasKey("Diamond"))
             {
@@ -182,7 +195,6 @@ namespace MainControllers
                    ActivatefastPanel(_allPanels[1]);
                 }
             }
-            
             
         }
         
@@ -438,7 +450,7 @@ namespace MainControllers
           public void ToggleAcknowledgementpr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
-              unlockButtonpr.SetActive(false);
+            
               if (!acknowledgementGameObjectpr[0].activeSelf)
               {
                   acknowledgementGameObjectpr[0].SetActive(true);
@@ -448,7 +460,6 @@ namespace MainControllers
               else
               {
                   StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr[0]));
-                  unlockButtonpr.SetActive(true);
               }
           }
 
@@ -469,14 +480,13 @@ namespace MainControllers
           public void UnlockADspr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
-              unlockButtonpr.SetActive(false);
               StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr[1],.2f));
               ShowRewardedAdForCharacter();
           }
 
           private void ShowRewardedAdForCharacter()
           {
-              AdMobController.Instance.ShowRewardedAd();
+              _adMobController.ShowRewardedAd();
           }
 
           private void HandleRewardedAdSuccess()
@@ -583,7 +593,6 @@ namespace MainControllers
           public void Unlockpr()
           {
               SoundManager.Instance.PlayButtonPressedSound();
-              unlockButtonpr.SetActive(false);
               StartCoroutine(DisableWindowpr(acknowledgementGameObjectpr[0],.2f));
               switch (currentlySelectedModelpr)
               {
@@ -681,7 +690,7 @@ namespace MainControllers
               {
                   popUpMessagepr.SetActive(true);
                   popUpMessagepr.GetComponent<Animator>().SetTrigger("In");
-                  Invoke("PopUpClosepr", 2); unlockButtonpr.SetActive(true);
+                  Invoke("PopUpClosepr", 2);
               }
               else
               {
@@ -702,7 +711,7 @@ namespace MainControllers
               {
                   popUpMessagepr.SetActive(true);
                   popUpMessagepr.GetComponent<Animator>().SetTrigger("In");
-                  Invoke("PopUpClosepr", 2); unlockButtonpr.SetActive(true);
+                  Invoke("PopUpClosepr", 2); 
               }
               else
               {
@@ -730,7 +739,7 @@ namespace MainControllers
           {
               _activePanel = _allPanels[0];
               coinInfopr.text = PlayerPrefs.GetInt("Gold").ToString();
-              unlockButtonpr.SetActive(false);
+             
               foreach(ChangeAnimator ca in allModels)
               {
                   if (PlayerPrefs.GetString(ca.name) == "True")

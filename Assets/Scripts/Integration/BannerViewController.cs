@@ -4,8 +4,7 @@ using GoogleMobileAds.Api;
 
 namespace Integration
 {
-    [AddComponentMenu("GoogleMobileAds/Samples/BannerViewController")]
-    public class BannerViewController : MonoBehaviour
+    public class BannerViewController 
     {
         private BannerView _bannerView;
         private string _bannerId;
