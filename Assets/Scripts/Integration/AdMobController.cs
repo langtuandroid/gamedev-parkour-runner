@@ -12,9 +12,6 @@ namespace Integration
 
 	public class AdMobController : MonoBehaviour
 	{
-		//public static AdMobController Instance { get; private set; }
-		public bool ShowingBanner { get; private set; }
-
 		private bool _noAds;
 		public string noAdsKey = "NoAds";
 
@@ -38,15 +35,6 @@ namespace Integration
 		}
 		private void Awake()
 		{
-			// if (Instance == null)
-			// {
-			// 	Instance = this;
-			// }
-			// else
-			// {
-			// 	Destroy(gameObject);
-			// }
-			
 			MobileAds.Initialize(initStatus =>
 			{
 				Debug.Log("InitAds = " + initStatus);
@@ -74,14 +62,12 @@ namespace Integration
 			_rewardedAdController.LoadAd();
 		}
 
-
 		public void RemoveAds()
 		{
 			PlayerPrefs.SetInt(noAdsKey, 1);
 			ShowBanner(false);
 		}
-
-
+		
 // Banner	
 		public void RequestBanner()
 		{
@@ -98,18 +84,15 @@ namespace Integration
 				if (show)
 				{
 					_bannerViewController.ShowAd();
-					ShowingBanner = true;
 				}
 				else
 				{
 					_bannerViewController.HideAd();
-					ShowingBanner = false;
 				}
 			}
 		}
 
 // Interstitial		
-
 		public void ShowInterstitialAd()
 		{
 			_noAds = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
@@ -120,12 +103,10 @@ namespace Integration
 		}
 
 // Rewarded			
-
 		public void ShowRewardedAd()
 		{
 			_rewardedAdController.ShowAd();
 		}
-
 	}
 }
 

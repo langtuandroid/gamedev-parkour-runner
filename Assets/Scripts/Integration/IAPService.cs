@@ -47,7 +47,6 @@ public class IAPService : MonoBehaviour, IStoreListener
             _mainMenupr = mainMenupr;
         }
 
-
         private void Awake()
         {
             if (Instance == null)
@@ -94,36 +93,10 @@ public class IAPService : MonoBehaviour, IStoreListener
             _subscriptionCanvas.SetActive(false);
             _adMobController.ShowBanner(true);
         }
-        
-        
+
         private void CheckSubscriptionStatus()
         {
-            // Product productMonth = GetProduct(subscriptionMonthProductID);
-            // Product productYear = GetProduct(subscriptionYearProductID);
-            // Product productForever = GetProduct(subscriptionForeversubProductID);
-            //
-            // if (productMonth != null && productMonth.hasReceipt )
-            // {
-            //     if (_subscriptionCanvas != null)
-            //     {
-            //         _subscriptionCanvas.SetActive(false);
-            //     }
-            // }
-            // if (productYear != null && productYear.hasReceipt )
-            // {
-            //     if (_subscriptionCanvas != null)
-            //     {
-            //         _subscriptionCanvas.SetActive(false);
-            //     }
-            // }
-            // if (productForever != null && productForever.hasReceipt )
-            // {
-            //     if (_subscriptionCanvas != null)
-            //     {
-            //         _subscriptionCanvas.SetActive(false);
-            //     }
-            // }
-            string[] productIds = new string[] { subscriptionMonthProductID, subscriptionYearProductID, subscriptionForeverProductID };
+            string[] productIds = { subscriptionMonthProductID, subscriptionYearProductID, subscriptionForeverProductID };
 
             bool subscriptionActive = false;
 
@@ -136,9 +109,7 @@ public class IAPService : MonoBehaviour, IStoreListener
                     break;
                 }
             }
-
             PlayerPrefs.SetInt(_adMobController.noAdsKey, subscriptionActive ? 1 : 0);
-            
             if (subscriptionActive && _subscriptionCanvas != null)
             {
                 HideSubscriptionPanel();
@@ -178,20 +149,16 @@ public class IAPService : MonoBehaviour, IStoreListener
             {
                 return _storeController.products.WithID(productID);
             }
-
             return null;
         }
 
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
-            
             Debug.Log("OnInitialized: SUCSESS");
             _storeController = controller;
             _extensionsProvider = extensions;
         }
 
-
-        
         private void BuySubscription()
         {
             if (_toggleMonth.isOn)
@@ -338,8 +305,7 @@ public class IAPService : MonoBehaviour, IStoreListener
 
         public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
         {
-            Debug.Log(
-                $"OnPurchaseFailed: FAIL. Products: '{product.definition.storeSpecificId}', PurchaseFailureReason: {failureReason}");
+            Debug.Log($"OnPurchaseFailed: FAIL. Products: '{product.definition.storeSpecificId}', PurchaseFailureReason: {failureReason}");
         }
 
         public void OnInitializeFailed(InitializationFailureReason error, string? message)
