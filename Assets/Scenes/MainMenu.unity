@@ -29256,6 +29256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontSafeBottompr: 0
+  _downOffset: 0.1
 --- !u!4 &887936625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 1e70ad8bd4a3b2e4fb89dbddb6f35fb3,

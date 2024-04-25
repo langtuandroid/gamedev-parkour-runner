@@ -1,6 +1,5 @@
 using System;
 using Integration;
-using MainControllers;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
@@ -74,6 +73,10 @@ public class IAPService : MonoBehaviour, IStoreListener
 
         public void ShowSubscriptionPanel()
         {
+            if (_adMobController.IsPurchased)
+            {
+                return;
+            }
             _subscriptionCanvas.SetActive(true);
             _adMobController.ShowBanner(false);
         }

@@ -4,11 +4,15 @@ namespace UI
 {
     public class SafeAreapr : MonoBehaviour
     {
-        public bool dontSafeBottompr;
-        RectTransform fittedRectTransformpr;
-        Rect safeRectComponentpr;
-        Vector2 minAnchorVectorpr;
-        Vector2 maxAnchorVectorpr;
+        [SerializeField]
+        private bool dontSafeBottompr;
+        [SerializeField]
+        private  float _downOffset = 0.1f;
+       
+        private RectTransform fittedRectTransformpr;
+        private Rect safeRectComponentpr;
+        private Vector2 minAnchorVectorpr;
+        private Vector2 maxAnchorVectorpr;
 
         private void Awake()
         {
@@ -18,13 +22,12 @@ namespace UI
             maxAnchorVectorpr = minAnchorVectorpr + safeRectComponentpr.size;
         
             minAnchorVectorpr.x /= Screen.width;
-            minAnchorVectorpr.y = dontSafeBottompr ? minAnchorVectorpr.y = 0 : minAnchorVectorpr.y /= Screen.height;
+            minAnchorVectorpr.y = dontSafeBottompr ? minAnchorVectorpr.y = 0 : _downOffset;
             maxAnchorVectorpr.x /= Screen.width;
             maxAnchorVectorpr.y /= Screen.height;
         
             fittedRectTransformpr.anchorMin = minAnchorVectorpr;
             fittedRectTransformpr.anchorMax = maxAnchorVectorpr;
-
         }
     }
 }

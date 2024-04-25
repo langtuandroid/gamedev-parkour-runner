@@ -12,15 +12,19 @@ namespace Integration
 
 	public class AdMobController : MonoBehaviour
 	{
-		private bool _noAds;
+		private bool _isPurchased;
 		public string noAdsKey = "NoAds";
 
 		[SerializeField] private AdMobSettings _settings;
-		[SerializeField] private bool IsProdaction;
+		[SerializeField] private bool _isProdaction;
 		
 		private BannerViewController _bannerViewController;
 		private InterstitialAdController _interstitialAdController;
 		private RewardedAdController _rewardedAdController;
+
+		public bool IsProdaction => _isProdaction;
+
+		public bool IsPurchased => _isPurchased;
 
 
 		[Inject]
@@ -51,9 +55,9 @@ namespace Integration
 
 		private void LoadAllAds()
 		{
-			_noAds = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
-			Debug.Log("_noAds=" +_noAds);
-			if (!_noAds)
+			_isPurchased = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
+			Debug.Log("_noAds=" +IsPurchased);
+			if (!IsPurchased)
 			{
 				RequestBanner();
 				_interstitialAdController.LoadAd();
@@ -65,7 +69,7 @@ namespace Integration
 		public void RemoveAds()
 		{
 			PlayerPrefs.SetInt(noAdsKey, 1);
-			ShowBanner(false);
+			_bannerViewController.HideAd();
 		}
 		
 // Banner	
@@ -78,8 +82,8 @@ namespace Integration
 
 		public void ShowBanner(bool show)
 		{
-			_noAds = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
-			if (!_noAds)
+			_isPurchased = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
+			if (!IsPurchased)
 			{
 				if (show)
 				{
@@ -95,8 +99,8 @@ namespace Integration
 // Interstitial		
 		public void ShowInterstitialAd()
 		{
-			_noAds = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
-			if (!_noAds)
+			_isPurchased = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
+			if (!IsPurchased)
 			{
 				_interstitialAdController.ShowAd();
 			}

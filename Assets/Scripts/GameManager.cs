@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         _adMobController = adMobController;
         _iapService = iapService;
     }
+    
     private void Awake()
     {
         if(!Instance)
