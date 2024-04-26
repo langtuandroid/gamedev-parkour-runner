@@ -12,12 +12,11 @@ namespace Integration
 
 	public class AdMobController : MonoBehaviour
 	{
-		private bool _isPurchased;
-		public string noAdsKey = "NoAds";
-
-		[SerializeField] private AdMobSettings _settings;
 		[SerializeField] private bool _isProdaction;
+		public string noAdsKey = "NoAds";
+		[SerializeField] private AdMobSettings _settings;
 		
+		private bool _isPurchased;
 		private BannerViewController _bannerViewController;
 		private InterstitialAdController _interstitialAdController;
 		private RewardedAdController _rewardedAdController;

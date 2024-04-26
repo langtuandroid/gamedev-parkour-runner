@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Threading.Tasks;
+using Integration;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +9,8 @@ namespace UI
 {
     public class UrlManager : MonoBehaviour
     {
-        [SerializeField]
-        private string _urlForPrivacyPolicy;
-        [SerializeField] 
-        private string _urlForTermsOfUse;
+        [SerializeField] private GDPRLinksHolder _gdprLinksHolder;
+        
         [SerializeField]
         private Button _privacyButton;
         [SerializeField] 
@@ -22,19 +21,19 @@ namespace UI
         private void Awake()
         {
             if (_termsButton != null)
-                _termsButton.onClick.AddListener(() => OpenUrl(_urlForTermsOfUse));
+                _termsButton.onClick.AddListener(() => OpenUrl(_gdprLinksHolder.TermsOfUse));
 
             if (_privacyButton != null)
-                _privacyButton.onClick.AddListener(() => OpenUrl(_urlForPrivacyPolicy));
+                _privacyButton.onClick.AddListener(() => OpenUrl(_gdprLinksHolder.PrivacyPolicy));
         }
 
         private void OnDestroy()
         {
             if (_termsButton != null)
-                _termsButton.onClick.RemoveListener(() => OpenUrl(_urlForTermsOfUse));
+                _termsButton.onClick.RemoveListener(() => OpenUrl(_gdprLinksHolder.TermsOfUse));
 
             if (_privacyButton != null)
-                _privacyButton.onClick.RemoveListener(() => OpenUrl(_urlForPrivacyPolicy));
+                _privacyButton.onClick.RemoveListener(() => OpenUrl(_gdprLinksHolder.PrivacyPolicy));
         }
 
         private async void OpenUrl(string url)
@@ -47,10 +46,10 @@ namespace UI
     
         private async Task OpenURLAsync(string url)
         {
-            await Task.Delay(1); // Ждем один кадр, чтобы избежать блокировки основного потока
+            await Task.Delay(1);
             try
             {
-                Application.OpenURL(url); // Открываем ссылку
+                Application.OpenURL(url);
             }
             catch (Exception e)
             {

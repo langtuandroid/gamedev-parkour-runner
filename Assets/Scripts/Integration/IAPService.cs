@@ -11,14 +11,14 @@ public class IAPService : MonoBehaviour, IStoreListener
         private static IStoreController _storeController;
         private static IExtensionProvider _extensionsProvider;
 
-        private const string subscriptionMonthProductID = "sub.gamedev.test.one.month";
-        private const string subscriptionYearProductID = "sub.gamedev.test.one.year";
-        private const string subscriptionForeverProductID = "sub.gamedev.test.forever";
+        private const string subscriptionMonthProductID = "sub.deletead.month";
+        private const string subscriptionYearProductID = "sub.deletead.year";
+        private const string subscriptionForeverProductID = "sub.deletead.foreversub";
         
-        public const string buy100Id = "test.gamedev.buy100";
-        public const string buy300Id = "test.gamedev.buy300";
-        public const string buy1000Id = "test.gamedev.buy1000";
-        public const string buy3000Id = "test.gamedev.buy3000";
+        public const string buy100Id = "buy.parkur.diamonds100";
+        public const string buy300Id = "buy.parkur.diamonds300";
+        public const string buy1000Id = "buy.parkur.diamonds1000";
+        public const string buy3000Id = "buy.parkur.diamonds3000";
 
         [SerializeField]
         public Toggle _toggleMonth;

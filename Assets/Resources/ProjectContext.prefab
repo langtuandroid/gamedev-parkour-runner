@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb637e7043704bd09d6007a501adb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isProdaction: 1
   noAdsKey: NoAds
   _settings: {fileID: 11400000, guid: 02e07132845cd40e88068bb7587771ec, type: 2}
-  _isProdaction: 0
 --- !u!1001 &1661377233542124868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,26 +116,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 691264152876716876, guid: 174dc87571b4a42e49116c104b52be10,
+    - target: {fileID: 729271805766330741, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735293056293065523, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735293056293065523, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735293056293065523, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1100
-      objectReference: {fileID: 0}
+      propertyPath: _adMobController
+      value: 
+      objectReference: {fileID: 6580532066947998596}
     - target: {fileID: 1242293745182530556, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -149,26 +134,6 @@ PrefabInstance:
     - target: {fileID: 1242293745182530556, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1634262174846318436, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1634262174846318436, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1634262174846318436, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821224327885103340, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2522769811124917723, guid: 174dc87571b4a42e49116c104b52be10,
@@ -200,6 +165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size
       value: 0.29715842
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920739704602120051, guid: 174dc87571b4a42e49116c104b52be10,
+        type: 3}
+      propertyPath: m_Value
+      value: 1.0000006
       objectReference: {fileID: 0}
     - target: {fileID: 4100072277000151807, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
@@ -256,57 +226,36 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5944006682557750732, guid: 174dc87571b4a42e49116c104b52be10,
+    - target: {fileID: 5230245697498013286, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
-      propertyPath: m_text
-      value: "*Auto-renewal subscription info:\nPayment will be charged to your iTunes
-        Account at confirmation of purchase.\nFree trial subscription is automatically
-        renewed unless cancelled 24 hours before the renewal\nSubscription automatically
-        renews unless auto-renew is turned off at least 24-hours before the end of
-        the current period\nAny unused portion of a free trial period, if offered,
-        will be forfeited when the user purchases a subscription to that publication\nSubscriptions
-        may be managed by the user and auto-renewal may be turned off by going to
-        the user\u2019s Account Settings after purchase.\nPrivacy Policy:\n\u0441\u044E\u0434\u0438
-        \u043B\u0456\u043D\u043A\nTerms of Service:\n\u0441\u044E\u0434\u0438 \u043B\u0456\u043D\u043A"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944006682557750732, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_isRightToLeft
-      value: 0
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00048828125
       objectReference: {fileID: 0}
     - target: {fileID: 6944594532683273484, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
       propertyPath: m_Name
       value: IAPService
       objectReference: {fileID: 0}
-    - target: {fileID: 7840518723900220249, guid: 174dc87571b4a42e49116c104b52be10,
+    - target: {fileID: 7670983695376146003, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+      propertyPath: m_SizeDelta.y
+      value: 280
       objectReference: {fileID: 0}
-    - target: {fileID: 7840518723900220249, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840518723900220249, guid: 174dc87571b4a42e49116c104b52be10,
+    - target: {fileID: 7670983695376146003, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 900
+      value: -380
       objectReference: {fileID: 0}
-    - target: {fileID: 8453752010131638172, guid: 174dc87571b4a42e49116c104b52be10,
+    - target: {fileID: 8660994901386692202, guid: 174dc87571b4a42e49116c104b52be10,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e44928bf3c6340e48a4b9000939368a,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6944594532683273484, guid: 174dc87571b4a42e49116c104b52be10,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5486014047153872942}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 174dc87571b4a42e49116c104b52be10, type: 3}
 --- !u!4 &3452017678195521467 stripped
 Transform:
@@ -320,42 +269,9 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1661377233542124868}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8605888661789589576}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba74d080bda4645dd8f280d8934c10ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5004413289993865352 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5944006682557750732, guid: 174dc87571b4a42e49116c104b52be10,
-    type: 3}
-  m_PrefabInstance: {fileID: 1661377233542124868}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8605888661789589576 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6944594532683273484, guid: 174dc87571b4a42e49116c104b52be10,
-    type: 3}
-  m_PrefabInstance: {fileID: 1661377233542124868}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5486014047153872942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8605888661789589576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11dd062f48e2449582011aca067894a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _adMobController: {fileID: 6580532066947998596}
-  _gdprLinksHolder: {fileID: 11400000, guid: ac8759bdffd904bf8bdb91b601ba8213, type: 2}
-  _descriptionText: {fileID: 5004413289993865352}

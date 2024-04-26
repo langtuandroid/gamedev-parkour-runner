@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb49d18ca0dc4f0d8c88739a0c8d848, type: 3}
   m_Name: GDPRLinks
   m_EditorClassIdentifier: 
-  _privacy: 22
-  _terms: 22
+  _privacy: https://docs.google.com/document/d/1yUXqwUIy6s_MYm8LSGKm3Jg5pFfqPxRK/edit?usp=sharing&ouid=100445178882567345843&rtpof=true&sd=true
+  _terms: https://docs.google.com/document/d/1C9sNAxuD0xDflsnp7jJiFSDqq-C9Wgg-/edit?usp=sharing&ouid=100445178882567345843&rtpof=true&sd=true
   _privacyTest: https://www.google.com
   _termsTest: https://www.google.com
