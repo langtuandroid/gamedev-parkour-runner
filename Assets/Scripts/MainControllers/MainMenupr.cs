@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Game;
 using Integration;
 using UI;
 using UnityEngine;
@@ -141,6 +140,7 @@ namespace MainControllers
             _buyProduct3.onClick.AddListener(BuyProduct3);
             _buyProduct4.onClick.AddListener(BuyProduct4);
             _rewardedAdController.GetRewarded += HandleRewardedAdSuccess;
+            _iapService.OnPurchaseDiamonds += RefreshDiamondInfo;
         }
 
         
@@ -160,6 +160,7 @@ namespace MainControllers
             _buyProduct3.onClick.RemoveListener(BuyProduct3);
             _buyProduct4.onClick.RemoveListener(BuyProduct4);
             _rewardedAdController.GetRewarded -= HandleRewardedAdSuccess;
+            _iapService.OnPurchaseDiamonds -= RefreshDiamondInfo;
         }
 
         private void Start()
@@ -211,29 +212,24 @@ namespace MainControllers
                    ActivatefastPanel(_allPanels[1]);
                 }
             }
-            
         }
         
         public void BuyProduct1()
         {
             _iapService.BuyPack1();
-            RefreshDiamondInfo();
         }
         
         public void BuyProduct2()
         {
             _iapService.BuyPack2();
-            RefreshDiamondInfo();
         }
         public void BuyProduct3()
         {
             _iapService.BuyPack3();
-            RefreshDiamondInfo();
         }
         public void BuyProduct4()
         {
             _iapService.BuyPack4();
-            RefreshDiamondInfo();
         }
         
         private void ActivatePanel(UIPanel panel)
@@ -823,7 +819,7 @@ namespace MainControllers
             RefreshDiamondInfo();
         }
         
-        private void RefreshDiamondInfo()
+        public void RefreshDiamondInfo()
         {
             diamondInfopr.text = PlayerPrefs.GetInt("Diamond").ToString();
         }

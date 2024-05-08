@@ -37,7 +37,6 @@ namespace UI
 
         private void Start()
         {
-            
             SoundManager.Instance.PlayButtonPressedSound();
             _levelSelectedfc = PlayerPrefs.GetInt("LevelProgression", 1);
             if (_IsUnlockAllLevelsfc == true)

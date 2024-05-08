@@ -4,11 +4,6 @@ using Zenject;
 
 namespace Integration  
 {
-	/// <summary>
-	/// https://github.com/googleads/googleads-mobile-unity/tree/main/samples/HelloWorld/Assets/Scripts
-	/// https://github.com/googleads/googleads-mobile-unity/releases
-	/// https://developers.google.com/admob/unity/interstitial#ios
-	/// </summary>
 
 	public class AdMobController : MonoBehaviour
 	{
@@ -22,8 +17,6 @@ namespace Integration
 		private RewardedAdController _rewardedAdController;
 
 		public bool IsProdaction => _isProdaction;
-
-		public bool IsPurchased => _isPurchased;
 
 
 		[Inject]
@@ -49,25 +42,20 @@ namespace Integration
 			_bannerViewController.BannerId = IsProdaction ? _settings.BannerID : _settings.BannerTestID;
 			_interstitialAdController.InterstitialId = IsProdaction ? _settings.InterstitialID : _settings.InterstitialTestID;
 			_rewardedAdController.RewardedId = IsProdaction ? _settings.RewardedID : _settings.RewardedTestID;
+			_rewardedAdController.LoadAd();
 			LoadAllAds();
 		}
 
-		private void LoadAllAds()
+		public void LoadAllAds()
 		{
-			_isPurchased = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
-			Debug.Log("_noAds=" +IsPurchased);
-			if (!IsPurchased)
-			{
-				RequestBanner();
-				_interstitialAdController.LoadAd();
-			}
-
-			_rewardedAdController.LoadAd();
+			RequestBanner();
+			_interstitialAdController.LoadAd();
 		}
 
 		public void RemoveAds()
 		{
 			PlayerPrefs.SetInt(noAdsKey, 1);
+			PlayerPrefs.Save();
 			_bannerViewController.HideAd();
 		}
 		
@@ -82,7 +70,7 @@ namespace Integration
 		public void ShowBanner(bool show)
 		{
 			_isPurchased = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
-			if (!IsPurchased)
+			if (!_isPurchased)
 			{
 				if (show)
 				{
@@ -99,7 +87,7 @@ namespace Integration
 		public void ShowInterstitialAd()
 		{
 			_isPurchased = PlayerPrefs.GetInt(noAdsKey, 0) == 1;
-			if (!IsPurchased)
+			if (!_isPurchased)
 			{
 				_interstitialAdController.ShowAd();
 			}

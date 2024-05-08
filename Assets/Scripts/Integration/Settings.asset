@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17584116366d84c4393b0e1a7238dcd4, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  _appIOSId: ca-app-pub-3317066089128503~4847401252
+  _appIOSId: ca-app-pub-3940256099942544~1458002511
   _bannerId: ca-app-pub-3317066089128503/8724487963
   _interstitialId: ca-app-pub-3317066089128503/2748422343
   _rewardedId: ca-app-pub-3317066089128503/4170482517

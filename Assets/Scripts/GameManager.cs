@@ -89,18 +89,11 @@ public class GameManager : MonoBehaviour
 
     private void ShowIntegration()
     {
-
         loadLevelCount++;
-
-        if (loadLevelCount % 6 == 0)
+        _adMobController.ShowBanner(true);
+        if (loadLevelCount % 2 == 0)
         {
             _adMobController.ShowInterstitialAd();
-            _adMobController.ShowBanner(true);
-        }
-        else if (loadLevelCount % 2 == 0)
-        {
-            _adMobController.ShowInterstitialAd();
-            _adMobController.ShowBanner(true);
         }
         else if (loadLevelCount % 3 == 0)
         {
